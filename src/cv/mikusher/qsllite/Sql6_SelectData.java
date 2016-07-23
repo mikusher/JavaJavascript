@@ -105,7 +105,7 @@ public class Sql6_SelectData {
         Sql6_SelectData sd = new Sql6_SelectData();
         
         //selecione todas as linhas da tabela 
-        // sd.SelectAll("utilizadores");
+        // sd.SelectAll("Agenda.s3db", "utilizadores");
         
         //selecione a linha de acordo com o nome passado 
         sd.getSelectData("Agenda.s3db", "utilizadores", "%Luis%");
