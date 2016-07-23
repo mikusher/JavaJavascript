@@ -6,6 +6,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
+ * D:\sqlite-jdbc-3.8.11.2.jar
  */
 package cv.mikusher.qsllite;
 
