@@ -24,11 +24,12 @@ public class Sql5_DeleteDate {
      /**
      * Conectar com a Base de Dados Agenda.s3db
      *
+     * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
      * @return the Connection object
      */
-    private Connection connect(){
+    private Connection connect(String dataBaseName){
         // SQLite connection string
-        String url = "jdbc:sqlite:D://SqlLiteData/Agenda.s3db";
+        String url = "jdbc:sqlite:D://SqlLiteData/" +dataBaseName;
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -40,13 +41,14 @@ public class Sql5_DeleteDate {
     
     /**
      * Para apagar um determinado elemento na tabela
+     * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
      * @param tableToDeleteDate indica o nome da tabela a ser utilizada
-     * @param id indicar qual o ID em que será apagada
+     * @param id indicar qual o ID em que será apagado
      */
-    public void DeleteDate(String tableToDeleteDate, int id){
+    public void DeleteDate(String dataBaseName, String tableToDeleteDate, int id){
         String sql = "DELETE FROM " +tableToDeleteDate+  " WHERE id = ?"; 
         
-        try (Connection conn = this.connect();
+        try (Connection conn = this.connect(dataBaseName);
                 
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
@@ -55,6 +57,7 @@ public class Sql5_DeleteDate {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Linha apagado com sucesso.");
     }
 
     /**
@@ -64,8 +67,8 @@ public class Sql5_DeleteDate {
         // TODO code application logic here
         Sql5_DeleteDate dl = new Sql5_DeleteDate();
         
-        // deletar a linha com o id 3
-        dl.DeleteDate("utilizadores", 3);
+        // deletar a linha com o id 3, levando em conta a base de dados e a tabela
+        dl.DeleteDate("Agenda.s3db", "utilizadores", 3);
     }
     
 }

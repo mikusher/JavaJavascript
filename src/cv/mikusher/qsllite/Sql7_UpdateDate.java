@@ -6,7 +6,6 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * D:\sqlite-jdbc-3.8.11.2.jar
  */
 package cv.mikusher.qsllite;
 
@@ -19,11 +18,9 @@ import java.sql.SQLException;
  *
  * @author Miky Mikusher Wayne
  */
-public class Sql4_InsertDate {
-    
+public class Sql7_UpdateDate {
      /**
      * Conectar com a Base de Dados Agenda.s3db
-     *
      * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
      * @return the Connection object
      */
@@ -39,31 +36,36 @@ public class Sql4_InsertDate {
         return conn;
     }
     
-     /**
-     * Para o inserta das informações na tabela, tem de passar alguns dados!!
+    /**
+     * Atualização de uma linha na base de dados
      * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
-     * @param tableToInsert o nome da tabela a ser utilizado
-     * @param nome o nome do contato
-     * @param idade a idade do contato
-     * @param telefone o numero de telefone do contato
+     * @param id indica o id, chave da linha
+     * @param tableToSelect indica o nome da tabela em que sera feita a alteração
+     * @param nome indica o nome do individuo a ser alocado
+     * @param idade indica a idado do utilizador
+     * @param telefone indica o telefone 
      */
-    public void insert(String dataBaseName, String tableToInsert, String nome, Integer idade, Integer telefone) {
-        String sql = "INSERT INTO " + tableToInsert + "(nome,idade,telefone) VALUES(?,?,?)";
+    public void update(String dataBaseName, int id, String tableToSelect, String nome, int idade, int telefone) {
+        String sql = "UPDATE "+tableToSelect+" SET nome = ? , " 
+                + "idade = ? , " 
+                + "telefone = ? " 
+                + "WHERE id = ?";
         
         try (Connection conn = this.connect(dataBaseName);
-                
-            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+ 
+            // set the corresponding param
             pstmt.setString(1, nome);
             pstmt.setInt(2, idade);
             pstmt.setInt(3, telefone);
-            pstmt.executeUpdate();
+            pstmt.setInt(4, id);
             
+            // update 
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
-        // se não quiser uma resposta por cada linha inserida, comenta esse print!!
-        System.out.println("Linha inserida com sucesso!");
+        System.out.println("Linha atualizado com sucesso!!");
     }
 
     /**
@@ -71,14 +73,7 @@ public class Sql4_InsertDate {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Sql4_InsertDate app = new Sql4_InsertDate();
-
-        // inserir quatro linhas na tabela
-        app.insert("Agenda.s3db", "utilizadores", "Luis Tavares", 28, 92555656);
-        app.insert("Agenda.s3db", "utilizadores", "Miky Mikusher", 20, 924555656);
-        app.insert("Agenda.s3db", "utilizadores", "Helio", 22, 92955886);
-        app.insert("Agenda.s3db", "utilizadores", "Luis Amilcar", 25, 92589886);
-        
+        Sql7_UpdateDate up = new Sql7_UpdateDate();
+        up.update("Agenda.s3db", 3, "utilizadores", "Helio Tavares", 20, 25645213);
     }
-    
 }

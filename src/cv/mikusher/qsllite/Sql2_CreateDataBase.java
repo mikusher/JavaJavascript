@@ -28,13 +28,13 @@ public class Sql2_CreateDataBase {
      */
     public static void createNewDatabase(String fileName) {
  
-        String url = "jdbc:sqlite:D:/SqlLiteData/" + fileName;
+        String url = "jdbc:sqlite:D:/SqlLiteData/" +fileName;
  
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
                 System.out.println("O Drive usado é " + meta.getDriverName());
-                System.out.println("A nova base de dados criado com sucesso.");
+                System.out.println("Base de dados " +fileName+ " criado com sucesso.");
             }
  
         } catch (SQLException e) {
