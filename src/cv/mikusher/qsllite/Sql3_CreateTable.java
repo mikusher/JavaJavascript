@@ -45,7 +45,7 @@ public class Sql3_CreateTable {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Base de dados " +dataBaseName+ " com a tabela " +tableName+ " criada com sucesso!!");
+        System.out.println("Tabela " +tableName+ " criado na base de dados " +dataBaseName+ " com sucesso!!");
     }
     
     /**
