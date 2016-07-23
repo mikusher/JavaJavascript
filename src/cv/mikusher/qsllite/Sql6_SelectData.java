@@ -26,11 +26,12 @@ public class Sql6_SelectData {
      /**
      * Conectar com a Base de Dados Agenda.s3db
      *
+     * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
      * @return the Connection object
      */
-    private Connection connect(){
+    private Connection connect(String dataBaseName){
         // SQLite connection string
-        String url = "jdbc:sqlite:D://SqlLiteData/Agenda.s3db";
+        String url = "jdbc:sqlite:D://SqlLiteData/" +dataBaseName;
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -42,13 +43,14 @@ public class Sql6_SelectData {
     
     /**
      * Apresenta todos os nomes da tabela
+     * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
      * @param tableToSelect escolhes o nome da tabela em que sera consultada, 
      * todos os dados da tabela sera apresentada.
      */
-    public void SelectAll(String tableToSelect){
+    public void SelectAll(String dataBaseName, String tableToSelect){
         String sql = "SELECT nome, idade, telefone FROM "+tableToSelect;
         
-        try (Connection conn = this.connect();
+        try (Connection conn = this.connect(dataBaseName);
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
             
@@ -65,16 +67,17 @@ public class Sql6_SelectData {
     
     /**
      * Apresenta somente a linha selecionada, de acordo com os parametros passados 
+     * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
      * @param tableToSelect escolhes o nome da tabela em que sera consultada, 
      * todos os dados da tabela sera apresentada.
      * @param nome selecione o nome a ser procurado, tem de ser passado entre % %, 
      * como no exemplo: sd.getSelectData("utilizadores", "%Luis%");
      * Afinal a pesquisa é feita utilizando o nome -> Like ?
      */
-    public void getSelectData(String tableToSelect, String nome){
+    public void getSelectData(String dataBaseName, String tableToSelect, String nome){
         String sql = "SELECT nome, idade, telefone " + "FROM "+tableToSelect+ " WHERE nome like ?";   
         
-                try (Connection conn = this.connect();
+                try (Connection conn = this.connect(dataBaseName);
              PreparedStatement pstmt  = conn.prepareStatement(sql)){
             
             // passar o valor
@@ -105,6 +108,6 @@ public class Sql6_SelectData {
         // sd.SelectAll("utilizadores");
         
         //selecione a linha de acordo com o nome passado 
-        sd.getSelectData("utilizadores", "%Luis%");
+        sd.getSelectData("Agenda.s3db", "utilizadores", "%Luis%");
     } 
 }

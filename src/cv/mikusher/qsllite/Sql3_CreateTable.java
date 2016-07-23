@@ -20,30 +20,15 @@ import java.sql.Statement;
  * @author Miky Mikusher Wayne
  */
 public class Sql3_CreateTable {
-
-     /**
-     * Conectar com a Base de Dados Agenda.s3db
-     *
-     * @return the Connection object
-     */
-    private Connection connect(){
-        // SQLite connection string
-        String url = "jdbc:sqlite:D://SqlLiteData/Agenda.s3db";
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return conn;
-    }
-    
+      
     /**
-     * Criar uma nova Tabela
-     **/
-    public static void createNewTable(String tableName){
+     * Criar uma nova Tabela com os parametros da base de dados e a tabela
+     * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
+     * @param tableName 
+     */
+    public static void createNewTable(String dataBaseName, String tableName){
         //SQLite conexão com a base de dados
-        String url = "jdbc:sqlite:D://SqlLiteData/Agenda.s3db";
+        String url = "jdbc:sqlite:D://SqlLiteData/" +dataBaseName;
         
         // SQL criação da nova tabela (id, nome, idade, telefone)
         String sql = "CREATE TABLE IF NOT EXISTS " + tableName + " (\n" 
@@ -60,6 +45,7 @@ public class Sql3_CreateTable {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Base de dados " +dataBaseName+ " com a tabela " +tableName+ " criada com sucesso!!");
     }
     
     /**
@@ -67,6 +53,6 @@ public class Sql3_CreateTable {
      */
     public static void main(String[] args) {
         //criar a tabela com o nome de "utilizadores"
-        createNewTable("utilizadores");
+        createNewTable("Agenda.s3db", "utilizadores");
     } 
 }
