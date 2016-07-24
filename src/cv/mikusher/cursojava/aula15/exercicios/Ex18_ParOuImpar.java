@@ -15,30 +15,22 @@ import java.util.Scanner;
  *
  * @author Miky Mikusher Wayne
  */
-public class Ex3_LetraDigitada {
+public class Ex18_ParOuImpar {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
         Scanner scan = new Scanner(System.in);
         
-        System.out.print("Indica o M ou F: ");
-        String letra = scan.nextLine();
-        
-        switch(letra) {
-            case "m":
-            case "M":
-                System.out.println("M - Masculino");
-                break;
-            case "f":
-            case "F":
-                System.out.println("F - Feminino");
-                break;
-            default:
-                System.out.println("Sexo, invalido!!");
+        System.out.print("Indica um numero: ");
+        int numero = scan.nextInt();
+        if (numero % 2 == 0){
+            System.out.println(numero+ " é um numero PAR");
+        } else {
+            System.out.println(numero+ " é um numero IMPAR");
         }
     }
-    
 }
