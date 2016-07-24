@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Miky Mikusher Wayne
  */
-public class Ex7_MaiorNumeroMenor {
+public class Ex7_MaiorMenorNumero {
 
     /**
      * @param args the command line arguments
@@ -35,18 +35,18 @@ public class Ex7_MaiorNumeroMenor {
         int num3 = scan.nextInt();
         
         // Logica para descobrir o maior numero
-        if(num1 > num2 && num1 > num3){
+        if(num1 >= num2 && num1 >= num3){
             maior = num1;
-        } else if (num2 > num3) {
+        } else if (num2 >= num3) {
             maior = num2;
         } else {
             maior = num3;
         }
         
         // Logica para descobrir o menor numero
-        if(num1 < num2 && num1 < num3){
+        if(num1 <= num2 && num1 <= num3){
             menor = num1;
-        } else if (num2 < num3) {
+        } else if (num2 <= num3) {
             menor = num2;
         } else {
             menor = num3;

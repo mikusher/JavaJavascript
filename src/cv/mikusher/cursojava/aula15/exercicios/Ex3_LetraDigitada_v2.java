@@ -15,30 +15,25 @@ import java.util.Scanner;
  *
  * @author Miky Mikusher Wayne
  */
-public class Ex3_LetraDigitada {
+public class Ex3_LetraDigitada_v2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         Scanner scan = new Scanner(System.in);
         
-        System.out.print("Indica o M ou F: ");
-        String letra = scan.nextLine();
+        System.out.print("Indica o sexo: M ou F: ");
+        String sexo = scan.nextLine();
         
-        switch(letra) {
-            case "m":
-            case "M":
-                System.out.println("M - Masculino");
-                break;
-            case "f":
-            case "F":
-                System.out.println("F - Feminino");
-                break;
-            default:
-                System.out.println("Sexo, invalido!!");
+        if(sexo.equalsIgnoreCase("f")){
+            System.out.println("F - Feminino");
+            
+        } else if (sexo.equalsIgnoreCase("m")){
+            System.out.println("M - Masculino");
+            
+        } else {
+            System.out.println("Sexo invalido");
         }
     }
-    
 }

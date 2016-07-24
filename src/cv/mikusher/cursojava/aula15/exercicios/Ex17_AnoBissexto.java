@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Miky Mikusher Wayne
  */
-public class Ex3_LetraDigitada {
+public class Ex17_AnoBissexto {
 
     /**
      * @param args the command line arguments
@@ -24,20 +24,13 @@ public class Ex3_LetraDigitada {
         // TODO code application logic here
         Scanner scan = new Scanner(System.in);
         
-        System.out.print("Indica o M ou F: ");
-        String letra = scan.nextLine();
+        System.out.print("Indica o Ano: ");
+        int ano = scan.nextInt();
         
-        switch(letra) {
-            case "m":
-            case "M":
-                System.out.println("M - Masculino");
-                break;
-            case "f":
-            case "F":
-                System.out.println("F - Feminino");
-                break;
-            default:
-                System.out.println("Sexo, invalido!!");
+        if (ano % 400 == 0 || (ano % 4 == 0 && ano % 100 != 0)) {
+            System.out.println("É Bissexto");
+        } else {
+            System.out.println("Não é bissexto");
         }
     }
     

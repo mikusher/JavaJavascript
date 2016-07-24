@@ -25,20 +25,22 @@ public class Ex6_MaiorNumero {
         
         Scanner scan = new Scanner(System.in);
         
-        System.out.print("Indica o Primeiro numero: ");
+        System.out.print("Indica o primeiro numero: ");
         int num1 = scan.nextInt();
         
-        System.out.print("Indica o Segundo numero: ");
+        System.out.print("Indica o segundo numero: ");
         int num2 = scan.nextInt();
         
-        System.out.print("Indica o Terceiro numero: ");
+        System.out.print("Indica o terceiro numero: ");
         int num3 = scan.nextInt();
         
-        if(num1>num2 && num1>num3){
+        if(num1>=num2 && num1>=num3){
             System.out.println("O primeiro numero "+num1+" é o maior");
-        } else if (num2>num1 && num2>num3){
+            
+        } else if (num2>=num1 && num2>=num3){
             System.out.println("O segundo numero "+num2+" é o maior");
-        } else if (num3>num1){
+            
+        } else if (num3>=num1 && num3>=num2){
             System.out.println("O terceiro numero "+num3+" é o maior");
         }
     }
