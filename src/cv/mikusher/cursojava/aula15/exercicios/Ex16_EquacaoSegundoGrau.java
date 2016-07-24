@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Miky Mikusher Wayne
  */
-public class Ex6_MaiorNumero {
+public class Ex16_EquacaoSegundoGrau {
 
     /**
      * @param args the command line arguments
@@ -25,24 +25,18 @@ public class Ex6_MaiorNumero {
         
         Scanner scan = new Scanner(System.in);
         
-        System.out.print("Indica o primeiro numero: ");
-        int num1 = scan.nextInt();
-        
-        System.out.print("Indica o segundo numero: ");
-        int num2 = scan.nextInt();
-        
-        System.out.print("Indica o terceiro numero: ");
-        int num3 = scan.nextInt();
-        
-        if(num1>=num2 && num1>=num3){
-            System.out.println("O primeiro numero "+num1+" é o maior");
+        System.out.println("Indica o valor de a: ");
+        int a = scan.nextInt();
+        if(a == 0){
+            System.out.println("Não é valido para o calculo");
             
-        } else if (num2>=num1 && num2>=num3){
-            System.out.println("O segundo numero "+num2+" é o maior");
+        } else
             
-        } else if (num3>=num1 && num3>=num2){
-            System.out.println("O terceiro numero "+num3+" é o maior");
-        }
+        System.out.println("Indica o valor de b: ");
+        int b = scan.nextInt();
+        
+        System.out.println("Indica o valor de c: ");
+        int c = scan.nextInt();
     }
     
 }

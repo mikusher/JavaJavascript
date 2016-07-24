@@ -38,7 +38,7 @@ public class Ex4_VogalConsoante {
             System.out.println("É um consoante");
             
         } else {
-            System.out.println("Tente outra vez.");
+            System.out.println("Letra invalida.");
         }       
     }
     

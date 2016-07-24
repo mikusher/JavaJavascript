@@ -27,7 +27,7 @@ public class Ex2_ValorPositivoNegativo {
         System.out.println("Indica um numero: ");
         int num = scan.nextInt();
         
-        if(num>=0){
+        if(num >= 0){
             System.out.println("O numero é positivo.");
         } else {
             System.out.println("O numero é negativo.");

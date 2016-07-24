@@ -27,7 +27,7 @@ public class Ex5_MediaNotas {
         System.out.print("Indica a Nota 1: ");
         double nota1 = scan.nextDouble();
         
-        System.out.print("Indica a Nota 1: ");
+        System.out.print("Indica a Nota 2: ");
         double nota2 = scan.nextDouble();
         
         double mediaFinal = (nota1 + nota2)/2;
@@ -36,11 +36,11 @@ public class Ex5_MediaNotas {
         if(mediaFinal < 7){
             System.out.println("Reprovado");
             
-        } else if (mediaFinal == 7 || mediaFinal < 9){
+        } else if (mediaFinal == 7 || mediaFinal < 10){
             System.out.println("Aprovado");
             
         } else if (mediaFinal == 10){
-            System.out.println("Aprovado com merito");
+            System.out.println("Aprovado com destinção");
             
         } else {
             System.out.println("Tente outra vez");

@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Miky Mikusher Wayne
  */
-public class Ex3_LetraDigitada {
+public class Ex4_VogalConsoante_v2 {
 
     /**
      * @param args the command line arguments
@@ -24,21 +24,28 @@ public class Ex3_LetraDigitada {
         // TODO code application logic here
         Scanner scan = new Scanner(System.in);
         
-        System.out.print("Indica o M ou F: ");
-        String letra = scan.nextLine();
+        System.out.println("Entre com uma letra: ");
+        String letra = scan.next();
         
-        switch(letra) {
-            case "m":
-            case "M":
-                System.out.println("M - Masculino");
-                break;
-            case "f":
-            case "F":
-                System.out.println("F - Feminino");
+        if (letra.length() > 1){
+            System.out.println("Letra invalida");
+        } else {
+            switch(letra){
+            case "a":
+            case "e":
+            case "i":
+            case "o":
+            case "u":
+            case "A":
+            case "E":
+            case "I":
+            case "O":
+            case "U":
+                System.out.println("É uma vogal");
                 break;
             default:
-                System.out.println("Sexo, invalido!!");
-        }
+                System.out.println("É uma consoante");
+            }
+        }        
     }
-    
 }

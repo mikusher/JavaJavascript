@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Miky Mikusher Wayne
  */
-public class Ex3_LetraDigitada {
+public class Ex10_TurnoDeEstudo {
 
     /**
      * @param args the command line arguments
@@ -24,20 +24,27 @@ public class Ex3_LetraDigitada {
         // TODO code application logic here
         Scanner scan = new Scanner(System.in);
         
-        System.out.print("Indica o M ou F: ");
-        String letra = scan.nextLine();
+        System.out.print("Indica o horario (M, V ou N): ");
+        String turno = scan.next();
         
-        switch(letra) {
+        switch(turno) {
             case "m":
             case "M":
-                System.out.println("M - Masculino");
+            case "matutino":
+                System.out.println("Bom Dia!");
                 break;
-            case "f":
-            case "F":
-                System.out.println("F - Feminino");
+            case "v":
+            case "V":
+            case "vespertino":
+                System.out.println("Boa Tarde!");
+                break;
+            case "n":
+            case "N":
+            case "noturno":
+                System.out.println("Boa Noite!");
                 break;
             default:
-                System.out.println("Sexo, invalido!!");
+                System.out.println("Valor invalido!!");
         }
     }
     
