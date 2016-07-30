@@ -44,24 +44,25 @@
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jtDataBaseNameCTable" alignment="1" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtExtension" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="ext" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jtTableName" min="-2" pref="131" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jBCreateTable" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jtExtension" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Component id="ext" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jtTableName" min="-2" pref="131" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jBCreateTable" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
+                                  <Component id="jBCreateDataBase" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-                              <Component id="jBCreateDataBase" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -83,10 +84,16 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jtDataBaseName" alignment="3" max="32767" attributes="0"/>
-                  <Component id="jBCreateDataBase" alignment="3" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jtDataBaseName" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jBCreateDataBase" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -102,8 +109,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jtTableName" linkSize="13" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jtDataBaseNameCTable" linkSize="13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBCreateTable" alignment="3" max="32767" attributes="0"/>
                   <Component id="jtExtension" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBCreateTable" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
