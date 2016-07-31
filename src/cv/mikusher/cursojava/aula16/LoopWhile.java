@@ -24,7 +24,7 @@ public class LoopWhile {
         int i = 1; //count ou cont
         int max = 10;
         
-        System.out.println("Contar ate o maximo " +max);
+        System.out.println("Aumentar ate o maximo " +max);
         
         while(i <= max){
             System.out.println("Valor de i: " +i);
