@@ -1,5 +1,7 @@
  //Error reading included file Templates/Classes/Templates/Licenses/license-LuisTavares.txt
-package cv.mikusher.cursojava.aula16_17.exercicios;
+package cv.mikusher.cursojava.aula17.exercicios;
+
+import java.util.Scanner;
 
 /**
  *
@@ -14,6 +16,14 @@ public class Ex01_ValorValido {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+        
+        int min = 0;
+        int max = 10;
+        
+        System.out.println("Indica o valor: ");
+        int valor = scan.nextInt();
+        
     }
     
 }
