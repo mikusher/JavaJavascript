@@ -18,12 +18,21 @@ public class Ex01_ValorValido {
         // TODO code application logic here
         Scanner scan = new Scanner(System.in);
         
-        int min = 0;
-        int max = 10;
+        //utilizando uma flag de inicialização
+        boolean notaValida = false;
         
-        System.out.println("Indica o valor: ");
-        int valor = scan.nextInt();
-        
+        do {
+            System.out.println("Indica um valor valido de 0 a 10: ");
+            double valor = scan.nextDouble();
+
+            if (valor >= 0 && valor <= 10){
+                notaValida = true;
+                System.out.println("O valor foi: " +valor);
+            } else {
+                //notaValida = false;
+                System.out.println("Valor invalido, digite novamente: ");
+                System.out.println("");
+            }
+        } while (!notaValida);       
     }
-    
 }
