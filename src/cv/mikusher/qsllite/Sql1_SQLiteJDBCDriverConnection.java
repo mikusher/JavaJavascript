@@ -21,9 +21,6 @@ import java.sql.SQLException;
  */
 public class Sql1_SQLiteJDBCDriverConnection {
 
-    /**
-     * @param args the command line arguments
-     */
     
         public static void connect() {
         Connection conn = null;
@@ -49,7 +46,7 @@ public class Sql1_SQLiteJDBCDriverConnection {
     }
     
     public static void main(String[] args) {
-        // TODO code application logic here
+
         connect();
     }
     
