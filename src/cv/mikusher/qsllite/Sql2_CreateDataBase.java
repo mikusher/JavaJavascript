@@ -42,9 +42,7 @@ public class Sql2_CreateDataBase {
         }
     }
  
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
         createNewDatabase("Agenda.s3db");
     }
