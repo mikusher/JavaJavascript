@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author mikusher
  */
-public class Ex17_CalcularFatorial {
+public class Ex18_NumeroPrimo2 {
 
     /**
      * @param args the command line arguments
@@ -24,16 +24,19 @@ public class Ex17_CalcularFatorial {
         // TODO code application logic here
         
         Scanner scan = new Scanner(System.in);
-        System.out.print("Indica um numero: ");
-        int num = scan.nextInt();
+        System.out.println("Indica o numero para ser validado: ");
         
-        System.out.print(num+ "! = ");
+        int numeroUtilizador = scan.nextInt();
+        boolean primo = true;
         
-        int fatorial = 1;
-        for (int i=num; i>0; i--){
-            fatorial = fatorial * i;
-            System.out.println(i);
+        for(int i=2; i<numeroUtilizador; i++){
+            if(numeroUtilizador % i == 0){
+                System.out.println("Não é numero primo, divizivel por " +i);
+                primo = false;
+            }
         }
-        System.out.println("Resultado: " +fatorial);
+        if (primo){
+            System.out.println("É um numero primo");
+        }
     }
 }

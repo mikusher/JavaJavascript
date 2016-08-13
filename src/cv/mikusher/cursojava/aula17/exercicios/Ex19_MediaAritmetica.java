@@ -15,25 +15,31 @@ import java.util.Scanner;
  *
  * @author mikusher
  */
-public class Ex17_CalcularFatorial {
+public class Ex19_MediaAritmetica {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
         Scanner scan = new Scanner(System.in);
-        System.out.print("Indica um numero: ");
-        int num = scan.nextInt();
         
-        System.out.print(num+ "! = ");
+        System.out.println("Entre com o numero de notas: ");
+        int numeroNotas = scan.nextInt();
         
-        int fatorial = 1;
-        for (int i=num; i>0; i--){
-            fatorial = fatorial * i;
-            System.out.println(i);
+        double soma = 0;
+        double media;
+        double nota;
+        
+        for (int i= 0; i<numeroNotas; i++){
+            System.out.println("Indique a nota: " +(i+1));
+            nota = scan.nextDouble();
+            
+            soma = soma + nota;
         }
-        System.out.println("Resultado: " +fatorial);
-    }
+        media = soma / numeroNotas;
+        
+        System.out.println("Soma: " +soma);
+        System.out.println("Media " +media);
+    }   
 }
