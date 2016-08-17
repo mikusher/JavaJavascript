@@ -26,9 +26,9 @@ public class Sql2_CreateDataBase {
      *
      * @param fileName the database file name
      */
-    public static void createNewDatabase(String fileName) {
+    public static void createNewDatabase(String directory, String fileName) {
  
-        String url = "jdbc:sqlite:D:/SqlLiteData/" +fileName;
+        String url = "jdbc:sqlite:"+directory+fileName;
  
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
@@ -44,6 +44,6 @@ public class Sql2_CreateDataBase {
  
 
     public static void main(String[] args) {
-        createNewDatabase("Agenda.s3db");
+        createNewDatabase("F:/SqlLiteData/", "Agenda.s3db");
     }
 }

@@ -26,9 +26,9 @@ public class Sql3_CreateTable {
      * @param dataBaseName indica a base de dados que sera chamada para efetuar a operação
      * @param tableName 
      */
-    public static void createNewTable(String dataBaseName, String tableName){
+    public static void createNewTable(String directory, String dataBaseName, String tableName){
         //SQLite conexão com a base de dados
-        String url = "jdbc:sqlite:D://SqlLiteData/" +dataBaseName;
+        String url = "jdbc:sqlite:"+directory+dataBaseName;
         
         // SQL criação da nova tabela (id, nome, idade, telefone)
         String sql = "CREATE TABLE IF NOT EXISTS " + tableName + " (\n" 
@@ -53,6 +53,6 @@ public class Sql3_CreateTable {
      */
     public static void main(String[] args) {
         //criar a tabela com o nome de "utilizadores"
-        createNewTable("Agenda.s3db", "utilizadores");
+        createNewTable("F:/SqlLiteData/","Agenda.s3db", "utilizadores");
     } 
 }

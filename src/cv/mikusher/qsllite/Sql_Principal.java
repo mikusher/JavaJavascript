@@ -22,11 +22,11 @@ public class Sql_Principal {
         Sql4_InsertDate id = new Sql4_InsertDate();
         
         //criando a base de dados
-        Sql2_CreateDataBase.createNewDatabase("Contatos.s3db");
+        Sql2_CreateDataBase.createNewDatabase("F:/SqlLiteData/", "Agenda.s3db");
         
         //criando a tabela, na base de dados
-        Sql3_CreateTable.createNewTable("Contatos.s3db", "UTILIZADOR");
-        Sql3_CreateTable.createNewTable("Contatos.s3db", "CONTATOS");
+        Sql3_CreateTable.createNewTable("F:/SqlLiteData/", "Contatos.s3db", "UTILIZADOR");
+        Sql3_CreateTable.createNewTable("F:/SqlLiteData/", "Contatos.s3db", "CONTATOS");
         
         //inserindo dados na base de dados
         id.insert("Contatos.s3db", "UTILIZADOR", "Luis Tavares", 28, 92555656);
@@ -35,5 +35,4 @@ public class Sql_Principal {
         id.insert("Contatos.s3db", "CONTATOS", "Palomba", 26, 22775658);
         
     }
-    
 }
