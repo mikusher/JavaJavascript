@@ -20,7 +20,7 @@ import java.net.URL;
  *
  * @author Mikusher
  */
-public class LerPaginaWeb {
+public class ReadWebPage {
 
     /**
      * @param args the command line arguments
