@@ -48,7 +48,7 @@ public class WB02_ex01_Funcionario {
     }
 
     public void setSalario(double salario) {
-        if (salario < 0 || salario > 200) {
+        if (salario < 0 && salario > 200) {
             System.out.println("Valor invalido");
         } else {
             this.salario = salario;
@@ -56,7 +56,7 @@ public class WB02_ex01_Funcionario {
     }
 
     public void setHoras(double horas) {
-        if (horas == 0 || horas > 160) {
+        if (horas == 0 && horas > 160) {
             System.out.println("Hora invalida");
         } else {
             this.horas = horas;
