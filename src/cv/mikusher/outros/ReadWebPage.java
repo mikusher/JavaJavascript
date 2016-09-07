@@ -30,7 +30,7 @@ public class ReadWebPage {
         BufferedReader br = null;
         
         try {
-            URL url = new URL("http://www.gmail.com");
+            URL url = new URL("http://www.hotmail.com");
             br = new BufferedReader(new InputStreamReader(url.openStream()));
             
             String line;
