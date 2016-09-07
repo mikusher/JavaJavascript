@@ -10,7 +10,6 @@
 
 package cv.mikusher.softblue.exercicios.WB02;
 
-import org.apache.log4j.chainsaw.Main;
 
 /**
  *
