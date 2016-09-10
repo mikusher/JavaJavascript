@@ -1,0 +1,15 @@
+início {
+    
+    //Escreva  um  algoritmo  que  solicita  ao  usuário  duas  informações  no  formato  texto  e  depois
+    //exibe os dois textos fornecidos de forma concatenada.
+    
+    caractere: texto1;
+    caractere: texto2;
+    caractere: junto;
+    
+    leia ("indica o texto 1", texto1);
+    leia ("indica o texto 2", texto2);
+    junto = concatene(texto1, texto2);
+    
+    escreva (junto);
+}

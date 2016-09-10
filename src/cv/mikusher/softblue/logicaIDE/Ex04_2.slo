@@ -1,0 +1,32 @@
+início {
+    // Declara as variáveis
+    inteiro: i;
+    inteiro: n;
+    inteiro: min;
+    inteiro: max;
+
+    // Min é inicializado com o maior valor possível
+    min =  9999999;
+    
+    // Max é inicializado com o menor valor possível
+    max = -9999999;
+    
+    // Repete 5x
+    para i de 1 até 5 passo 1 {
+        leia("Valor", n);
+        
+        // Se o número digitado é menor que o mínimo, o mínimo passa a ser este valor
+        se (n < min) {
+            min = n;
+        }
+        
+        // Se o número digitado é maior que o mínimo, o máximo passa a ser este valor
+        se (n > max) {
+            max = n;
+        }
+    }
+    
+    // Mostra o resultado
+    escreva("Menor valor: ", min);
+    escreva("Maior valor: ", max);
+}

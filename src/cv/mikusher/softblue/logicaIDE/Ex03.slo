@@ -1,0 +1,20 @@
+início {
+    
+    // resultado = v1 % v2; resto da divisão
+    // resultado = pot(v1, v2); potencia de um numero
+    // resultado = rad(v1); raiz quadrada
+    
+    inteiro: soma;
+    inteiro: subtrair;
+    inteiro: multiplicar;
+    
+    inteiro: numero1;
+    inteiro: numero2;
+    
+    
+    
+    
+    escreva(soma);
+    escreva(subtrair);
+    escreva(multiplicar);
+}

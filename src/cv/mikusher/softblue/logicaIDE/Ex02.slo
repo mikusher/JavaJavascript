@@ -1,0 +1,19 @@
+início {
+    inteiro: i;
+    real: r;
+    caractere: c;
+    caractere: d;
+    lógico: l;
+    
+    leia ("Valor de i", i);
+    leia ("o texto", d);
+    r = 4.2;
+    c = "Mikusher";
+    l = verdadeiro;
+    
+    escreva (i);
+    escreva (r);
+    escreva (c);
+    escreva (l);
+    escreva (i, " - ", d);
+}

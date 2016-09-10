@@ -1,0 +1,21 @@
+início {
+    real: a;
+    real: b;
+    real: c;
+    real: x1;
+    real: x2;
+    
+    leia ("valor de a", a);
+    leia ("valor de b", b);
+    leia ("valor de c", c);
+    
+    // raiz 1
+    x1 = (-b + rad(pot(b, 2) - 4 * a * c)) / (2 * a);
+    
+    // raiz 2
+    x2 = (-b - rad(pot(b, 2) - 4 * a * c)) / (2 * a);
+    
+    //resultados
+    escreva ("O valor de X1: ", x1);
+    escreva ("O valor de X2: ", x2);    
+}

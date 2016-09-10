@@ -1,0 +1,30 @@
+início {
+    // Define as variáveis
+    inteiro: idade;
+    caractere: categoria;
+    
+    // Solicita a idade
+    leia("Idade do hóspede", idade);
+    
+    // Verifica a faixa etária. Se a idade for negativa ou superior a 130 anos, coloca em uma categoria "Inválida".
+    se (idade < 0 ou idade > 130) {
+        categoria = "Inválida";
+    } senão se (idade >= 0 e idade <= 3) {
+        categoria = "Recanto";
+    } senão se (idade >= 4 e idade <= 11) {
+        categoria = "Infantil";
+    } senão se (idade >= 12 e idade <= 17) {
+        categoria = "Juvenil";
+    } senão se (idade >= 18 e idade <= 50) {
+        categoria = "Adulto";
+    } senão {
+        categoria = "Melhor Idade";
+    }
+    
+    // Mostra o resultado. Se a categoria for "Inválida", significa que a idade digitada foi incorreta.
+    se (categoria <> "Inválida") {
+        escreva("Categoria: ", categoria);
+    } senão {
+        escreva("A idade fornecida é inválida");
+    }
+}

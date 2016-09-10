@@ -1,0 +1,8 @@
+início {
+    inteiro: c;
+    
+    para c de 1 até 10 passo 1 {
+        escreva (c);
+    }
+    
+}

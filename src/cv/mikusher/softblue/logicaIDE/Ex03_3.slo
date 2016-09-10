@@ -1,0 +1,14 @@
+início {
+    real: a;
+    real: p;
+    real: l;
+    
+    leia("Lado do hexágono ", l);
+   
+    a = (3 * pot(l, 2) * rad(3.0)) / 2;
+    
+    p = (6 * l);
+    
+    escreva ("area ", a);
+    escreva ("perimetro ", p);
+}

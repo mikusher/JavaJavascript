@@ -1,0 +1,13 @@
+início {
+    // Declaração das variáveis
+    inteiro: num;
+    inteiro: cont;
+    inteiro: result;
+    
+    leia("Tabuada do...", num);
+    
+    para cont de 1 até 10 passo 1 {
+        result = cont * num;
+        escreva(num, " x ", cont, " = ", result);
+    }
+}

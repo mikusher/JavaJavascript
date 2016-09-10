@@ -1,0 +1,14 @@
+início {
+    inteiro: c;
+    
+    c = 1;
+    
+    enquanto (c <= 50) {
+        se (c % 2 == 0) {
+        escreva (c);
+    }
+    c = c + 1;
+    
+}
+
+}

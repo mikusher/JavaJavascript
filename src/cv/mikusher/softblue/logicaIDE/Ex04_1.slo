@@ -1,0 +1,25 @@
+início {
+    real: nota;
+    real: soma;
+    real: media;
+    
+    // Contador que indica quantas notas já foram digitadas
+    inteiro: c;
+    
+    soma = 0;
+    c = 0;
+    
+    repita {
+        leia ("Nota", nota);
+        
+        // Se ele for diferente de -1, acumula o valor e incrementa o contador de notas
+        se (nota <> -1){
+            soma = soma + nota;
+            c = c + 1;
+        }
+    } enquanto (nota <> -1);
+    
+    // No final, calcula a média e escreve
+    media = soma / c;
+    escreva(media);
+}
