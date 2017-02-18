@@ -53,6 +53,6 @@ public class Sql3_CreateTable {
      */
     public static void main(String[] args) {
         //criar a tabela com o nome de "utilizadores"
-        createNewTable("F:/SqlLiteData/","Agenda.s3db", "utilizadores");
+        createNewTable("E:/SqlLiteData/","Agenda.s3db", "utilizadores");
     } 
 }

@@ -26,7 +26,7 @@ public class Sql1_SQLiteJDBCDriverConnection {
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:F:/SqlLiteData/Agenda.s3db";
+            String url = "jdbc:sqlite:E:/SqlLiteData/Agenda.s3db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             
