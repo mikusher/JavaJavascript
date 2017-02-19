@@ -26,10 +26,11 @@ public class BubbleChart extends ApplicationFrame
 {
    public BubbleChart( String s )
    {
-      super( s );                 
+      super( s );  
       JPanel jpanel = createDemoPanel( );                 
       jpanel.setPreferredSize(new Dimension( 560 , 370 ) );                 
       setContentPane( jpanel ); 
+      setDefaultCloseOperation(ApplicationFrame.EXIT_ON_CLOSE);
    }
 
    private static JFreeChart createChart( XYZDataset xyzdataset )

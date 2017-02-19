@@ -18,6 +18,7 @@ public class LineChart extends ApplicationFrame
    public LineChart( String applicationTitle , String chartTitle )
    {
       super(applicationTitle);
+      setDefaultCloseOperation(ApplicationFrame.EXIT_ON_CLOSE);
       JFreeChart lineChart = ChartFactory.createLineChart(
          chartTitle,
          "Years","Number of Schools",

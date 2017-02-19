@@ -14,6 +14,7 @@ public class PieChart extends ApplicationFrame
    public PieChart(String title) 
    {
       super( title ); 
+      setDefaultCloseOperation(ApplicationFrame.EXIT_ON_CLOSE);
       setContentPane(createDemoPanel( ));
    }
    private static PieDataset createDataset( ) 

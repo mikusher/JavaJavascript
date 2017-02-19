@@ -28,6 +28,7 @@ public class XYLineChart extends ApplicationFrame
    public XYLineChart( String applicationTitle, String chartTitle )
    {
       super(applicationTitle);
+      setDefaultCloseOperation(ApplicationFrame.EXIT_ON_CLOSE);
       JFreeChart xylineChart = ChartFactory.createXYLineChart(
          chartTitle ,
          "Category" ,

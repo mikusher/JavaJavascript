@@ -24,7 +24,8 @@ public class TimeSeries_AWT extends ApplicationFrame
 {
    public TimeSeries_AWT( final String title )
    {
-      super( title );         
+      super( title ); 
+      setDefaultCloseOperation(ApplicationFrame.EXIT_ON_CLOSE);
       final XYDataset dataset = createDataset( );         
       final JFreeChart chart = createChart( dataset );         
       final ChartPanel chartPanel = new ChartPanel( chart );         

@@ -17,8 +17,8 @@ public class FreeChart {
      */
     public static void main(String[] args) {
       //circulo
-      PieChart demo = new PieChart("Venda de Telefone");  
-      demo.setSize(560, 367);    
+      PieChart demo = new PieChart("Venda de Telefone");
+      demo.setSize(560, 367);  
       RefineryUtilities.centerFrameOnScreen(demo);    
       demo.setVisible(true);
       
