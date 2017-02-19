@@ -77,7 +77,7 @@ public class Sql4_InsertDate {
         app.insert("Agenda.s3db", "utilizadores", "Luis Tavares", 28, 92555656);
         app.insert("Agenda.s3db", "utilizadores", "Miky Mikusher", 20, 924555656);
         app.insert("Agenda.s3db", "utilizadores", "Helio", 22, 92955886);
-        app.insert("Agenda.s3db", "utilizadores", "Luis Amilcar", 25, 92589886);
+        app.insert("Agenda.s3db", "utilizadores", "Luis Amilcar", 25, 92599886);
         
     }
     
