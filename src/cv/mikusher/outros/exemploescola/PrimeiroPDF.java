@@ -33,7 +33,7 @@ public class PrimeiroPDF {
         try {
             doc = new Document(PageSize.A4, 72, 72, 72, 72);
             
-            os = new FileOutputStream("outPdf.pdf");
+            os = new FileOutputStream("C://outPdf.pdf");
             
             PdfWriter.getInstance(doc, os);
             
