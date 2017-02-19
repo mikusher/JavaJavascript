@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 mikusher
+ * Copyright (C) 2016 Miky Mikusher
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -8,20 +8,26 @@
  *
  */
 
-package cv.mikusher.softblue.exercicios.WB02;
+package cv.mikusher.outros.sort;
+
+import java.util.Random;
 
 /**
  *
  * @author Luis Amilcar D. N. Tavares
  * @nickname Miky Mikusher
  */
-public class WB02_ex01 {
 
-    public static void main(String[] args) {
-        
-        WB02_ex01_Funcionario f3 = new WB02_ex01_Funcionario("Luis", 28);
-        f3.setHoras(110);
-        f3.setSalario(150);
-        f3.mostrarDados();    
+public class RandomArray {
+    
+    public static int getRandom(int[] array) {
+        int rnd = new Random().nextInt(array.length);
+        return array[rnd];
     }
+    
+    public static void main(String[] args) {
+        int[] arr1 = {10,34,2,56,7,67,88,42};
+        System.out.println(getRandom(arr1));
+    }
+
 }
