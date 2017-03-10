@@ -36,7 +36,7 @@ public class ExampleHashCode {
         // hash code value of number zero(0) is zero(0)
         System.out.println("Hash code of " + i2 + " is = " + i2.hashCode());
 
-        String str = "miky mikusher r. wayne";
+        String str = "miky mikusher raymond wayne";
 
         // hash code of string str
         System.out.println("Hash code of string '" + str + "' is = " + str.hashCode());
