@@ -41,10 +41,10 @@ public class Gui extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelName = new javax.swing.JLabel();
+        jLabelEndereco = new javax.swing.JLabel();
+        jLabelIdade = new javax.swing.JLabel();
+        jLabelId = new javax.swing.JLabel();
         jtName = new javax.swing.JTextField();
         jtEndereco = new javax.swing.JTextField();
         jtIdade = new javax.swing.JTextField();
@@ -60,13 +60,13 @@ public class Gui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nome:");
+        jLabelName.setText("Nome:");
 
-        jLabel2.setText("Endereco:");
+        jLabelEndereco.setText("Endereco:");
 
-        jLabel3.setText("Idade:");
+        jLabelIdade.setText("Idade:");
 
-        jLabel4.setText("Id:");
+        jLabelId.setText("Id:");
 
         jtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,17 +95,16 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabelName)
+                    .addComponent(jLabelEndereco)
+                    .addComponent(jLabelIdade)
+                    .addComponent(jLabelId))
                 .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jtEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
                     .addComponent(jtName)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jtId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                        .addComponent(jtIdade, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(jtId, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                    .addComponent(jtIdade))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(291, Short.MAX_VALUE)
@@ -122,19 +121,19 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabelName)
                     .addComponent(jtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabelEndereco)
                     .addComponent(jtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabelIdade)
                     .addComponent(jtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabelId)
                     .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -175,21 +174,27 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(jtidPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbPesquisa))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jbPesquisa, jtidPesquisa});
+
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jbPesquisa)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jbPesquisa))
                     .addComponent(jtidPesquisa))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jbPesquisa, jtidPesquisa});
 
         jTabbedPane1.addTab("Consulta", jPanel2);
 
@@ -227,12 +232,12 @@ public class Gui extends javax.swing.JFrame {
         pess.setId(Integer.parseInt(jtId.getText()));
         
         try {
-            FileOutputStream fileOut = new FileOutputStream("C:/ser/empregado_"+jtId.getText()+".ser");
+            FileOutputStream fileOut = new FileOutputStream("/home/mikusher/FilesJava/serializar/empregado_"+jtId.getText()+".ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(pess);
             out.close();
             fileOut.close();
-            System.out.println("Serialização gravado com sucesso em: C:/ser/empregado_"+jtId.getText()+".ser");
+            System.out.println("Serialização gravado com sucesso em: /home/mikusher/FilesJava/serializar/empregado_"+jtId.getText()+".ser");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -247,7 +252,7 @@ public class Gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pessoa pess = null;
         try {
-            FileInputStream fileEntrada = new FileInputStream("C:/ser/empregado_"+jtidPesquisa.getText()+".ser");
+            FileInputStream fileEntrada = new FileInputStream("/home/mikusher/FilesJava/serializar/empregado_"+jtidPesquisa.getText()+".ser");
             ObjectInputStream inputStream = new ObjectInputStream(fileEntrada);
             pess = (Pessoa) inputStream.readObject();
             inputStream.close();
@@ -305,11 +310,11 @@ public class Gui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelEndereco;
+    private javax.swing.JLabel jLabelId;
+    private javax.swing.JLabel jLabelIdade;
+    private javax.swing.JLabel jLabelName;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
