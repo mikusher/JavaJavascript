@@ -134,6 +134,8 @@ public class HostInformation extends javax.swing.JFrame {
                     "Host '" + host + "' details starts..."+'\n'+
                     "Host  IP  Address: "+ addr.getHostAddress()+'\n'+
                     "Canonical  Host  Name: "+ addr.getCanonicalHostName()+'\n'+
+                    "Local Address: "+ addr.isSiteLocalAddress()+'\n'+
+                    "Multicast: "+ addr.isMulticastAddress()+'\n'+
                     "isReachable(): "+ addr.isReachable(this.timeOutinMillis)+'\n'+
                     "isLoopbackAddress(): "+ addr.isLoopbackAddress()
             );
