@@ -22,13 +22,13 @@ import javax.swing.text.Document;
 
 public class Banco
 {
-   private String nome;
-   private Conta carteira[];
+   private final String nome;
+   private final Conta carteira[];
    private int numeroContas;
-   private Calendar dia;
-   private double taxaRemuneracao;
-   private Scanner input = new Scanner(System.in);
-   private JTextPane guiConsole = new JTextPane();
+   private final Calendar dia;
+   private final double taxaRemuneracao;
+   private final Scanner input = new Scanner(System.in);
+   private final JTextPane guiConsole = new JTextPane();
    
    public Banco(String identificacao, double taxa)
    {

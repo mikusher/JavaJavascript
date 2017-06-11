@@ -10,6 +10,8 @@
 
 package cv.mikusher.outros.sort;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Luis Amilcar D. N. Tavares
@@ -49,10 +51,16 @@ public class BubbleSort {
     }
   
     public static void main(String[] args) {
+        
         try {
-        GenerateRandom gr = new GenerateRandom();
-        int[] input = { 4, 2, 90, 6, 23, 12, 34, 0, 1 };
-        bubble_srt(input);  
+            Scanner teclado = new Scanner(System.in);
+            int[] valor = new int[10];
+            GenerateRandom gr = new GenerateRandom();
+            for (int i = 0; i < valor.length; i++) {
+                System.out.println("Indica um valor: "); 
+                valor[i] = teclado.nextInt();
+            }
+            bubble_srt(valor);  
         } catch (Exception e) {
             System.out.println("Erro "+ e);
         }

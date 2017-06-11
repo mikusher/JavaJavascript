@@ -20,7 +20,6 @@ import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.xy.DefaultXYZDataset; 
 import org.jfree.data.xy.XYZDataset; 
 import org.jfree.ui.ApplicationFrame; 
-import org.jfree.ui.RefineryUtilities;
   
 public class BubbleChart extends ApplicationFrame
 {
