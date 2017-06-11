@@ -187,7 +187,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tempo"/>
+            <Property name="text" type="java.lang.String" value="Tempo (dia)"/>
           </Properties>
         </Component>
       </SubComponents>

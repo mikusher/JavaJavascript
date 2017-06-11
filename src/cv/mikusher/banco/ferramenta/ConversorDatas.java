@@ -25,14 +25,14 @@ public class ConversorDatas extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.lockedResult();
     }
-    
-        public void lockedResult() {
+
+    public void lockedResult() {
         jtfAno.setEditable(false);
         jtfMes.setEditable(false);
         jtfSemana.setEditable(false);
         jtfDias.setEditable(false);
     }
-        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,7 +96,7 @@ public class ConversorDatas extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Tempo");
+        jLabel6.setText("Tempo (dia)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -197,7 +197,7 @@ public class ConversorDatas extends javax.swing.JFrame {
 
     private void jtfAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfAnoActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jtfAnoActionPerformed
 
     private void jbVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerificarActionPerformed
@@ -205,22 +205,22 @@ public class ConversorDatas extends javax.swing.JFrame {
         if (jtfTempo.getText().equals("")) {
             JOptionPane jOp = new JOptionPane();
             jOp.showMessageDialog(null, "Por Favor, indique um numero valido!!");
-        
+
         } else {
-        int tempo, dia, anos, mes, semanas;
-        
-        tempo = Integer.parseInt(jtfTempo.getText());
-        anos = tempo / 365;
-        tempo = tempo % 365;
-        mes = tempo / 30;
-        tempo = tempo % 30;
-        semanas = tempo / 7;
-        dia = tempo % 7; 
-        jtfAno.setText(String.valueOf(anos));
-        jtfMes.setText(String.valueOf(mes));
-        jtfSemana.setText(String.valueOf(semanas));
-        jtfDias.setText(String.valueOf(dia));
-        
+            int tempo, dia, anos, mes, semanas;
+
+            tempo = Integer.parseInt(jtfTempo.getText());
+            anos = tempo / 365;
+            tempo = tempo % 365;
+            mes = tempo / 30;
+            tempo = tempo % 30;
+            semanas = tempo / 7;
+            dia = tempo % 7;
+            jtfAno.setText(String.valueOf(anos));
+            jtfMes.setText(String.valueOf(mes));
+            jtfSemana.setText(String.valueOf(semanas));
+            jtfDias.setText(String.valueOf(dia));
+
         }
     }//GEN-LAST:event_jbVerificarActionPerformed
 
@@ -228,7 +228,7 @@ public class ConversorDatas extends javax.swing.JFrame {
         // TODO add your handling code here:
         String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
-        // se o caractere digitado for um contido na String caracteres
+            // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
         }
     }//GEN-LAST:event_jtfTempoKeyTyped
