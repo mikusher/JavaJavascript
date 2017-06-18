@@ -36,7 +36,7 @@ public class TesteWeka {
     public static void main(String[] args) throws Exception {
 
         // criação do datasouce, indicando o caminho da BD "vendas"
-        DataSource ds = new DataSource("src/cv/mikusher/testeweka/vendas.arff");
+        DataSource ds = new DataSource("src/cv/mikusher/testeweka/vendas_tst.arff");
 
         // pega as instancias da base de dados
         Instances ins = ds.getDataSet();
@@ -56,7 +56,7 @@ public class TesteWeka {
 
         // os atributos do novo elemento -- o atributo da previsão não deve ser passada @attribute gasta_muito por ser este que queremos prever
         novo.setValue(0, "M");
-        novo.setValue(1, "18-39");
+        novo.setValue(1, 22);
         novo.setValue(2, "Sim");
 
         // fazendo a previsão do elemento novo

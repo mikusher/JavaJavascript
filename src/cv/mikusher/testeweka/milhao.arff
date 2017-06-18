@@ -1,0 +1,14 @@
+@relation milhao
+  
+@attribute primeiro_num real
+@attribute segundo_num real
+@attribute terceiro_num real
+@attribute quarto_num real
+@attribute quinto_num real
+@attribute primeira_estrela real
+@attribute segunda_estrela real
+
+@data
+20, 27, 39, 43	10, 11,	1 
+20, 22, 25, 37, 40	03, 7		
+10, 24, 33, 42	03, 09,	5 

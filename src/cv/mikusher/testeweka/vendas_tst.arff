@@ -1,0 +1,12 @@
+@relation vendas
+  
+@attribute sexo {F, M}
+@attribute idade real
+@attribute filhos {Nao, Sim}
+@attribute gasta_muito {Nao, Sim}
+  
+@data
+F,39,Nao,Sim
+M,44,Sim,Sim
+M,18,Nao,Nao
+F,40,Nao,Nao
