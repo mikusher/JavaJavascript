@@ -10,9 +10,7 @@
 package cv.mikusher.banco.ferramenta.game;
 
 import java.util.Random;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -25,6 +23,7 @@ public class ParImparGUI extends javax.swing.JFrame {
     static final String OPC_PAR = "par";
     static final String OPC_IMPAR = "impar";
     static final String OPC_NULL = "null";
+    JOptionPane jOp = new JOptionPane();
 
     /**
      * utils to use
@@ -71,7 +70,6 @@ public class ParImparGUI extends javax.swing.JFrame {
 
     public void pedido_impar() {
         if (jtextnumero.getText().equals("")) {
-            JOptionPane jOp = new JOptionPane();
             jOp.showMessageDialog(null, "Por Favor, indique um numero valido!!");
         } else {
             par_ou_impar(OPC_IMPAR, valor(getValor()));
