@@ -14,6 +14,7 @@ package cv.mikusher.testeweka;
 
 
 
+import java.util.Random;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.DenseInstance;
 import weka.core.Instances;
@@ -48,16 +49,27 @@ public class TesteWeka {
         NaiveBayes nb = new NaiveBayes();
         nb.buildClassifier(ins);
 
-        // criando o classificador - ele recebe o nimero de atributos que tem na BD {sexo, idade, filhos, gasta_muito}
+        /**
+         * criando o classificador - ele recebe o nimero de
+         * atributos que tem na BD {sexo, idade, filhos, gasta_muito}
+         */
         DenseInstance novo = new DenseInstance(4);
 
         // associar o novo elemento da previsão - relacionar o novo com o a base de dados
         novo.setDataset(ins);
 
-        // os atributos do novo elemento -- o atributo da previsão não deve ser passada @attribute gasta_muito por ser este que queremos prever
-        novo.setValue(0, "M");
-        novo.setValue(1, 22);
-        novo.setValue(2, "Sim");
+        // para a idade vamos usar um random
+        Random randomGenerator = new Random();
+        int randomIdade = randomGenerator.nextInt(99);
+
+        /**
+         * os atributos do novo elemento --
+         * o atributo da previsão não deve ser passada @attribute gasta_muito
+         * por ser este que queremos prever
+         */
+        novo.setValue(0, "M"); // sexo
+        novo.setValue(1, randomIdade); // idade é random
+        novo.setValue(2, "Sim"); // filho
 
         // fazendo a previsão do elemento novo
         double probabilidade[] = nb.distributionForInstance(novo);
