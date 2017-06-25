@@ -44,15 +44,7 @@ public class TesteWekaMilhao {
 
         final int TAMANHO_DA_CARTELA = 7;
 
-        // criação do datasouce, indicando o caminho da BD "vendas"
-        DataSource source = new DataSource("src/cv/mikusher/testeweka/milhao.arff");
-
-        // pega as instancias da base de dados
-        Instances data = source.getDataSet();
-
-        if (data.classIndex() == -1) {
-            data.setClassIndex(data.numAttributes() - 1);
-        }
+        Instances data = carregamnetoFicheiro();
 
         //
         IBk k3 = new IBk();
@@ -82,17 +74,7 @@ public class TesteWekaMilhao {
         DenseInstance segunda_estrela = new DenseInstance(TAMANHO_DA_CARTELA);
         segunda_estrela.setDataset(data);
 
-        // numeros a ser passado
-        // numeros da cartela
-        primeiro_numero.setValue(0, 15);
-        segundo_numero.setValue(1, 17);
-        terceiro_numero.setValue(2, 38);
-        quarto_numero.setValue(3, 41);
-        quinto_numero.setValue(4, 42);
-
-        // chaves estrelas
-        primeira_estrela.setValue(5, 9);
-        segunda_estrela.setValue(6, 12);
+        gerarChave(primeiro_numero, segundo_numero, terceiro_numero, quarto_numero, quinto_numero, primeira_estrela, segunda_estrela);
 
         // classificação da nova instância
         double pred_num_1 = k3.classifyInstance(primeiro_numero);
@@ -112,5 +94,57 @@ public class TesteWekaMilhao {
         System.out.println("Numeros: \n" + "Numero 1: " + Math.round(pred_num_1) + "" + "\nNumero 2: " + Math.round(pred_num_2) + "\nNumero 3: " + Math.round(pred_num_3) + "\nNumero 4: "
                            + Math.round(pred_num_4) + "\nNumero 5: " + Math.round(pred_num_5) + "\n");
         System.out.println("Estrelas: \n" + "Estrela 1: " + Math.round(pred_str_1) + "\nEstrela 2: " + Math.round(pred_str_2));
+
+    }
+
+
+
+
+
+    /**
+     * @return
+     * @throws Exception
+     */
+    private static Instances carregamnetoFicheiro() throws Exception {
+
+        // criação do datasouce, indicando o caminho da BD "vendas"
+        DataSource source = new DataSource("src/cv/mikusher/testeweka/milhao.arff");
+
+        // pega as instancias da base de dados
+        Instances data = source.getDataSet();
+
+        if (data.classIndex() == -1) {
+            data.setClassIndex(data.numAttributes() - 1);
+        }
+        return data;
+    }
+
+
+
+
+
+    /**
+     * @param primeiro_numero
+     * @param segundo_numero
+     * @param terceiro_numero
+     * @param quarto_numero
+     * @param quinto_numero
+     * @param primeira_estrela
+     * @param segunda_estrela
+     */
+    private static void gerarChave(DenseInstance primeiro_numero, DenseInstance segundo_numero, DenseInstance terceiro_numero, DenseInstance quarto_numero, DenseInstance quinto_numero,
+                                   DenseInstance primeira_estrela, DenseInstance segunda_estrela) {
+
+        // numeros a ser passado
+        // numeros da cartela
+        primeiro_numero.setValue(0, 15);
+        segundo_numero.setValue(1, 17);
+        terceiro_numero.setValue(2, 38);
+        quarto_numero.setValue(3, 41);
+        quinto_numero.setValue(4, 42);
+
+        // chaves estrelas
+        primeira_estrela.setValue(5, 9);
+        segunda_estrela.setValue(6, 12);
     }
 }
