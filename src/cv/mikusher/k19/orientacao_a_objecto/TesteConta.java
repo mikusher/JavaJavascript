@@ -22,7 +22,7 @@ package cv.mikusher.k19.orientacao_a_objecto;
  * @nickname Miky Mikusher
  */
 
-public class TesteCenas {
+public class TesteConta {
 
     public static void main(String[] args) {
 

@@ -60,6 +60,15 @@ public class Conta {
 
 
 
+    void imprimeExtrato(int dias) {
+
+        //
+    }
+
+
+
+
+
     double consultaSaldoDisponivel() {
 
         return this.saldo + this.limite;
