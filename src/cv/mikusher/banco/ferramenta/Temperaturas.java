@@ -30,7 +30,7 @@ public class Temperaturas extends JFrame
    
    public Temperaturas()
    {
-      super("Conversão de Temperaturas");
+      super("Conversao de Temperaturas");
       setLayout(new FlowLayout());
       
       labelTempF = new JLabel("Temperatura em Fahrenheit");

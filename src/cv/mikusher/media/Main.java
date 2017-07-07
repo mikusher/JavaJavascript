@@ -43,11 +43,7 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) {
 
-        String musicName;
-        // musicName = "GodFather";
-        musicName = "Projota_CartaAosMeus";
-
-        final URL resource = getClass().getResource(musicName + ".mp3");
+        final URL resource = musicToPlay();
 
         final Media media = new Media(resource.toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -55,16 +51,51 @@ public class Main extends Application {
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setOnError(new Runnable() {
 
-            @Override
-            public void run() {
+    @Override
+    public void run() {
 
                 System.out.println("Media error occurred: " + mediaPlayer.getError());
             }
-        });
+    });
 
         primaryStage.setTitle("Audio Player");
         primaryStage.setWidth(200);
         primaryStage.setHeight(200);
         primaryStage.show();
+    }
+
+
+
+
+
+    private URL musicToPlay() {
+
+        try {
+
+            String musicName;
+            
+            // musicName = "GodFather";
+            // musicName = "Projota_CartaAosMeus";
+            
+            String[] listaM = listaMusica();
+            for (String myMusic : listaM) {
+                musicName = listaM[myMusic.indexOf(myMusic)];
+                final URL resource = getClass().getResource(musicName + ".mp3");
+                return resource;
+            }
+            
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public String[] listaMusica() {
+        
+        return new String[] {"GodFather",
+                             "Projota_CartaAosMeus", 
+                             "GodFather"
+                             };
     }
 }

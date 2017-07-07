@@ -16,6 +16,8 @@ package cv.mikusher.agenda;
 
 
 
+import java.awt.HeadlessException;
+
 import javax.swing.JOptionPane;
 
 
@@ -153,18 +155,23 @@ public class Login extends javax.swing.JFrame {
     private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbLoginActionPerformed
 
         // TODO add your handling code here:
-        if (jtUsername.getText()
-                      .equals("luis")
-            && (jtPassword.getText()
-                          .equals("1234"))) {
-            new Gui().setVisible(true);
-            this.dispose();
-            this.setResizable(false);
+        try {
+            if (jtUsername.getText()
+                          .equals("luis")
+                && (jtPassword.getText()
+                              .equals("1234"))) {
+                new Gui().setVisible(true);
+                this.dispose();
+                this.setResizable(false);
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Dados errado. Tente novamente!");
-            jtUsername.setText("");
-            jtPassword.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Dados errado. Tente novamente!");
+                jtUsername.setText("");
+                jtPassword.setText("");
+            }
+        } catch (HeadlessException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }// GEN-LAST:event_jbLoginActionPerformed
 
