@@ -58,7 +58,7 @@ public class Main extends Application {
             }
         });
 
-        primaryStage.setTitle("Audio Player");
+        primaryStage.setTitle("Music Player");
         primaryStage.setWidth(200);
         primaryStage.setHeight(200);
         primaryStage.show();
@@ -97,6 +97,6 @@ public class Main extends Application {
 
     public String[] listaMusica() {
 
-        return new String[] { "GodFather", "Projota_CartaAosMeus", "GodFather", "Projota_CartaAosMeus" };
+        return new String[] { "Projota_CartaAosMeus", "GodFather", "GodFather", "Projota_CartaAosMeus" };
     }
 }
