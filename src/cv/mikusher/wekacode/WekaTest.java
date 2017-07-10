@@ -145,8 +145,6 @@ public class WekaTest {
             System.out.println("Accuracy of " + models[j].getClass()
                                                          .getSimpleName()
                                + ": " + String.format("%.2f%%", accuracy) + "\n---------------------------------");
-
         }
-
     }
 }
