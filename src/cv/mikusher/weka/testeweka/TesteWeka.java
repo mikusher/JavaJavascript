@@ -8,7 +8,7 @@
 
 
 
-package cv.mikusher.testeweka;
+package cv.mikusher.weka.testeweka;
 
 
 
