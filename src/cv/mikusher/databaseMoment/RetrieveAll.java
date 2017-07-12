@@ -1,3 +1,10 @@
+/*
+ * Copyright (C) 2017 Luis Tavares
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ */
 
 
 
@@ -9,11 +16,15 @@ package cv.mikusher.databaseMoment;
 
 
 
+/**
+ *
+ * @author Luis Tavares
+ */
+import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,33 +32,34 @@ import java.util.logging.Logger;
 
 
 
-public class Version {
+public class RetrieveAll {
 
     public static void main(String[] args) {
 
         Connection con = null;
-        Statement st = null;
+        PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String url = "jdbc:mysql://127.0.0.1:3306/testdb";
+        String url = "jdbc:mysql://localhost:3306/testdb";
         String user = "root";
         String password = "vertrigo";
 
         try {
 
             con = DriverManager.getConnection(url, user, password);
-            st = con.createStatement();
+            pst = con.prepareStatement("SELECT * FROM Authors");
+            rs = pst.executeQuery();
 
-            rs = st.executeQuery("SELECT VERSION()");
+            while (rs.next()) {
 
-            if (rs.next()) {
-
-                System.out.println(rs.getString(1));
+                System.out.print(rs.getInt(1));
+                System.out.print(": ");
+                System.out.println(rs.getString(2));
             }
 
         } catch (SQLException ex) {
 
-            Logger lgr = Logger.getLogger(Version.class.getName());
+            Logger lgr = Logger.getLogger(RetrieveAll.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
 
         } finally {
@@ -58,8 +70,8 @@ public class Version {
                     rs.close();
                 }
 
-                if (st != null) {
-                    st.close();
+                if (pst != null) {
+                    pst.close();
                 }
 
                 if (con != null) {
@@ -68,7 +80,7 @@ public class Version {
 
             } catch (SQLException ex) {
 
-                Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger lgr = Logger.getLogger(RetrieveAll.class.getName());
                 lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
         }
