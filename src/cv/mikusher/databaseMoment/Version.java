@@ -28,8 +28,9 @@ public class Version {
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
+        String ssl = "?useSSL=false";
 
-        String url = "jdbc:mysql://127.0.0.1:3306/testdb";
+        String url = "jdbc:mysql://127.0.0.1:3306/testdb" + ssl;
         String user = "root";
         String password = "vertrigo";
 
