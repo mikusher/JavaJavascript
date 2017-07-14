@@ -48,7 +48,7 @@ public class Prepared2 {
 
             pst = con.prepareStatement("INSERT INTO Testing(Id) VALUES(?)");
 
-            for (int i = 1; i <= 1000; i++) {
+            for (int i = 1; i <= 100; i++) {
 
                 pst.setInt(1, i * 2);
                 pst.executeUpdate();
