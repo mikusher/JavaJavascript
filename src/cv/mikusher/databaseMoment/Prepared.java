@@ -61,7 +61,9 @@ public class Prepared {
             try {
 
                 if (pst != null) {
+
                     pst.close();
+
                 }
 
                 if (con != null) {
