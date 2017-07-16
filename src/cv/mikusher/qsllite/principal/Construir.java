@@ -11,6 +11,7 @@ package cv.mikusher.qsllite.principal;
 
 import cv.mikusher.qsllite.Sql2_CreateDataBase;
 import cv.mikusher.qsllite.Sql3_CreateTable;
+import cv.mikusher.qsllite.principal.conexao;
 import javax.swing.JOptionPane;
 
 /**
@@ -184,7 +185,7 @@ public class Construir extends javax.swing.JFrame {
         String cdDataBase = (String) jtDataBaseName.getText();
         String cdDirectory = "src/cv/mikusher/qsllite/BaseDados/";
         jtExtension.setEditable(false);
-
+        
         if (jtDataBaseName.getText().equals("") || jtDiretory.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "O campo não pode estar limpo");
         } else {
@@ -196,23 +197,24 @@ public class Construir extends javax.swing.JFrame {
             jtExtension.setText(".s3db");
         }
     }//GEN-LAST:event_jBCreateDataBaseActionPerformed
-
+    
     private void jBCreateTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCreateTableActionPerformed
         // TODO add your handling code here:
         Sql3_CreateTable cd = new Sql3_CreateTable();
+        conexao cc = new conexao("");
         String cdTable = (String) jtDataBaseNameCTable.getText();
         String cdName = (String) jtTableName.getText();
         String cdDirectory = "src/cv/mikusher/qsllite/BaseDados/";
-
+        
         if (jtDataBaseNameCTable.getText().equals("") || jtTableName.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "O campo não pode estar limpo");
-
+            
         } else if (jtExtension.getText().equals("") || !jtExtension.getText().equals(".s3db")) {
             jtExtension.setText(".s3db");
-            cd.createNewTable(cdDirectory, cdTable + ".s3db", cdName);
+            Sql3_CreateTable.createNewTable(cc.setContType("sqlite"), cdTable + ".s3db", cdName);
             JOptionPane.showMessageDialog(null, "Na base de dados " + cdTable + " foi criado a tabela " + cdName + " com sucesso, e extensão mudada para .s3db");
             jtDataBaseNameCTable.setText("");
-
+            
         } else {
             cd.createNewTable(cdDirectory, cdTable + ".s3db", cdName);
             JOptionPane.showMessageDialog(null, "Na base de dados " + cdTable + " foi criado a tabela " + cdName + " com sucesso!");

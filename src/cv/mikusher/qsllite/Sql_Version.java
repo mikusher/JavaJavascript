@@ -45,14 +45,6 @@ public class Sql_Version {
 
 
 
-    public Sql_Version() {
-
-    }
-
-
-
-
-
     public static void connect(String myConnection) {
 
         try {
