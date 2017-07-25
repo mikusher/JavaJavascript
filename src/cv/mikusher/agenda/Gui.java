@@ -34,6 +34,12 @@ import javax.swing.JOptionPane;
  */
 public class Gui extends javax.swing.JFrame {
 
+    static String _uuid = "null";
+
+
+
+
+
     /**
      * Creates new form Gui
      */
@@ -295,13 +301,14 @@ public class Gui extends javax.swing.JFrame {
         pess.setEndereco(jtEndereco.getText());
         pess.setIdade(Integer.parseInt(jtIdade.getText()));
         pess.setId(Integer.parseInt(jtId.getText()));
+        _uuid = pess.setUUID(null);
         try {
-            FileOutputStream fileOut = new FileOutputStream("/home/mikusher/FilesJava/serializar/empregado_" + jtId.getText() + ".ser");
+            FileOutputStream fileOut = new FileOutputStream("src/cv/mikusher/agenda/dados/empregado_" + jtId.getText() + ".ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(pess);
             out.close();
             fileOut.close();
-            System.out.println("Serialização gravado com sucesso em: /home/mikusher/FilesJava/serializar/empregado_" + jtId.getText() + ".ser");
+            System.out.println("Serialização gravado com sucesso em: src/cv/mikusher/agenda/dados/empregado_" + jtId.getText() + ".ser");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -327,7 +334,7 @@ public class Gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pessoa pess = null;
         try {
-            FileInputStream fileEntrada = new FileInputStream("/home/mikusher/FilesJava/serializar/empregado_" + jtidPesquisa.getText() + ".ser");
+            FileInputStream fileEntrada = new FileInputStream("src/cv/mikusher/agenda/dados/empregado_" + jtidPesquisa.getText() + ".ser");
             ObjectInputStream inputStream = new ObjectInputStream(fileEntrada);
             pess = (Pessoa) inputStream.readObject();
             inputStream.close();
@@ -342,7 +349,7 @@ public class Gui extends javax.swing.JFrame {
             return;
         }
 
-        jtResultado.setText("Nome: " + pess.getNome() + '\n' + "Endereco: " + pess.getEndereco() + '\n' + "Idade: " + pess.getIdade() + '\n');
+        jtResultado.setText("Nome: " + pess.getNome() + '\n' + "Endereco: " + pess.getEndereco() + '\n' + "Idade: " + pess.getIdade() + '\n' + "UUID: " + pess.getUUID() + '\n');
     }// GEN-LAST:event_jbPesquisaActionPerformed
 
 

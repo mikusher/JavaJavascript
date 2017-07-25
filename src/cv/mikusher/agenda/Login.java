@@ -160,7 +160,8 @@ public class Login extends javax.swing.JFrame {
         try {
             if (jtUsername.getText()
                           .equals("luis")
-                && (jtPassword.getText()
+                && (jtPassword.getPassword()
+                              .toString()
                               .equals("1234"))) {
                 new Gui().setVisible(true);
                 this.dispose();

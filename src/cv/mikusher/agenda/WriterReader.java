@@ -23,7 +23,7 @@ import java.io.ObjectOutputStream;
 
 public class WriterReader {
 
-    static String caminho = "src/cv/mikusher/agenda/myObjects.txt";
+    static String caminho = "src/cv/mikusher/agenda/dados/myObjects.txt";
 
 
 

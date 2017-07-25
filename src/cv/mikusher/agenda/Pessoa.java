@@ -17,6 +17,7 @@ package cv.mikusher.agenda;
 
 
 import java.io.Serializable;
+import java.util.UUID;
 
 
 
@@ -37,6 +38,7 @@ public class Pessoa implements Serializable {
     private String            _nome, _endereco, _genero;
     private int               _idade;
     private transient int     _id;
+    private String            _randomUUIDString;
 
 
 
@@ -55,6 +57,28 @@ public class Pessoa implements Serializable {
         this._idade = idade;
         this._genero = genero;
 
+    }
+
+
+
+
+
+    public String setUUID(UUID uuid_) {
+
+        this._randomUUIDString = UUID.randomUUID()
+                                     .toString();
+        _randomUUIDString.replaceAll("-", "");
+
+        return _randomUUIDString;
+    }
+
+
+
+
+
+    public String getUUID() {
+
+        return _randomUUIDString;
     }
 
 
