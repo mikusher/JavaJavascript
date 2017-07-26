@@ -43,7 +43,7 @@ public class DataSourceEx {
         FileInputStream fis = null;
         MysqlDataSource ds = null;
 
-        fis = new FileInputStream("src/cv/mikusher/databaseMoment/bd.properties");
+        fis = getProperties();
         props.load(fis);
 
         ds = new MysqlConnectionPoolDataSource();
@@ -52,6 +52,21 @@ public class DataSourceEx {
         ds.setPassword(props.getProperty("mysql.password"));
 
         return ds;
+    }
+
+
+
+
+
+    /**
+     * @return
+     * @throws FileNotFoundException
+     */
+    public static FileInputStream getProperties() throws FileNotFoundException {
+
+        FileInputStream fis;
+        fis = new FileInputStream("src/cv/mikusher/databaseMoment/bd.properties");
+        return fis;
     }
 
 
