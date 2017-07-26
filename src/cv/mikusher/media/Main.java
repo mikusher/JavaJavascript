@@ -18,11 +18,10 @@ package cv.mikusher.media;
 
 import java.net.URL;
 
-import javax.print.attribute.standard.Media;
-
+import javafx.application.Application;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import weka.core.pmml.jaxbbindings.Application;
 
 
 
