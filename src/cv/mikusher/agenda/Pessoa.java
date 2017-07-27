@@ -35,10 +35,9 @@ public class Pessoa implements Serializable {
      * 
      */
     private static final long serialVersionUID = 1L;
-    private String            _nome, _endereco, _genero;
+    private String            _nome, _endereco, _genero, _randomUUIDString;
     private int               _idade;
     private transient int     _id;
-    private String            _randomUUIDString;
 
 
 
