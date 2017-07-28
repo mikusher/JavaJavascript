@@ -16,12 +16,6 @@ package cv.mikusher.agenda;
 
 
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 import javax.swing.JOptionPane;
 
 
@@ -34,7 +28,8 @@ import javax.swing.JOptionPane;
  */
 public class Gui extends javax.swing.JFrame {
 
-    static String _uuid = "null";
+    static Object uuid = null;
+    Operacao      opr  = new Operacao();
 
 
 
@@ -71,7 +66,7 @@ public class Gui extends javax.swing.JFrame {
                        .equals("")) {
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Campo não pode ser limpo.");
+            JOptionPane.showMessageDialog(null, "Campo nï¿½o pode ser limpo.");
             // TODO: handle exception
         }
     }
@@ -295,23 +290,13 @@ public class Gui extends javax.swing.JFrame {
 
     private void jbSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbSaveActionPerformed
 
-        // TODO add your handling code here:
-        Pessoa pess = new Pessoa();
-        pess.setNome(jtName.getText());
-        pess.setEndereco(jtEndereco.getText());
-        pess.setIdade(Integer.parseInt(jtIdade.getText()));
-        pess.setId(Integer.parseInt(jtId.getText()));
-        _uuid = pess.setUUID(null);
-        try {
-            FileOutputStream fileOut = new FileOutputStream("src/cv/mikusher/agenda/dados/empregado_" + jtId.getText() + ".ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(pess);
-            out.close();
-            fileOut.close();
-            System.out.println("Serialização gravado com sucesso em: src/cv/mikusher/agenda/dados/empregado_" + jtId.getText() + ".ser");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        opr.gravarUtilizador(jtName.getText()
+                                   .toString(),
+                             jtEndereco.getText()
+                                       .toString(),
+                             Integer.parseInt(jtIdade.getText()),
+                             Integer.parseInt(jtId.getText()),
+                             uuid);
 
     }// GEN-LAST:event_jbSaveActionPerformed
 
@@ -332,24 +317,20 @@ public class Gui extends javax.swing.JFrame {
     private void jbPesquisaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbPesquisaActionPerformed
 
         // TODO add your handling code here:
-        Pessoa pess = null;
-        try {
-            FileInputStream fileEntrada = new FileInputStream("src/cv/mikusher/agenda/dados/empregado_" + jtidPesquisa.getText() + ".ser");
-            ObjectInputStream inputStream = new ObjectInputStream(fileEntrada);
-            pess = (Pessoa) inputStream.readObject();
-            inputStream.close();
-            fileEntrada.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "O id " + jtidPesquisa.getText() + " nao existe.");
-            return;
-        } catch (ClassNotFoundException c) {
-            System.out.println("Pessoa nao encontrado");
-            c.printStackTrace();
-            return;
+        if (jtidPesquisa.getText() == "" || jtidPesquisa.getText()
+                                                        .isEmpty()
+            || jtidPesquisa.getText()
+                           .equals("")) {
+            JOptionPane.showConfirmDialog(null, "Campo vazio, indica um ID valido para pesquisa", "Campo ID vazio", JOptionPane.CANCEL_OPTION);
+        } else {
+            try {
+                opr.pesquisarUtilizador(Integer.parseInt(jtidPesquisa.getText()));
+                jtResultado.setText("Nome: " + opr.p.getNome() + '\n' + "Endereco: " + opr.p.getEndereco() + '\n' + "Idade: " + opr.p.getIdade() + '\n' + "UUID: " + opr.p.getUUID() + '\n');
+            } catch (NumberFormatException e) {
+                JOptionPane.showConfirmDialog(null, "NÃ£o Ã© um ID. Indica um valor numerico valido para pesquisa", "Numero Invalido", JOptionPane.CANCEL_OPTION);
+            }
         }
 
-        jtResultado.setText("Nome: " + pess.getNome() + '\n' + "Endereco: " + pess.getEndereco() + '\n' + "Idade: " + pess.getIdade() + '\n' + "UUID: " + pess.getUUID() + '\n');
     }// GEN-LAST:event_jbPesquisaActionPerformed
 
 

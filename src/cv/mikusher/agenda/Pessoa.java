@@ -38,6 +38,7 @@ public class Pessoa implements Serializable {
     private String            _nome, _endereco, _genero;
     private int               _idade;
     private transient int     _id;
+    private int               _idPesquisa;
     private String            _randomUUIDString;
 
 
@@ -172,6 +173,24 @@ public class Pessoa implements Serializable {
     public void setId(int id) {
 
         this._id = id;
+    }
+
+
+
+
+
+    public int getidPesquisa() {
+
+        return _idPesquisa;
+    }
+
+
+
+
+
+    public void setidPesquisa(int _idPesquisa) {
+
+        this._idPesquisa = _idPesquisa;
     }
 
 }
