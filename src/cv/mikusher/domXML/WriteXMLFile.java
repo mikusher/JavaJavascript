@@ -52,7 +52,7 @@ public class WriteXMLFile {
 
             // root elements
             Document doc = docBuilder.newDocument();
-            Element rootElement = doc.createElement("company");
+            Element rootElement = doc.createElement("empresa");
             doc.appendChild(rootElement);
 
             // staff elements
@@ -68,12 +68,12 @@ public class WriteXMLFile {
             // staff.setAttribute("id", "1");
 
             // firstname elements
-            Element firstname = doc.createElement("firstname");
+            Element firstname = doc.createElement("nome");
             firstname.appendChild(doc.createTextNode("yong"));
             staff.appendChild(firstname);
 
             // lastname elements
-            Element lastname = doc.createElement("lastname");
+            Element lastname = doc.createElement("sobrenome");
             lastname.appendChild(doc.createTextNode("mook kim"));
             staff.appendChild(lastname);
 
@@ -83,7 +83,7 @@ public class WriteXMLFile {
             staff.appendChild(nickname);
 
             // salary elements
-            Element salary = doc.createElement("salary");
+            Element salary = doc.createElement("salario");
             salary.appendChild(doc.createTextNode("100000"));
             staff.appendChild(salary);
 
