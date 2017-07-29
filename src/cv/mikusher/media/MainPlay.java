@@ -54,7 +54,9 @@ import javafx.util.Duration;
 @SuppressWarnings("deprecation")
 public class MainPlay extends Application {
 
-    private static final String      MUSIC_LIBRARY    = "C:\\Users\\Luis Tavares\\git\\JavaBasico\\src\\cv\\mikusher\\media\\music";
+    private static String            OS               = System.getProperty("os.name")
+                                                              .toLowerCase();
+
     final Label                      currentlyPlaying = new Label();
     final ProgressBar                progress         = new ProgressBar();
     private ChangeListener<Duration> progressChangeListener;
@@ -72,6 +74,67 @@ public class MainPlay extends Application {
 
 
 
+    public String soSystem() {
+
+        String mySystem;
+
+        if (isWindows()) {
+            mySystem = "C:\\Users\\Luis Tavares\\git\\JavaBasico\\src\\cv\\mikusher\\media\\music";
+        } else if (isUnix()) {
+            mySystem = "/home/latavares/git/JavaBasico/src/cv/mikusher/media/music";
+        } else {
+            System.out.println("Your OS is not support!!");
+            return null;
+        }
+        return mySystem;
+    }
+
+
+
+
+
+    public static boolean isWindows() {
+
+        return (OS.indexOf("win") >= 0);
+
+    }
+
+
+
+
+
+    public static boolean isUnix() {
+
+        return (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0);
+
+    }
+
+
+
+
+
+    // não esta sendo utilizado no codigo, mas a implementação fica disponivel caso seja necessario
+    public static boolean isMac() {
+
+        return (OS.indexOf("mac") >= 0);
+
+    }
+
+
+
+
+
+    // não esta sendo utilizado no codigo, mas a implementação fica disponivel caso seja necessario
+    public static boolean isSolaris() {
+
+        return (OS.indexOf("sunos") >= 0);
+
+    }
+
+
+
+
+
     public void start(final Stage stage) throws Exception {
 
         stage.setTitle("Audio Player");
@@ -80,7 +143,7 @@ public class MainPlay extends Application {
 
         // determine the source directory for the playlist (either the first parameter to the program or a
         final List<String> params = getParameters().getRaw();
-        final File dir = (params.size() > 0) ? new File(params.get(0)) : new File(MUSIC_LIBRARY);
+        final File dir = (params.size() > 0) ? new File(params.get(0)) : new File(soSystem());
         if (!dir.exists() && dir.isDirectory()) {
             System.out.println("Cannot find audio source directory: " + dir);
         }
