@@ -17,6 +17,8 @@ package cv.mikusher.agenda;
 
 
 import javax.swing.JOptionPane;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 
 
@@ -290,13 +292,18 @@ public class Gui extends javax.swing.JFrame {
 
     private void jbSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbSaveActionPerformed
 
-        opr.gravarUtilizador(jtName.getText()
-                                   .toString(),
-                             jtEndereco.getText()
+        try {
+            opr.gravarUtilizador(jtName.getText()
                                        .toString(),
-                             Integer.parseInt(jtIdade.getText()),
-                             Integer.parseInt(jtId.getText()),
-                             uuid);
+                                 jtEndereco.getText()
+                                           .toString(),
+                                 Integer.parseInt(jtIdade.getText()),
+                                 Integer.parseInt(jtId.getText()),
+                                 uuid);
+        } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
     }// GEN-LAST:event_jbSaveActionPerformed
 
