@@ -35,10 +35,10 @@ public class Sql_Version {
     static String     mUser     = "root";
     static String     mPassword = "vertrigo";
     static String     pUser     = "postgres";
-    static String     pPassword = "postgres";
+    static String     pPassword = "vertrigo";
 
     static String     sqlLite   = "jdbc:sqlite:src/cv/mikusher/qsllite/BaseDados/Agenda.s3db";
-    static String     mySql     = "jdbc:mysql://127.0.0.1:3306/testdb?useSSL=false";
+    static String     mySql     = "jdbc:mysql://127.0.0.1:3307/testdb?useSSL=false";
     static String     postgres  = "jdbc:postgresql://127.0.0.1:5432/testdb";
 
 

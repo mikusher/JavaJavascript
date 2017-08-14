@@ -187,7 +187,7 @@ public class Construir extends javax.swing.JFrame {
         jtExtension.setEditable(false);
         
         if (jtDataBaseName.getText().equals("") || jtDiretory.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "O campo não pode estar limpo");
+            JOptionPane.showMessageDialog(null, "O campo nao pode estar limpo");
         } else {
             cd.createNewDatabase((cdDirectory).trim(), cdDataBase.trim() + ".s3db");
             JOptionPane.showMessageDialog(null, "Base de dados " + cdDataBase + " criado com sucesso!");
@@ -207,7 +207,7 @@ public class Construir extends javax.swing.JFrame {
         String cdDirectory = "src/cv/mikusher/qsllite/BaseDados/";
         
         if (jtDataBaseNameCTable.getText().equals("") || jtTableName.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "O campo não pode estar limpo");
+            JOptionPane.showMessageDialog(null, "O campo nao pode estar limpo");
             
         } else if (jtExtension.getText().equals("") || !jtExtension.getText().equals(".s3db")) {
             jtExtension.setText(".s3db");

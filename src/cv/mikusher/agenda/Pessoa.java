@@ -17,6 +17,7 @@ package cv.mikusher.agenda;
 
 
 import java.io.Serializable;
+import java.util.Random;
 import java.util.UUID;
 
 
@@ -36,7 +37,7 @@ public class Pessoa implements Serializable {
      */
     private static final long serialVersionUID = 1L;
     private String            _nome, _endereco, _genero;
-    private int               _idade;
+    private int               _idade, _salario;
     private transient int     _id;
     private int               _idPesquisa;
     private String            _randomUUIDString;
@@ -193,4 +194,18 @@ public class Pessoa implements Serializable {
         this._idPesquisa = _idPesquisa;
     }
 
+
+
+
+    public void setSalario(int _salario) {
+        this._salario = _salario;
+    }
+
+    
+    public int getSalario() {
+        Random rnd = new Random();
+        _salario = rnd.nextInt(10000 - 1000 + 1) + 1000;
+        return _salario;
+    }
+    
 }
