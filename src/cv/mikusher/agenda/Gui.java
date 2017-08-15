@@ -32,6 +32,7 @@ public class Gui extends javax.swing.JFrame {
 
     static Object uuid = null;
     Operacao      opr  = new Operacao();
+    OperacoesSQL opSql = new OperacoesSQL();
 
 
 
@@ -293,6 +294,9 @@ public class Gui extends javax.swing.JFrame {
     private void jbSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbSaveActionPerformed
 
         try {
+            OperacoesSQL.createNewDatabase();
+            OperacoesSQL.createNewTable();
+            
             opr.gravarUtilizador(jtName.getText()
                                        .toString(),
                                  jtEndereco.getText()

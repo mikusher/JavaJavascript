@@ -50,7 +50,7 @@ import org.w3c.dom.Element;
 
 public class Operacao {
 
-    private static final String DADOS_EMPREGADO_SERIAL = "src/cv/mikusher/agenda/dados/Empregado_";
+    private static final String DADOS_EMPREGADO_SERIAL = "src/cv/mikusher/agenda/serie/Empregado_";
     private static final String DADOS_EMPREGADO_XML = "src/cv/mikusher/agenda/xml/Empregado_";
     static String               _uuid           = "null";
     Pessoa                      p               = new Pessoa();
@@ -73,7 +73,7 @@ public class Operacao {
             out.writeObject(p);
             out.close();
             fileOut.close();
-            System.out.println("Serializacao gravado com sucesso em: src/cv/mikusher/agenda/dados/Empregado_" + p.getId() + ".ser");
+            System.out.println("Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_" + p.getId() + ".ser");
             
             // -----------------------XML Configuration----------------------- //
             
@@ -161,5 +161,5 @@ public class Operacao {
         }
         return p;
     }
-
+    
 }
