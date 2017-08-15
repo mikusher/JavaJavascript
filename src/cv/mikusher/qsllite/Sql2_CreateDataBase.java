@@ -40,7 +40,7 @@ public class Sql2_CreateDataBase {
      */
     public static void createNewDatabase(String directory, String fileName) {
 
-        String url = "jdbc:sqlite:" + directory + fileName;
+        String url = "jdbc:sqlite://" + directory + fileName;
 
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
