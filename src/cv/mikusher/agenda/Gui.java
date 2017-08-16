@@ -30,9 +30,10 @@ import javax.xml.transform.TransformerException;
  */
 public class Gui extends javax.swing.JFrame {
 
-    static Object uuid = null;
-    Operacao      opr  = new Operacao();
-    OperacoesSQL opSql = new OperacoesSQL();
+    static Object uuid  = null;
+    Operacao      opr   = new Operacao();
+    OperacoesSQL  opSql = new OperacoesSQL();
+    Pessoa        ps    = new Pessoa();
 
 
 
@@ -46,6 +47,9 @@ public class Gui extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.isLimpo();
+        this.opSql.createNewDatabase();
+        this.opSql.createNewTable();
+
     }
 
 
@@ -69,7 +73,7 @@ public class Gui extends javax.swing.JFrame {
                        .equals("")) {
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Campo nï¿½o pode ser limpo.");
+            JOptionPane.showMessageDialog(null, "Campo nao pode ser limpo.");
             // TODO: handle exception
         }
     }
@@ -294,9 +298,7 @@ public class Gui extends javax.swing.JFrame {
     private void jbSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbSaveActionPerformed
 
         try {
-            OperacoesSQL.createNewDatabase();
-            OperacoesSQL.createNewTable();
-            
+            // Other operation (xml/ser)
             opr.gravarUtilizador(jtName.getText()
                                        .toString(),
                                  jtEndereco.getText()
@@ -304,6 +306,16 @@ public class Gui extends javax.swing.JFrame {
                                  Integer.parseInt(jtIdade.getText()),
                                  Integer.parseInt(jtId.getText()),
                                  uuid);
+
+            // is create on initial Gui
+            // Database operation (sqlLite)
+            OperacoesSQL.insert(opr.p.getUUID(),
+                                Integer.parseInt(jtId.getText()),
+                                jtName.getText()
+                                      .toString(),
+                                Integer.parseInt(jtIdade.getText()),
+                                jtEndereco.getText());
+
         } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -338,7 +350,7 @@ public class Gui extends javax.swing.JFrame {
                 opr.pesquisarUtilizador(Integer.parseInt(jtidPesquisa.getText()));
                 jtResultado.setText("Nome: " + opr.p.getNome() + '\n' + "Endereco: " + opr.p.getEndereco() + '\n' + "Idade: " + opr.p.getIdade() + '\n' + "UUID: " + opr.p.getUUID() + '\n');
             } catch (NumberFormatException e) {
-                JOptionPane.showConfirmDialog(null, "NÃ£o Ã© um ID. Indica um valor numerico valido para pesquisa", "Numero Invalido", JOptionPane.CANCEL_OPTION);
+                JOptionPane.showConfirmDialog(null, "Não é um ID. Indica um valor numerico valido para pesquisa", "Numero Invalido", JOptionPane.CANCEL_OPTION);
             }
         }
 

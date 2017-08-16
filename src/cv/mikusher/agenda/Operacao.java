@@ -28,7 +28,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Random;
 
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
@@ -51,9 +50,10 @@ import org.w3c.dom.Element;
 public class Operacao {
 
     private static final String DADOS_EMPREGADO_SERIAL = "src/cv/mikusher/agenda/serie/Empregado_";
-    private static final String DADOS_EMPREGADO_XML = "src/cv/mikusher/agenda/xml/Empregado_";
-    static String               _uuid           = "null";
-    Pessoa                      p               = new Pessoa();
+    private static final String DADOS_EMPREGADO_XML    = "src/cv/mikusher/agenda/xml/Empregado_";
+    static String               _uuid                  = "null";
+    Pessoa                      p                      = new Pessoa();
+    OperacoesSQL                oprS                   = new OperacoesSQL();
 
 
 
@@ -73,10 +73,10 @@ public class Operacao {
             out.writeObject(p);
             out.close();
             fileOut.close();
-            System.out.println("Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_" + p.getId() + ".ser");
-            
+            oprS.LOGGER.info("Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_" + p.getId() + ".ser");
+
             // -----------------------XML Configuration----------------------- //
-            
+
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
@@ -110,7 +110,7 @@ public class Operacao {
             staff.appendChild(func_idade);
 
             // salary elements
-            
+
             Element func_salario = doc.createElement("Salario");
             func_salario.appendChild(doc.createTextNode(String.valueOf(p.getSalario())));
             staff.appendChild(func_salario);
@@ -126,7 +126,7 @@ public class Operacao {
 
             transformer.transform(source, result);
 
-            System.out.println("File xml saved!");
+            oprS.LOGGER.info("File xml saved!");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -156,10 +156,10 @@ public class Operacao {
             JOptionPane.showConfirmDialog(null, "O id " + p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
             return null;
         } catch (ClassNotFoundException c) {
-            System.out.println("Pessoa nao encontrado");
+            oprS.LOGGER.info("Pessoa nao encontrado");
             return null;
         }
         return p;
     }
-    
+
 }
