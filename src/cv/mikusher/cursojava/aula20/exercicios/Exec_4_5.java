@@ -3,11 +3,11 @@ package cv.mikusher.cursojava.aula20.exercicios;
 import java.util.Scanner;
 
 //validar ainda, ainda incompleto
-public class Exec_4 {
+public class Exec_4_5 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		String[][] compromissos = new String[31][24];
+		String[][][] compromissos = new String[12][31][8];
 
 		boolean sair = false;
 		int opcao;
@@ -18,6 +18,18 @@ public class Exec_4 {
 
 			opcao = scan.nextByte();
 			if (opcao == 1) { // add compromisso
+				boolean mesValido = false;
+				int mes = 0;
+				while (!mesValido) {
+					System.out.println("Indica o mes: ");
+					mes = scan.nextInt();
+					if (mes > 0 && mes <= 12) {
+						mesValido = true;
+					} else {
+						System.out.println("Mes Invalido");
+					}
+				}
+
 				boolean diaValido = false;
 				int dia = 0;
 				while (!diaValido) {
@@ -35,18 +47,31 @@ public class Exec_4 {
 				while (!horaValido) {
 					System.out.println("Indica a hora: ");
 					hora = scan.nextInt();
-					if (hora > 0 && hora <= 24) {
+					if (hora > 0 && hora <= 8) {
 						horaValido = true;
 					} else {
 						System.out.println("Dia Invalido");
 					}
 				}
+				mes--;
 				dia--;
 				System.out.println("Indica o compromisso: ");
-				compromissos[dia][hora] = scan.next();
+				compromissos[mes][dia][hora] = scan.next();
 
 			} else if (opcao == 2) { // ver compromisso
 
+				boolean mesValido = false;
+				int mes = 0;
+				while (!mesValido) {
+					System.out.println("Indica o mes: ");
+					mes = scan.nextInt();
+					if (mes > 0 && mes <= 12) {
+						mesValido = true;
+					} else {
+						System.out.println("Mes Invalido");
+					}
+				}
+
 				boolean diaValido = false;
 				int dia = 0;
 				while (!diaValido) {
@@ -71,8 +96,10 @@ public class Exec_4 {
 					}
 				}
 
+				mes--;
+				dia--;
 				System.out.println("O compromisso agendado é: ");
-				System.out.println(compromissos[dia][hora]);
+				System.out.println(compromissos[mes][dia][hora]);
 
 			} else if (opcao == 0) {// sair do menu
 				sair = true;
