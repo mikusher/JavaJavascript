@@ -2,7 +2,7 @@ package cv.mikusher.cursojava.aula20.exercicios;
 
 import java.util.Scanner;
 
-public class Exec_5 {
+public class Exec_6 {
 
 	public static void main(String[] args) {
 
