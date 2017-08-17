@@ -98,6 +98,10 @@ public class Main extends Application {
 
     public String[] listaMusica() {
 
+<<<<<<< HEAD
         return new String[] { "music\\GodFather", "music\\Projota_CartaM", "music\\GodFather", "music\\Projota_CartaM" };
+=======
+        return new String[] { "GodFather", "Projota_CartaAosMeus", "GodFather", "Projota_CartaAosMeus" };
+>>>>>>> stash
     }
 }
