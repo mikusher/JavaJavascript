@@ -60,25 +60,26 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jbSave" linkSize="1" min="-2" pref="62" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jbCancel" linkSize="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelIdade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelId" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelIdade" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelId" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jtEndereco" alignment="0" pref="381" max="32767" attributes="0"/>
-                                      <Component id="jtName" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jtId" alignment="0" pref="381" max="32767" attributes="0"/>
-                                      <Component id="jtIdade" alignment="0" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jtEndereco" alignment="0" pref="381" max="32767" attributes="0"/>
+                                  <Component id="jtName" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jtIdade" alignment="0" pref="38" max="32767" attributes="0"/>
+                                          <Component id="jtId" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jbSave" linkSize="1" min="-2" pref="62" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jbCancel" linkSize="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -112,13 +113,12 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelId" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jtId" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Component id="jbSave" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jbCancel" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jbSave" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbCancel" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -224,7 +224,7 @@
                           <Component id="jbPesquisa" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="173" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="174" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
