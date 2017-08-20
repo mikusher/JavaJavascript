@@ -289,8 +289,18 @@ public class Gui extends javax.swing.JFrame {
         jLabel8.setText("Id:");
 
         jb_IDCheck.setText("Check");
+        jb_IDCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_IDCheckActionPerformed(evt);
+            }
+        });
 
         jbEDSave.setText("Save");
+        jbEDSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEDSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -310,11 +320,11 @@ public class Gui extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jt_EditName)
                                     .addComponent(jt_EditEndereco))
-                                .addGap(18, 18, 18)
+                                .addGap(21, 21, 21)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jt_EditIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jbEDSave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap())
@@ -406,6 +416,16 @@ public class Gui extends javax.swing.JFrame {
         //code for remove ID
     }//GEN-LAST:event_jbRemoveActionPerformed
 
+    private void jb_IDCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_IDCheckActionPerformed
+        // TODO add your handling code here:
+        //check IF Id exist
+    }//GEN-LAST:event_jb_IDCheckActionPerformed
+
+    private void jbEDSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEDSaveActionPerformed
+        // TODO add your handling code here:
+        // Save Operation after edit
+    }//GEN-LAST:event_jbEDSaveActionPerformed
+
 
 
 
@@ -473,7 +493,7 @@ public class Gui extends javax.swing.JFrame {
                 opr.pesquisarUtilizador(Integer.parseInt(jtidPesquisa.getText()));
                 jtResultado.setText("Nome: " + opr.p.getNome() + '\n' + "Endereco: " + opr.p.getEndereco() + '\n' + "Idade: " + opr.p.getIdade() + '\n' + "UUID: " + opr.p.getUUID() + '\n');
             } catch (NumberFormatException e) {
-                JOptionPane.showConfirmDialog(null, "Não é um ID. Indica um valor numerico valido para pesquisa", "Numero Invalido", JOptionPane.CANCEL_OPTION);
+                JOptionPane.showConfirmDialog(null, "Nï¿½o ï¿½ um ID. Indica um valor numerico valido para pesquisa", "Numero Invalido", JOptionPane.CANCEL_OPTION);
             }
         }
 
