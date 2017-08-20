@@ -156,4 +156,12 @@ public class OperacoesSQL {
         LOGGER.info("Linha inserida com sucesso!");
         // System.out.println("Linha inserida com sucesso!");
     }
+
+
+
+
+
+    public static void deleteuser() {
+
+    }
 }
