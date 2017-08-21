@@ -10,7 +10,7 @@
 
 
 
-package cv.mikusher.agenda;
+package cv.mikusher.agenda.classe;
 
 
 

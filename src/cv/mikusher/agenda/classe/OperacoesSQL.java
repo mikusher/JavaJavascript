@@ -10,7 +10,7 @@
 
 
 
-package cv.mikusher.agenda;
+package cv.mikusher.agenda.classe;
 
 
 
@@ -36,7 +36,7 @@ public class OperacoesSQL {
 
     static final String  DATABASE_FOLDER = "src/cv/mikusher/agenda/sqlLite/";
     static final String  DATABASE_NAME   = "Funcionario.s3db";
-    static final String  tableToInsert   = DATABASE_NAME.replaceAll(".s3db", "")
+    static final String  GENERAL_TABLE   = DATABASE_NAME.replaceAll(".s3db", "")
                                                         .trim();
     public static Logger LOGGER          = Logger.getLogger(OperacoesSQL.class.getName());
 
@@ -104,7 +104,7 @@ public class OperacoesSQL {
         String url = "jdbc:sqlite:" + DATABASE_FOLDER + DATABASE_NAME;
 
         // SQL criação da nova tabela (id, nome, idade, telefone)
-        String sql = "CREATE TABLE IF NOT EXISTS " + tableToInsert + " (\n" + "	uuid text,\n" + "	id integer PRIMARY KEY,\n" + "	nome text NOT NULL,\n" + "	idade text NOT NULL,\n"
+        String sql = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + "	uuid text,\n" + "	id integer PRIMARY KEY,\n" + "	nome text NOT NULL,\n" + "	idade integer NOT NULL,\n"
                      + "	endereco text\n" + ");";
 
         try (Connection conn = DriverManager.getConnection(url); Statement stmt = conn.createStatement()) {
@@ -113,7 +113,7 @@ public class OperacoesSQL {
         } catch (SQLException e) {
             LOGGER.warning(e.getMessage());
         }
-        LOGGER.info("Tabela " + tableToInsert + " criado na base de dados " + DATABASE_NAME + " com sucesso!!");
+        LOGGER.info("Tabela " + GENERAL_TABLE + " criado na base de dados " + DATABASE_NAME + " com sucesso!!");
     }
 
 
@@ -125,7 +125,7 @@ public class OperacoesSQL {
      * 
      * @param dataBaseName
      *            indica a base de dados que sera chamada para efetuar a operação
-     * @param tableToInsert
+     * @param GENERAL_TABLE
      *            o nome da tabela a ser utilizado
      * @param nome
      *            o nome do contato
@@ -136,7 +136,7 @@ public class OperacoesSQL {
      */
     public static void insert(String uuid, Integer id, String nome, Integer idade, String endereco) {
 
-        String sql = "INSERT INTO " + tableToInsert + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
 
         try (Connection conn = connect();
 
@@ -161,7 +161,41 @@ public class OperacoesSQL {
 
 
 
-    public static void deleteuser() {
+    public static void deleteSQLUser(Integer id) {
 
+        String sql = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
+
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            LOGGER.warning(e.getMessage());
+        }
+        LOGGER.info("Linha apagado com sucesso.!");
+    }
+
+
+
+
+
+    public static void updateUser(int id, String nome, int idade, String endereco) {
+
+        String sql = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
+
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the corresponding param
+            pstmt.setString(1, nome);
+            pstmt.setInt(2, idade);
+            pstmt.setString(3, endereco);
+            pstmt.setInt(4, id);
+
+            // update
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.warning(e.getMessage());
+        }
+        LOGGER.info("Linha atualizado com sucesso!");
     }
 }
