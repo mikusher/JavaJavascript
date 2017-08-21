@@ -22,7 +22,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Logger;
 
 
 
@@ -34,11 +33,10 @@ import java.util.logging.Logger;
  */
 public class OperacoesSQL {
 
-    static final String  DATABASE_FOLDER = "src/cv/mikusher/agenda/sqlLite/";
-    static final String  DATABASE_NAME   = "Funcionario.s3db";
-    static final String  GENERAL_TABLE   = DATABASE_NAME.replaceAll(".s3db", "")
-                                                        .trim();
-    public static Logger LOGGER          = Logger.getLogger(OperacoesSQL.class.getName());
+    static final String DATABASE_FOLDER = "src/cv/mikusher/agenda/sqlLite/";
+    static final String DATABASE_NAME   = "Funcionario.s3db";
+    static final String GENERAL_TABLE   = DATABASE_NAME.replaceAll(".s3db", "")
+                                                       .trim();
 
 
 
@@ -59,7 +57,7 @@ public class OperacoesSQL {
         try {
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
-            LOGGER.warning(e.getMessage());
+            OperationLOG.LOGGER.warn(e.getMessage());
         }
         return conn;
     }
@@ -78,12 +76,12 @@ public class OperacoesSQL {
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                LOGGER.info("O Drive usado È " + meta.getDriverName());
-                LOGGER.info("Base de dados " + DATABASE_NAME + " criado com sucesso.");
+                OperationLOG.LOGGER.info("O Drive usado È " + meta.getDriverName());
+                OperationLOG.LOGGER.info("Base de dados " + DATABASE_NAME + " criado com sucesso.");
             }
 
         } catch (SQLException e) {
-            LOGGER.warning(e.getMessage());
+            OperationLOG.LOGGER.warn(e.getMessage());
         }
     }
 
@@ -111,9 +109,9 @@ public class OperacoesSQL {
             // executando a query
             stmt.execute(sql);
         } catch (SQLException e) {
-            LOGGER.warning(e.getMessage());
+            OperationLOG.LOGGER.warn(e.getMessage());
         }
-        LOGGER.info("Tabela " + GENERAL_TABLE + " criado na base de dados " + DATABASE_NAME + " com sucesso!!");
+        OperationLOG.LOGGER.info("Tabela " + GENERAL_TABLE + " criado na base de dados " + DATABASE_NAME + " com sucesso!!");
     }
 
 
@@ -149,11 +147,11 @@ public class OperacoesSQL {
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOGGER.warning(e.getMessage());
+            OperationLOG.LOGGER.warn(e.getMessage());
         }
 
         // se n√£o quiser uma resposta por cada linha inserida, comenta esse print!!
-        LOGGER.info("Linha inserida com sucesso!");
+        OperationLOG.LOGGER.info("Linha inserida com sucesso!");
         // System.out.println("Linha inserida com sucesso!");
     }
 
@@ -170,9 +168,9 @@ public class OperacoesSQL {
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOGGER.warning(e.getMessage());
+            OperationLOG.LOGGER.warn(e.getMessage());
         }
-        LOGGER.info("Linha apagado com sucesso.!");
+        OperationLOG.LOGGER.info("Linha apagado com sucesso.!");
     }
 
 
@@ -194,8 +192,8 @@ public class OperacoesSQL {
             // update
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warning(e.getMessage());
+            OperationLOG.LOGGER.warn(e.getMessage());
         }
-        LOGGER.info("Linha atualizado com sucesso!");
+        OperationLOG.LOGGER.info("Linha atualizado com sucesso!");
     }
 }

@@ -97,7 +97,7 @@ public class Operacao {
             saveOperationXML();
 
         } catch (Exception e) {
-            OperacoesSQL.LOGGER.warning("Não foi possivel gravar");
+            OperationLOG.LOGGER.warn("Não foi possivel gravar");
             e.printStackTrace();
         }
 
@@ -114,7 +114,7 @@ public class Operacao {
         out.writeObject(p);
         out.close();
         fileOut.close();
-        oprS.LOGGER.info("Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_" + p.getId() + ".ser");
+        OperationLOG.LOGGER.info("Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_" + p.getId() + ".ser");
     }
 
 
@@ -171,7 +171,7 @@ public class Operacao {
 
         transformer.transform(source, result);
 
-        oprS.LOGGER.info("File xml saved!");
+        OperationLOG.LOGGER.info("File xml saved!");
     }
 
 
@@ -191,14 +191,14 @@ public class Operacao {
             if (deleteSER.exists() && deleteXML.exists()) {
                 deleteXML.delete();
                 deleteSER.delete();
-                OperacoesSQL.LOGGER.info("File XML and SER delete!");
+                OperationLOG.LOGGER.info("File XML and SER delete!");
             } else {
-                OperacoesSQL.LOGGER.info("Delete operation is failed!");
+                OperationLOG.LOGGER.info("Delete operation is failed!");
                 JOptionPane.showMessageDialog(null, "O id " + id + " nao existe.");
             }
 
         } catch (Exception e) {
-            OperacoesSQL.LOGGER.warning(e.getMessage());
+            OperationLOG.LOGGER.warn(e.getMessage());
         }
     }
 
@@ -224,7 +224,7 @@ public class Operacao {
             JOptionPane.showConfirmDialog(null, "O id " + p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
             return null;
         } catch (ClassNotFoundException c) {
-            oprS.LOGGER.info("Pessoa nao encontrado");
+            OperationLOG.LOGGER.info("Pessoa nao encontrado");
             return null;
         }
         return p;
@@ -248,7 +248,7 @@ public class Operacao {
             JOptionPane.showConfirmDialog(null, "O id " + p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
             return null;
         } catch (ClassNotFoundException c) {
-            oprS.LOGGER.info("Pessoa nao encontrado");
+            OperationLOG.LOGGER.info("Pessoa nao encontrado");
             return null;
         }
         return p;

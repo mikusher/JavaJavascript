@@ -552,7 +552,7 @@ public class Gui extends javax.swing.JFrame {
                                                          .trim());
                 String _idade = String.valueOf(opr.p.getIdade());
                 if (opr.checkUtilizador(idCheck) == null) {
-                    OperacoesSQL.LOGGER.warning(idCheck + " não encontrado!");
+                    OperationLOG.LOGGER.warn(idCheck + " não encontrado!");
                 } else {
                     this.jt_EditName.setText(opr.p.getNome());
                     this.jt_EditEndereco.setText(opr.p.getEndereco());
@@ -561,7 +561,7 @@ public class Gui extends javax.swing.JFrame {
                 }
 
             } catch (Exception e) {
-                OperacoesSQL.LOGGER.warning("Erro na verificação de ID!");
+                OperationLOG.LOGGER.warn("Erro na verificação de ID!");
             }
 
         }
@@ -589,10 +589,10 @@ public class Gui extends javax.swing.JFrame {
                                     Integer.parseInt(jt_EditIdade.getText()),
                                     jt_EditEndereco.getText()
                                                    .toString());
-            OperacoesSQL.LOGGER.info("Informações Editadas com Sucesso!!");
+            OperationLOG.LOGGER.info("Informações Editadas com Sucesso!!");
         } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
             // TODO Auto-generated catch block
-            OperacoesSQL.LOGGER.warning("Não foi possivel editar!");
+            OperationLOG.LOGGER.warn("Não foi possivel editar!");
             e.printStackTrace();
         }
 
@@ -665,7 +665,7 @@ public class Gui extends javax.swing.JFrame {
                 int idCheck = Integer.parseInt(jtidPesquisa.getText()
                                                            .trim());
                 if (opr.pesquisarUtilizador(idCheck) == null) {
-                    OperacoesSQL.LOGGER.warning("O ID " + idCheck + " não foi encontrado!");
+                    OperationLOG.LOGGER.warn("O ID " + idCheck + " não foi encontrado!");
                     jtidPesquisa.setText("");
                     jtResultado.setText("");
 
