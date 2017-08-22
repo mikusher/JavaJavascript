@@ -18,6 +18,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.AlgorithmParameterSpec;
+import java.util.Arrays;
 
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
@@ -33,10 +34,20 @@ import javax.crypto.spec.IvParameterSpec;
 
 public class JavaDESEncryption {
 
-    private static Cipher       encrypt;
-    private static Cipher       decrypt;
+    private static Cipher           encrypt;
+    private static Cipher           decrypt;
 
-    private static final byte[] initialization_vector = { 22, 33, 11, 44, 55, 99, 66, 77 };
+    private static final byte[]     initialization_vector = { 22, 33, 11, 44, 55, 99, 66, 77 };
+
+    // ------------------- not use - to deleted ---------------
+    private static final double[][] strong_vector         = { { 22, 33, 11, 44, 55, 99, 66, 77 }, { 45, 21, 96, 78, 52, 55, 42, 79 } };
+
+    private static final double[]   all_vector            = Arrays.stream(strong_vector)
+                                                                  .flatMapToDouble(Arrays::stream)
+                                                                  .toArray();
+
+    private static final byte[]     allInBytes            = new byte[all_vector.length * 8];
+    // ---------------------------------------------------------
 
 
 
