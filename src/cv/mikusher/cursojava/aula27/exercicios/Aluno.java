@@ -7,9 +7,9 @@ public class Aluno {
 	int matricula;
 	String curso;
 	String[] disciplinas = new String[3];
-	int[] notasDisciplina = new int[3];
+	double[] notasDisciplina = new double[3];
 
-	void aproveitamento(String[] disciplina, int[] nota) {
+	void aproveitamento(String[] disciplina, double[] nota) {
 
 		System.out.println("Curso: " + this.curso);
 		System.out.println("Aluno: " + this.nome + " - Matricula: " + this.matricula);
@@ -39,7 +39,7 @@ public class Aluno {
 		System.out.println();
 	}
 
-	double media(int[] nota) {
+	double media(double[] nota) {
 		double _media = 0;
 		for (int i = 0; i < nota.length; i++) {
 			_media = _media + nota[i];
