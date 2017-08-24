@@ -21,7 +21,7 @@ public class Exec3_ {
 
         Scanner scan = new Scanner(System.in);
 
-        Aluno3 aluno = new Aluno3();
+        Aluno4 aluno = new Aluno4();
 
         System.out.println("Entre com o nome do aluno");
         aluno.setNome(scan.next());
