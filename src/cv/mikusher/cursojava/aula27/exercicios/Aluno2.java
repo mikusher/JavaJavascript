@@ -4,51 +4,37 @@ package cv.mikusher.cursojava.aula27.exercicios;
 public class Aluno2 {
 
 	String nome;
-	int matricula;
+	String matricula;
 	String curso;
 	String[] disciplinas = new String[3];
-	double[][] notasDisciplina = new double[2][2];
+	double[][] notasDisciplina = new double[3][4];
 
-	void aproveitamento(String[] disciplina, double[][] nota) {
+	void mostrarInfo() {
+		System.out.println("Nome: " + nome);
+		System.out.println("Matricula: " + matricula);
+		System.out.println("Nome do Curso: " + curso);
 
-		System.out.println("Curso: " + this.curso);
-		System.out.println("Aluno: " + this.nome + " - Matricula: " + this.matricula);
-
-		boolean validadeNota = true;
 		for (int i = 0; i < notasDisciplina.length; i++) {
+			System.out.println("Notas das disciplinas: " + notasDisciplina[i]);
 			for (int j = 0; j < notasDisciplina[i].length; j++) {
-				if (nota[i][j] > 20 || nota[i][j] < 0) {
-					System.out.println(
-							"Valor de nota " + nota[i] + " para a disciplina " + disciplina[i] + " esta incorreta");
-					validadeNota = false;
-				} else {
-					if (nota[i][j] < 7) {
-						System.out.println("Aproveitamento na disciplina " + disciplina[i] + " é Reprovado.");
-					} else if (nota[i][j] == 7) {
-						System.out.println("Aproveitamento na disciplina " + disciplina[i]
-								+ " é Aprovado, mas precisa estudar mais.");
-					} else {
-						System.out.println("Aproveitamento na disciplina " + disciplina[i] + " é Aprovado.");
-					}
-				}
+				System.out.println(notasDisciplina[i][j] + " ");
 			}
+			System.out.println();
 		}
-		if (validadeNota) {
-			System.out.println("Media: " + media(this.notasDisciplina));
+	}
+
+	boolean verificarAprovado(int index) {
+		double soma = 0;
+		for (int i = 0; i < notasDisciplina[index].length; i++) {
+			soma = soma + notasDisciplina[index][i];
+		}
+
+		double media = soma / 4;
+
+		if (media >= 7) {
+			return true;
 		} else {
-			System.out.println("Impossivel calcular a media do aluno");
+			return false;
 		}
-		System.out.println();
 	}
-
-	double media(double[][] nota) {
-		double _media = 0;
-		for (int i = 0; i < nota.length; i++) {
-			for (int j = 0; j < nota[j].length; j++) {
-				_media = _media + nota[i][j];
-			}
-		}
-		return _media / disciplinas.length;
-	}
-
 }

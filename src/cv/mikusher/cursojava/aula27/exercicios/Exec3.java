@@ -28,6 +28,7 @@ public class Exec3 {
 		al2.notasDisciplina[0] = 14;
 		al2.notasDisciplina[1] = 9;
 		al2.notasDisciplina[2] = 20;
+
 		al2.aproveitamento(al2.disciplinas, al2.notasDisciplina);
 
 	}
