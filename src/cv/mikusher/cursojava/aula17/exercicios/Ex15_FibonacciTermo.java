@@ -23,7 +23,7 @@ public class Ex15_FibonacciTermo {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner scan = new Scanner(System.in);
-        System.out.print("Entre com o N da serie de Fibonacci: ");
+        System.out.print("Entre com o N da serie de Calculadora: ");
         
         int n = scan.nextInt();
         int primeiro = 1;
