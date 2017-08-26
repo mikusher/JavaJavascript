@@ -11,7 +11,7 @@ package cv.mikusher.calendarioMaia;
 
 public class Dia {
 
-    private int[] tamanhoGeral = new int[6];
+    private int[] tamanhoGeralDia = new int[6];
     private int[] domingo      = new int[] { 1, 8, 15, 22, 29, 36 };
     private int[] segunda      = new int[] { 2, 9, 16, 23, 30, 37 };
     private int[] terca        = new int[] { 3, 10, 17, 24, 31, 38 };
@@ -27,7 +27,7 @@ public class Dia {
     public String Dia(int dia) {
 
         String diaSemana = null;
-        for (int i = 0; i < tamanhoGeral.length; i++) {
+        for (int i = 0; i < tamanhoGeralDia.length; i++) {
             if (dia == domingo[i]) {
                 diaSemana = "Domingo";
             } else if (dia == segunda[i]) {
