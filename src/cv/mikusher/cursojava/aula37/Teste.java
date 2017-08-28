@@ -15,9 +15,11 @@ public class Teste {
         // TODO Auto-generated method stub
 
         Aluno aluno = new Aluno();
+        Pessoa aluno2 = new Aluno();
         Professor professor = new Professor();
 
         aluno.setNome("João");
+        aluno2.setNome("Maria");
 
     }
 
