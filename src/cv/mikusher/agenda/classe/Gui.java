@@ -22,7 +22,7 @@ public class Gui extends javax.swing.JFrame {
 
 	static Object uuid = null;
 	Operacao opr = new Operacao();
-	OperacoesSQL opSql = new OperacoesSQL();
+	OperacoesSQL_Lite opSql = new OperacoesSQL_Lite();
 	Pessoa ps = new Pessoa();
 
 	/**
@@ -276,7 +276,7 @@ public class Gui extends javax.swing.JFrame {
 
 		jLabel4.setText("Nome:");
 
-		jLabel6.setText("Endereço:");
+		jLabel6.setText("Endereï¿½o:");
 
 		jLabel7.setText("Idade:");
 
@@ -417,7 +417,7 @@ public class Gui extends javax.swing.JFrame {
 			// Remove the XML File and SER File
 			opr.deleteFileUser(idRemove);
 			// Remove the SQL Query
-			OperacoesSQL.deleteSQLUser(idRemove);
+			OperacoesSQL_Lite.deleteSQLUser(idRemove);
 		} catch (Exception e) {
 			System.out.println("Error in Removed");
 		}
@@ -434,7 +434,7 @@ public class Gui extends javax.swing.JFrame {
 				int idCheck = Integer.parseInt(jt_IDCheck.getText().trim());
 				String _idade = String.valueOf(opr.p.getIdade());
 				if (opr.checkUtilizador(idCheck) == null) {
-					LoggOperation.LOGGER.warning(idCheck + " não encontrado!");
+					LoggOperation.LOGGER.warning(idCheck + " nï¿½o encontrado!");
 				} else {
 					this.jt_EditName.setText(opr.p.getNome());
 					this.jt_EditEndereco.setText(opr.p.getEndereco());
@@ -443,7 +443,7 @@ public class Gui extends javax.swing.JFrame {
 				}
 
 			} catch (Exception e) {
-				LoggOperation.LOGGER.warning("Erro na verificação de ID!");
+				LoggOperation.LOGGER.warning("Erro na verificaï¿½ï¿½o de ID!");
 			}
 
 		}
@@ -456,13 +456,13 @@ public class Gui extends javax.swing.JFrame {
 			opr.gravarBeforEditUser(jt_EditName.getText().toString(), jt_EditEndereco.getText().toString(),
 					Integer.parseInt(jt_EditIdade.getText()));
 
-			// Atualização somento na base de dados funcional por momento
-			OperacoesSQL.updateUser(Integer.parseInt(jt_IDCheck.getText().trim()), jt_EditName.getText().toString(),
+			// Atualizaï¿½ï¿½o somento na base de dados funcional por momento
+			OperacoesSQL_Lite.updateUser(Integer.parseInt(jt_IDCheck.getText().trim()), jt_EditName.getText().toString(),
 					Integer.parseInt(jt_EditIdade.getText()), jt_EditEndereco.getText().toString());
-			LoggOperation.LOGGER.info("Informações Editadas com Sucesso!!");
+			LoggOperation.LOGGER.info("Informaï¿½ï¿½es Editadas com Sucesso!!");
 		} catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
 			// TODO Auto-generated catch block
-			LoggOperation.LOGGER.warning("Não foi possivel editar!");
+			LoggOperation.LOGGER.warning("Nï¿½o foi possivel editar!");
 			e.printStackTrace();
 		}
 
@@ -481,7 +481,7 @@ public class Gui extends javax.swing.JFrame {
 
 			// is create on initial Gui
 			// Database operation (sqlLite)
-			OperacoesSQL.insert(opr.p.getUUID(), Integer.parseInt(jtId.getText()), jtName.getText().toString(),
+			OperacoesSQL_Lite.insert(opr.p.getUUID(), Integer.parseInt(jtId.getText()), jtName.getText().toString(),
 					Integer.parseInt(jtIdade.getText()), jtEndereco.getText());
 
 		} catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
@@ -507,7 +507,7 @@ public class Gui extends javax.swing.JFrame {
 			try {
 				int idCheck = Integer.parseInt(jtidPesquisa.getText().trim());
 				if (opr.pesquisarUtilizador(idCheck) == null) {
-					LoggOperation.LOGGER.warning("O ID " + idCheck + " não foi encontrado!");
+					LoggOperation.LOGGER.warning("O ID " + idCheck + " nï¿½o foi encontrado!");
 					jtidPesquisa.setText("");
 					jtResultado.setText("");
 
@@ -517,7 +517,7 @@ public class Gui extends javax.swing.JFrame {
 				}
 
 			} catch (NumberFormatException e) {
-				JOptionPane.showConfirmDialog(null, "Não é um ID. Indica um valor numerico valido para pesquisa",
+				JOptionPane.showConfirmDialog(null, "Nï¿½o ï¿½ um ID. Indica um valor numerico valido para pesquisa",
 						"Numero Invalido", JOptionPane.CANCEL_OPTION);
 			}
 		}

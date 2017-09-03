@@ -10,7 +10,6 @@ package cv.mikusher.agenda.classe;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,43 +18,18 @@ import java.sql.Statement;
  *
  * @author Mikusher
  */
-public class OperacoesSQL {
+public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation{
 
-	static final String DATABASE_FOLDER = "src/cv/mikusher/agenda/sqlLite/";
-	static final String DATABASE_NAME = "Funcionario.s3db";
-	static final String GENERAL_TABLE = DATABASE_NAME.replaceAll(".s3db", "").trim();
-
-	/**
-	 * Conectar com a Base de Dados Agenda.s3db
-	 *
-	 * @param dataBaseName
-	 *            indica a base de dados que sera chamada para efetuar a operação
-	 * @return the Connection object
-	 */
-	private static Connection connect() {
-
-		// SQLite connection string
-		String url = "jdbc:sqlite:" + DATABASE_FOLDER + DATABASE_NAME;
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(url);
-		} catch (SQLException e) {
-			LoggOperation.LOGGER.warning(e.getMessage());
-		}
-		return conn;
-	}
 
 	/**
 	 * 
 	 */
 	public static void createNewDatabase() {
 
-		String url = "jdbc:sqlite:" + DATABASE_FOLDER + DATABASE_NAME;
-
-		try (Connection conn = DriverManager.getConnection(url)) {
+		try (Connection conn = connect("lite")) {
 			if (conn != null) {
 				DatabaseMetaData meta = conn.getMetaData();
-				LoggOperation.LOGGER.info("O Drive usado � " + meta.getDriverName());
+				LoggOperation.LOGGER.info("O Drive usado é " + meta.getDriverName());
 				LoggOperation.LOGGER.info("Base de dados " + DATABASE_NAME + " criado com sucesso.");
 			}
 
@@ -74,16 +48,9 @@ public class OperacoesSQL {
 	public static void createNewTable() {
 
 		// SQLite conexão com a base de dados
-		String url = "jdbc:sqlite:" + DATABASE_FOLDER + DATABASE_NAME;
-
-		// SQL criação da nova tabela (id, nome, idade, telefone)
-		String sql = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + "	uuid text,\n"
-				+ "	id integer PRIMARY KEY,\n" + "	nome text NOT NULL,\n" + "	idade integer NOT NULL,\n"
-				+ "	endereco text\n" + ");";
-
-		try (Connection conn = DriverManager.getConnection(url); Statement stmt = conn.createStatement()) {
+		try (Connection conn = connect("lite"); Statement stmt = conn.createStatement()) {
 			// executando a query
-			stmt.execute(sql);
+			stmt.execute(liteCreateTable);
 		} catch (SQLException e) {
 			LoggOperation.LOGGER.warning(e.getMessage());
 		}
@@ -107,11 +74,9 @@ public class OperacoesSQL {
 	 */
 	public static void insert(String uuid, Integer id, String nome, Integer idade, String endereco) {
 
-		String sql = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
+		try (Connection conn = connect("lite");
 
-		try (Connection conn = connect();
-
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                        PreparedStatement pstmt = conn.prepareStatement(liteInsert)) {
 			pstmt.setString(1, uuid);
 			pstmt.setInt(2, id);
 			pstmt.setString(3, nome);
@@ -130,9 +95,7 @@ public class OperacoesSQL {
 
 	public static void deleteSQLUser(Integer id) {
 
-		String sql = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
-
-		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = connect("lite"); PreparedStatement pstmt = conn.prepareStatement(liteDelete)) {
 			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 
@@ -144,9 +107,7 @@ public class OperacoesSQL {
 
 	public static void updateUser(int id, String nome, int idade, String endereco) {
 
-		String sql = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
-
-		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = connect("lite"); PreparedStatement pstmt = conn.prepareStatement(liteUpdate)) {
 
 			// set the corresponding param
 			pstmt.setString(1, nome);

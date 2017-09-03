@@ -21,7 +21,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -33,7 +32,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -44,7 +42,7 @@ public class Operacao {
 	private static final String DADOS_EMPREGADO_XML = "src/cv/mikusher/agenda/xml/Empregado_";
 	static String _uuid = "null";
 	Pessoa p = new Pessoa();
-	OperacoesSQL oprS = new OperacoesSQL();
+	OperacoesSQL_Lite oprS = new OperacoesSQL_Lite();
 
 	public void gravarUtilizador(Object nome, Object endereco, Object idade, Object id, Object uuid)
 			throws ParserConfigurationException, TransformerException {
@@ -58,7 +56,7 @@ public class Operacao {
 		try {
 			// -----------------------SER / XML Configuration----------------------- //
 			saveOperationSER();
-			saveOperationXML();
+			//saveOperationXML();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,7 +77,7 @@ public class Operacao {
 			saveOperationXML();
 
 		} catch (Exception e) {
-			LoggOperation.LOGGER.warning("Não foi possivel gravar");
+			LoggOperation.LOGGER.warning("Nï¿½o foi possivel gravar");
 			e.printStackTrace();
 		}
 

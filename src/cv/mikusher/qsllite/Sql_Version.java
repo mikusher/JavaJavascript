@@ -39,7 +39,7 @@ public class Sql_Version {
 
     static String     sqlLite   = "jdbc:sqlite:src/cv/mikusher/qsllite/BaseDados/Agenda.s3db";
     static String     mySql     = "jdbc:mysql://127.0.0.1:3307/testdb?useSSL=false";
-    static String     postgres  = "jdbc:postgresql://127.0.0.1:5432/testdb";
+    static String     postgres  = "jdbc:postgresql://127.0.0.1:5432/Funcionario";
 
 
 
