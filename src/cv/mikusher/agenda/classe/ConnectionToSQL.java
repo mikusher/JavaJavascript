@@ -15,7 +15,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Luis Tavares
+ * @author Luis Amilcar Tavares
  */
 public class ConnectionToSQL implements ConstantesSQL{
     

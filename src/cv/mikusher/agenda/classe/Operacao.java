@@ -12,6 +12,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * Luis Amilcar Tavares
+ */
+
 package cv.mikusher.agenda.classe;
 
 import java.io.File;

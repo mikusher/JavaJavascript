@@ -1,6 +1,9 @@
 
 package cv.mikusher.agenda.classe;
 
+/**
+ * Luis Amilcar Tavares
+ */
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;

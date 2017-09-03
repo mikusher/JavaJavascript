@@ -16,7 +16,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author Mikusher
+ * @author Miky Mikusher
  */
 public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation{
 

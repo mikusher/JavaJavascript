@@ -7,11 +7,13 @@
  * (at your option) any later version.
  *
  */
+
+
 package cv.mikusher.agenda.classe;
 
 /**
  *
- * @author Luis Tavares
+ * @author Luis Amilcar Tavares
  */
 public interface ConstantesSQL {
           

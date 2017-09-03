@@ -11,7 +11,7 @@ package cv.mikusher.agenda.classe;
 
 /**
  *
- * @author Luis Tavares
+ * @author Luis Amilcar Tavares
  */
 public interface QueryOperation extends ConstantesSQL{
     

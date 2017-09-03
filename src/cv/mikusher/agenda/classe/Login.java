@@ -7,7 +7,9 @@
  */
 
 
-
+/**
+ * Luis Amilcar Tavares
+ */
 
 
 package cv.mikusher.agenda.classe;
@@ -17,7 +19,6 @@ package cv.mikusher.agenda.classe;
 
 
 import java.awt.HeadlessException;
-
 import javax.swing.JOptionPane;
 
 
