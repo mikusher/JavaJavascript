@@ -23,30 +23,33 @@ package cv.mikusher.agenda.classe.sqlClass;
 public interface QueryOperation extends ConstantesSQL {
 
     // -- Query for SqlLite
-    // SQL criação da nova tabela (id, nome, idade, telefone)
+    // SQL criaï¿½ï¿½o da nova tabela (id, nome, idade, telefone)
     String liteCreateTable = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + "	uuid text,\n" + "	id integer PRIMARY KEY,\n" + "	nome text NOT NULL,\n" + "	idade integer NOT NULL,\n"
                              + "	endereco text\n" + ");";
 
-    // Operações de SqlLite - Insert
+    // Operation SqlLite - Insert
     String liteInsert      = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
 
-    // Operações de SqlLite - Delete
+    // Operation SqlLite - Delete
     String liteDelete      = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
 
-    // Operações de SqlLite - Update
+    // Operation SqlLite - Update
     String liteUpdate      = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
 
     // -- Query for Postgres
     String psqlCreateTable = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + " uuid text,\n" + "   id int PRIMARY KEY,\n" + "  nome text NOT NULL,\n" + "  idade int NOT NULL,\n"
                              + "    endereco text\n" + ");";
 
-    // Operações de Postgres - Insert
+    // Operation Postgres - Insert
     String psqlInsert      = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
 
-    // Operações de Postgres - Delete
+    // Operation Postgres - Delete
     String psqlDelete      = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
 
-    // Operações de Postgres - Update
+    // Operation Postgres - Update
     String psqlUpdate      = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
+
+    // Operation Users
+    String queryUSERS      = "SELECT users_name, users_password FROM users_login;";
 
 }

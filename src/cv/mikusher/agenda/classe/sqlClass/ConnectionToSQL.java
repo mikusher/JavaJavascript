@@ -18,7 +18,9 @@ package cv.mikusher.agenda.classe.sqlClass;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import cv.mikusher.agenda.classe.LoggOperation;
 
@@ -30,7 +32,7 @@ import cv.mikusher.agenda.classe.LoggOperation;
  *
  * @author Luis Amilcar Tavares
  */
-public class ConnectionToSQL implements ConstantesSQL {
+public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
 
     static Connection conn = null;
 
@@ -59,4 +61,45 @@ public class ConnectionToSQL implements ConstantesSQL {
         }
         return conn;
     }
+
+
+
+
+
+    public boolean loginCheck(String username, String password) {
+
+        String dbUsername, dbPassword;
+        boolean login = false;
+
+        try {
+            Class.forName("org.postgresql.Driver")
+                 .newInstance();
+            conn = DriverManager.getConnection(POSTGRES, pUser, pPassword);
+            Statement stmt = (Statement) conn.createStatement();
+            stmt.executeQuery(queryUSERS);
+            ResultSet resultS = stmt.getResultSet();
+            while (resultS.next()) {
+                dbUsername = resultS.getString("users_name");
+                dbPassword = resultS.getString("users_password");
+
+                if (dbUsername.equalsIgnoreCase(username) && dbPassword.equals(password)) {
+                    login = true;
+                    LoggOperation.LOGGER.info("Connection Done");
+                } else {
+                    LoggOperation.LOGGER.warning("Fail connection");
+                }
+            }
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return login;
+    }
+
 }

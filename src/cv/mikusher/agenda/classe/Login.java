@@ -6,10 +6,12 @@
  * (at your option) any later version.
  */
 
-
 /**
  * Luis Amilcar Tavares
  */
+
+
+
 
 
 package cv.mikusher.agenda.classe;
@@ -19,7 +21,10 @@ package cv.mikusher.agenda.classe;
 
 
 import java.awt.HeadlessException;
+
 import javax.swing.JOptionPane;
+
+import cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL;
 
 
 
@@ -34,6 +39,12 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    ConnectionToSQL ctdb = new ConnectionToSQL();
+
+
+
+
+
     public Login() {
 
         initComponents();
@@ -159,11 +170,7 @@ public class Login extends javax.swing.JFrame {
 
         // TODO add your handling code here:
         try {
-            if (jtUsername.getText()
-                          .equals("luis")
-                && (jtPassword.getPassword()
-                              .toString()
-                              .equals("1234"))) {
+            if (ctdb.loginCheck(jtUsername.getText(), String.valueOf(jtPassword.getPassword()))) {
                 new Gui().setVisible(true);
                 this.dispose();
                 this.setResizable(false);
