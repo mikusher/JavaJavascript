@@ -1,0 +1,52 @@
+/*
+ * Copyright (C) 2017 Luis Tavares
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ */
+
+
+
+
+
+package cv.mikusher.agenda.classe.sqlClass;
+
+
+
+
+
+/**
+ *
+ * @author Luis Amilcar Tavares
+ */
+public interface QueryOperation extends ConstantesSQL {
+
+    // -- Query for SqlLite
+    // SQL criação da nova tabela (id, nome, idade, telefone)
+    String liteCreateTable = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + "	uuid text,\n" + "	id integer PRIMARY KEY,\n" + "	nome text NOT NULL,\n" + "	idade integer NOT NULL,\n"
+                             + "	endereco text\n" + ");";
+
+    // Operações de SqlLite - Insert
+    String liteInsert      = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
+
+    // Operações de SqlLite - Delete
+    String liteDelete      = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
+
+    // Operações de SqlLite - Update
+    String liteUpdate      = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
+
+    // -- Query for Postgres
+    String psqlCreateTable = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + " uuid text,\n" + "   id int PRIMARY KEY,\n" + "  nome text NOT NULL,\n" + "  idade int NOT NULL,\n"
+                             + "    endereco text\n" + ");";
+
+    // Operações de Postgres - Insert
+    String psqlInsert      = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
+
+    // Operações de Postgres - Delete
+    String psqlDelete      = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
+
+    // Operações de Postgres - Update
+    String psqlUpdate      = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
+
+}
