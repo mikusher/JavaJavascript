@@ -24,8 +24,8 @@ import java.sql.SQLException;
 
 public class conexao {
 
-    static Connection conn     = null;
-    private String    contType = null;
+    static Connection conn = null;
+    private String    contType;
 
 
 
@@ -33,7 +33,7 @@ public class conexao {
 
     public String getContType() {
 
-        return String.valueOf(contType);
+        return contType;
     }
 
 
@@ -62,32 +62,27 @@ public class conexao {
 
 
 
-    public conexao(String _type) {
+    public conexao(String contType) {
         String sql, user, password;
 
-        this.contType = _type;
-
         try {
-            if (getContType().toString()
-                             .equalsIgnoreCase("mysql")) {
+            if (getContType().equalsIgnoreCase("mysql")) {
                 sql = this.mySql;
                 user = this.mUser;
                 password = this.mPassword;
                 conn = DriverManager.getConnection(sql, user, password);
-                System.out.println("Connection to " + _type + " has been established.");
-            } else if (getContType().toString()
-                                    .equalsIgnoreCase("psql")) {
+                System.out.println("Connection to " + contType + " has been established.");
+            } else if (getContType().equalsIgnoreCase("psql")) {
                 sql = this.postgres;
                 user = this.pUser;
                 password = this.pPassword;
                 conn = DriverManager.getConnection(sql, user, password);
-                System.out.println("Connection to " + _type + " has been established.");
-            } else if (getContType().toString()
-                                    .equalsIgnoreCase("sqlite")) {
+                System.out.println("Connection to " + contType + " has been established.");
+            } else if (getContType().equalsIgnoreCase("sqlite")) {
                 conn = DriverManager.getConnection(this.sqlLite);
-                System.out.println("Connection to " + _type + " has been established.");
+                System.out.println("Connection to " + contType + " has been established.");
             } else {
-                System.err.println("Error to connect to " + _type);
+                System.err.println("Error to connect to " + contType);
             }
 
         } catch (SQLException e) {
