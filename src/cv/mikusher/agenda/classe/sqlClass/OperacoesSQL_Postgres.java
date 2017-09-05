@@ -174,6 +174,6 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
         }
 
         // se não quiser uma resposta por cada linha inserida, comenta esse print!!
-        LoggOperation.LOGGER.info("Novo utilizaror para Login criado com sucesso!");
+        LoggOperation.LOGGER.info("Novo utilizaror de Login criado com sucesso!");
     }
 }
