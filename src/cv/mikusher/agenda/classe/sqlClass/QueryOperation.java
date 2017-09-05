@@ -52,4 +52,7 @@ public interface QueryOperation extends ConstantesSQL {
     // Operation Users
     String queryUSERS      = "SELECT users_name, users_password FROM users_login;";
 
+    // Operation Users to login
+    String queryNewUSERS   = "INSERT INTO users_login (users_name, users_password) VALUES (?, ?);";
+
 }

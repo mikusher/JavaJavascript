@@ -660,7 +660,10 @@ public class Gui extends javax.swing.JFrame {
 
 
     private void jbClearNewUPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbClearNewUPActionPerformed
-        // TODO add your handling code here:
+
+        jtNewName.setText("");
+        jtNewPassword.setText("");
+
     }// GEN-LAST:event_jbClearNewUPActionPerformed
 
 
@@ -668,7 +671,25 @@ public class Gui extends javax.swing.JFrame {
 
 
     private void jbNewUserLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbNewUserLoginActionPerformed
-        // TODO add your handling code here:
+
+        if (!jtNewName.getText()
+                      .equalsIgnoreCase("")
+            && !jtNewPassword.getText()
+                             .equalsIgnoreCase("")) {
+            try {
+                OperacoesSQL_Postgres.insertUsers(jtNewName.getText()
+                                                           .toString(),
+                                                  jtNewPassword.getText()
+                                                               .toString());
+            } catch (Exception e) {
+                LoggOperation.LOGGER.warning("Error in add new User in database");
+            }
+
+        } else {
+            JOptionPane.showConfirmDialog(null, "Campo vazio, por favor completa os dados necessarios", "Campo User ou Password vazio", JOptionPane.CANCEL_OPTION);
+            LoggOperation.LOGGER.warning("Campo vazio, por favor corrigir");
+        }
+
     }// GEN-LAST:event_jbNewUserLoginActionPerformed
 
 
@@ -689,7 +710,7 @@ public class Gui extends javax.swing.JFrame {
             // Operation psql
             OperacoesSQL_Postgres.deleteSQLUser(idRemove);
         } catch (Exception e) {
-            System.out.println("Error in Removed");
+            LoggOperation.LOGGER.warning("Error in Removed");
         }
     }
 

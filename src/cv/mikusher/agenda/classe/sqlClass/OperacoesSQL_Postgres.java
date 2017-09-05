@@ -42,7 +42,7 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
         try (Connection conn = connect("psql")) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                LoggOperation.LOGGER.info("O Drive usado é" + meta.getDriverName());
+                LoggOperation.LOGGER.info("O Drive usado ï¿½" + meta.getDriverName());
                 LoggOperation.LOGGER.info("Base de dados " + GENERAL_TABLE + " criado com sucesso.");
             }
 
@@ -149,5 +149,31 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
             LoggOperation.LOGGER.warning(e.getMessage());
         }
         LoggOperation.LOGGER.info("Linha atualizado com sucesso!");
+    }
+
+
+
+
+
+    /**
+     * 
+     * @param name
+     * @param password
+     */
+    public static void insertUsers(String name, String password) {
+
+        try (Connection conn = connect("psql");
+
+                        PreparedStatement pstmt = conn.prepareStatement(queryNewUSERS)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, password);
+            pstmt.executeQuery();
+
+        } catch (SQLException e) {
+            LoggOperation.LOGGER.warning(e.getMessage());
+        }
+
+        // se nÃ£o quiser uma resposta por cada linha inserida, comenta esse print!!
+        LoggOperation.LOGGER.info("Novo utilizaror de Login criado com sucesso!");
     }
 }
