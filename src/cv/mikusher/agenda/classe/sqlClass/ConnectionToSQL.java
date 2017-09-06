@@ -89,7 +89,6 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
                     LoggOperation.LOGGER.warning("Fail connection");
                 }
             }
-
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -101,5 +100,4 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
         }
         return login;
     }
-
 }
