@@ -1,0 +1,92 @@
+/*
+ * Copyright (C) 2017 latavares - 05/09/2017
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+
+
+
+package cv.mikusher.cursojava.aula46.exercicios;
+
+
+
+
+
+public class Cilindro extends Figura3D {
+
+    private int    altura;
+    private double raio;
+
+
+
+
+
+    public int getAltura() {
+
+        return altura;
+    }
+
+
+
+
+
+    public void setAltura(int altura) {
+
+        this.altura = altura;
+    }
+
+
+
+
+
+    public double getRaio() {
+
+        return raio;
+    }
+
+
+
+
+
+    public void setRaio(double raio) {
+
+        this.raio = raio;
+    }
+
+
+
+
+
+    @Override
+    public double calcularArea() {
+
+        double areaBase = (Math.PI * Math.pow(raio, 2));
+        double areaLateral = (2 * Math.PI * raio * altura);
+        double areaTotal = (2 * areaBase) + areaLateral;
+
+        // TODO Auto-generated method stub
+        return areaTotal;
+    }
+
+
+
+
+
+    @Override
+    public double calcularVolume() {
+
+        // TODO Auto-generated method stub
+        return (Math.PI * Math.pow(raio, 2) * altura);
+    }
+
+}
