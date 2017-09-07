@@ -16,7 +16,6 @@ import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.FastVector;
 import weka.core.Instances;
-import org.pentaho.packageManagement.*;
 
 
 
@@ -64,7 +63,7 @@ public class Driver {
         iExample.setValue((Attribute) fvWekaAttributes.elementAt(3), "positive");
 
         // add the instance
-        //isTrainingSet.add(iExample);
+        // isTrainingSet.add(iExample);
         Classifier cModel = new NaiveBayes();
         cModel.buildClassifier(isTrainingSet);
 
