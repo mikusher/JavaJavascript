@@ -18,6 +18,7 @@ package cv.mikusher.agenda.classe;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import javax.xml.parsers.ParserConfigurationException;
@@ -661,6 +662,16 @@ public class Gui extends javax.swing.JFrame {
 
     private void jbClearNewUPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbClearNewUPActionPerformed
 
+        String userToDelete = jtNewName.getText().trim();
+        if (userToDelete.equals("")){
+            LoggOperation.LOGGER.info("Campo vazio, por favor corrigir");
+        }else {
+            try {
+                OperacoesSQL_Postgres.deleteUsersLogin(userToDelete);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         jtNewName.setText("");
         jtNewPassword.setText("");
 
@@ -677,10 +688,8 @@ public class Gui extends javax.swing.JFrame {
             && !jtNewPassword.getText()
                              .equalsIgnoreCase("")) {
             try {
-                OperacoesSQL_Postgres.insertUsers(jtNewName.getText()
-                                                           .toString(),
-                                                  jtNewPassword.getText()
-                                                               .toString());
+                OperacoesSQL_Postgres.insertUsers(jtNewName.getText(),
+                                                  jtNewPassword.getText());
             } catch (Exception e) {
                 LoggOperation.LOGGER.warning("Error in add new User in database");
             }
@@ -720,7 +729,7 @@ public class Gui extends javax.swing.JFrame {
 
     private void jb_IDCheckActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jb_IDCheckActionPerformed
 
-        if (jt_IDCheck.getText() == "" || jt_IDCheck.getText()
+        if (jt_IDCheck.getText().equals("") || jt_IDCheck.getText()
                                                     .isEmpty()
             || jt_IDCheck.getText()
                          .equals("")) {
@@ -732,16 +741,16 @@ public class Gui extends javax.swing.JFrame {
                                                          .trim());
                 String _idade = String.valueOf(opr.p.getIdade());
                 if (opr.checkUtilizador(idCheck) == null) {
-                    LoggOperation.LOGGER.warning(idCheck + " n�o encontrado!");
+                    LoggOperation.LOGGER.warning(idCheck + " não encontrado!");
                 } else {
                     this.jt_EditName.setText(opr.p.getNome());
                     this.jt_EditEndereco.setText(opr.p.getEndereco());
-                    this.jt_EditIdade.setText(_idade.toString());
+                    this.jt_EditIdade.setText(_idade);
                     this.isEditable(true);
                 }
 
             } catch (Exception e) {
-                LoggOperation.LOGGER.warning("Erro na verifica��o de ID!");
+                LoggOperation.LOGGER.warning("Erro na verificação de ID!");
             }
 
         }
@@ -755,29 +764,23 @@ public class Gui extends javax.swing.JFrame {
 
         // Save Operation after edit
         try {
-            opr.gravarBeforEditUser(jt_EditName.getText()
-                                               .toString(),
-                                    jt_EditEndereco.getText()
-                                                   .toString(),
+            opr.gravarBeforEditUser(jt_EditName.getText(),
+                                    jt_EditEndereco.getText(),
                                     Integer.parseInt(jt_EditIdade.getText()));
 
             // Atualiza��es somento na base de dados funcional por momento
             OperacoesSQL_Lite.updateUser(Integer.parseInt(jt_IDCheck.getText()
                                                                     .trim()),
-                                         jt_EditName.getText()
-                                                    .toString(),
+                                         jt_EditName.getText(),
                                          Integer.parseInt(jt_EditIdade.getText()),
-                                         jt_EditEndereco.getText()
-                                                        .toString());
+                                         jt_EditEndereco.getText());
 
             // Database operation (psql)
             OperacoesSQL_Postgres.updateUser(Integer.parseInt(jt_IDCheck.getText()
                                                                         .trim()),
-                                             jt_EditName.getText()
-                                                        .toString(),
+                                             jt_EditName.getText(),
                                              Integer.parseInt(jt_EditIdade.getText()),
-                                             jt_EditEndereco.getText()
-                                                            .toString());
+                                             jt_EditEndereco.getText());
 
             LoggOperation.LOGGER.info("Informa��es Editadas com Sucesso!!");
         } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
@@ -804,10 +807,8 @@ public class Gui extends javax.swing.JFrame {
 
         try {
             // Operation (xml/ser)
-            opr.gravarUtilizador(jtName.getText()
-                                       .toString(),
-                                 jtEndereco.getText()
-                                           .toString(),
+            opr.gravarUtilizador(jtName.getText(),
+                                 jtEndereco.getText(),
                                  Integer.parseInt(jtIdade.getText()),
                                  Integer.parseInt(jtId.getText()),
                                  uuid);
@@ -816,16 +817,14 @@ public class Gui extends javax.swing.JFrame {
             // Database operation (sqlLite)
             OperacoesSQL_Lite.insert(opr.p.getUUID(),
                                      Integer.parseInt(jtId.getText()),
-                                     jtName.getText()
-                                           .toString(),
+                                     jtName.getText(),
                                      Integer.parseInt(jtIdade.getText()),
                                      jtEndereco.getText());
 
             // Database operation (psql)
             OperacoesSQL_Postgres.insert(opr.p.getUUID(),
                                          Integer.parseInt(jtId.getText()),
-                                         jtName.getText()
-                                               .toString(),
+                                         jtName.getText(),
                                          Integer.parseInt(jtIdade.getText()),
                                          jtEndereco.getText());
 
@@ -853,7 +852,7 @@ public class Gui extends javax.swing.JFrame {
     private void jbPesquisaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbPesquisaActionPerformed
 
         // TODO add your handling code here:
-        if (jtidPesquisa.getText() == "" || jtidPesquisa.getText()
+        if (jtidPesquisa.getText().equals("") || jtidPesquisa.getText()
                                                         .isEmpty()
             || jtidPesquisa.getText()
                            .equals("")) {

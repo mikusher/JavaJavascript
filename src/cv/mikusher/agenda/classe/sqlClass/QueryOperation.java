@@ -55,4 +55,6 @@ public interface QueryOperation extends ConstantesSQL {
     // Operation Users to login
     String queryNewUSERS   = "INSERT INTO users_login (users_name, users_password) VALUES (?, ?);";
 
+    String queryDeleteUSERS = "DELETE FROM users_login WHERE users_name = ?;";
+
 }

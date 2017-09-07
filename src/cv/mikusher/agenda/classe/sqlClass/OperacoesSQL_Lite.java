@@ -58,9 +58,9 @@ public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation
     /**
      * Criar uma nova Tabela com os parametros da base de dados e a tabela
      * 
-     * @param dataBaseName
+     * @param_dataBaseName
      *            indica a base de dados que sera chamada para efetuar a operação
-     * @param tableName
+     * @param_tableName
      */
     public static void createNewTable() {
 
@@ -81,15 +81,15 @@ public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation
     /**
      * Para o inserta das informações na tabela, tem de passar alguns dados!!
      * 
-     * @param dataBaseName
+     * @param_dataBaseName
      *            indica a base de dados que sera chamada para efetuar a operação
-     * @param GENERAL_TABLE
+     * @param_GENERAL_TABLE
      *            o nome da tabela a ser utilizado
-     * @param nome
+     * @param_nome
      *            o nome do contato
-     * @param idade
+     * @param_idade
      *            a idade do contato
-     * @param telefone
+     * @param_telefone
      *            o numero de telefone do contato
      */
     public static void insert(String uuid, Integer id, String nome, Integer idade, String endereco) {
