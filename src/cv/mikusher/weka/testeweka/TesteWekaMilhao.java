@@ -77,6 +77,7 @@ public class TesteWekaMilhao {
         gerarChave(primeiro_numero, segundo_numero, terceiro_numero, quarto_numero, quinto_numero, primeira_estrela, segunda_estrela);
 
         // classificação da nova instância
+        /*
         double pred_num_1 = k3.classifyInstance(primeiro_numero);
         double pred_num_2 = k3.classifyInstance(segundo_numero);
         double pred_num_3 = k3.classifyInstance(terceiro_numero);
@@ -94,7 +95,7 @@ public class TesteWekaMilhao {
         System.out.println("Numeros: \n" + "Numero 1: " + Math.round(pred_num_1) + "" + "\nNumero 2: " + Math.round(pred_num_2) + "\nNumero 3: " + Math.round(pred_num_3) + "\nNumero 4: "
                            + Math.round(pred_num_4) + "\nNumero 5: " + Math.round(pred_num_5) + "\n");
         System.out.println("Estrelas: \n" + "Estrela 1: " + Math.round(pred_str_1) + "\nEstrela 2: " + Math.round(pred_str_2));
-
+        */
     }
 
 

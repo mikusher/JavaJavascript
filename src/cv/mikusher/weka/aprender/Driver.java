@@ -64,7 +64,7 @@ public class Driver {
         iExample.setValue((Attribute) fvWekaAttributes.elementAt(3), "positive");
 
         // add the instance
-        isTrainingSet.add(iExample);
+        //isTrainingSet.add(iExample);
         Classifier cModel = new NaiveBayes();
         cModel.buildClassifier(isTrainingSet);
 
@@ -72,7 +72,7 @@ public class Driver {
         Evaluation eTest = new Evaluation(isTrainingSet);
         eTest.evaluateModel(cModel, isTrainingSet);
 
-        // Print the result à la Weka explorer:
+        // Print the result ï¿½ la Weka explorer:
         String strSummary = eTest.toSummaryString();
         System.out.println(strSummary);
 
