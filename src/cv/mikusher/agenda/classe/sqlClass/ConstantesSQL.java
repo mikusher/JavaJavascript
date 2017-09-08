@@ -22,13 +22,13 @@ package cv.mikusher.agenda.classe.sqlClass;
  */
 public interface ConstantesSQL {
 
-    String              _conf           = "mikusher";
+    String _conf           = "mikusher";
 
     // SQLLite Configuration
     String DATABASE_FOLDER = "src/cv/mikusher/agenda/sqlLite/";
     String DATABASE_NAME   = "Funcionarios.s3db";
     String GENERAL_TABLE   = DATABASE_NAME.replaceAll(".s3db", "")
-                                                       .trim();
+                                          .trim();
     String SQLLite         = "jdbc:sqlite:" + DATABASE_FOLDER + DATABASE_NAME;
 
     // Postgres Configuration / Login validation

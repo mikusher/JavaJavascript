@@ -24,6 +24,7 @@ import java.sql.Statement;
 import java.util.Objects;
 
 import cv.mikusher.agenda.classe.LoggOperation;
+import java.util.logging.Level;
 
 
 
@@ -44,12 +45,14 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
     public static Connection connect(String connectionType) {
 
         try {
-            if (Objects.equals(connectionType, "lite".toLowerCase().trim())) {
+            if (Objects.equals(connectionType, "lite".toLowerCase()
+                                                     .trim())) {
                 conn = DriverManager.getConnection(SQLLite);
-                LoggOperation.LOGGER.info("Connection to " + connectionType + " has been established.");
-            } else if (Objects.equals(connectionType, "psql".toLowerCase().trim())) {
+                LoggOperation.LOGGER.log(Level.INFO, "Connection to {0} has been established.", connectionType);
+            } else if (Objects.equals(connectionType, "psql".toLowerCase()
+                                                            .trim())) {
                 conn = DriverManager.getConnection(POSTGRES, pUser, pPassword);
-                LoggOperation.LOGGER.info("Connection to " + connectionType + " has been established.");
+                LoggOperation.LOGGER.log(Level.INFO, "Connection to {0} has been established.", connectionType);
             } else {
                 System.err.println("Error to connect to " + connectionType);
             }

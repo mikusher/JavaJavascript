@@ -22,39 +22,62 @@ package cv.mikusher.agenda.classe.sqlClass;
  */
 public interface QueryOperation extends ConstantesSQL {
 
-    // -- Query for SqlLite
-    // SQL cria��o da nova tabela (id, nome, idade, telefone)
-    String liteCreateTable = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + "	uuid text,\n" + "	id integer PRIMARY KEY,\n" + "	nome text NOT NULL,\n" + "	idade integer NOT NULL,\n"
-                             + "	endereco text\n" + ");";
+    /**
+     * Query for SqlLite
+     * SQL create a new table (id, name, age, phone)
+     */
+    String liteCreateTable  = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + "	uuid text,\n" + "	id integer PRIMARY KEY,\n" + "	nome text NOT NULL,\n" + "	idade integer NOT NULL,\n"
+                              + "	endereco text\n" + ");";
 
-    // Operation SqlLite - Insert
-    String liteInsert      = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
+    /**
+     * Operation SqlLite - Insert
+     */
+    String liteInsert       = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
 
-    // Operation SqlLite - Delete
-    String liteDelete      = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
+    /**
+     * Operation SqlLite - Delete
+     */
+    String liteDelete       = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
 
-    // Operation SqlLite - Update
-    String liteUpdate      = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
+    /**
+     * Operation SqlLite - Update
+     */
+    String liteUpdate       = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
 
-    // -- Query for Postgres
-    String psqlCreateTable = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + " uuid text,\n" + "   id int PRIMARY KEY,\n" + "  nome text NOT NULL,\n" + "  idade int NOT NULL,\n"
-                             + "    endereco text\n" + ");";
+    /**
+     * Query for Postgres
+     */
+    String psqlCreateTable  = "CREATE TABLE IF NOT EXISTS " + GENERAL_TABLE + " (\n" + " uuid text,\n" + "   id int PRIMARY KEY,\n" + "  nome text NOT NULL,\n" + "  idade int NOT NULL,\n"
+                              + "    endereco text\n" + ");";
 
-    // Operation Postgres - Insert
-    String psqlInsert      = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
+    /**
+     * Operation Postgres - Insert
+     */
+    String psqlInsert       = "INSERT INTO " + GENERAL_TABLE + "(uuid,id,nome,idade,endereco) VALUES(?,?,?,?,?)";
 
-    // Operation Postgres - Delete
-    String psqlDelete      = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
+    /**
+     * Operation Postgres - Delete
+     */
+    String psqlDelete       = "DELETE FROM " + GENERAL_TABLE + " WHERE id = ?";
 
-    // Operation Postgres - Update
-    String psqlUpdate      = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
+    /**
+     * Operation Postgres - Update
+     */
+    String psqlUpdate       = "UPDATE " + GENERAL_TABLE + " SET nome = ?, idade = ?, endereco = ? " + "WHERE id = ?";
 
-    // Operation Users
-    String queryUSERS      = "SELECT users_name, users_password FROM users_login;";
+    /**
+     * Operation Users
+     */
+    String queryUSERS       = "SELECT users_name, users_password FROM users_login;";
 
-    // Operation Users to login
-    String queryNewUSERS   = "INSERT INTO users_login (users_name, users_password) VALUES (?, ?);";
+    /**
+     * Operation Users to login
+     */
+    String queryNewUSERS    = "INSERT INTO users_login (users_name, users_password) VALUES (?, ?);";
 
+    /**
+     * Operation to remove user
+     */
     String queryDeleteUSERS = "DELETE FROM users_login WHERE users_name = ?;";
 
 }
