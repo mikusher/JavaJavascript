@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Jar_libs" level="project" />
+    <orderEntry type="library" name="JarLibrary" level="project" />
   </component>
 </module>

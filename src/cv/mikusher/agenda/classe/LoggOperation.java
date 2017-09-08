@@ -12,12 +12,12 @@ import java.util.logging.Logger;
 
 public class LoggOperation {
 
-	private static String LOG_DIR = "src/cv/mikusher/agenda/classe/log/";
+	private static final String LOG_DIR = "src/cv/mikusher/agenda/classe/log/";
 
 	public static final Logger LOGGER = Logger.getLogger(LoggOperation.class.getName());
-	FileHandler fh;
-	Handler consoleHandler = null;
-	Handler fileHandler = null;
+	private FileHandler fh;
+	private Handler consoleHandler = null;
+	private Handler fileHandler = null;
 
 	public LoggOperation() {
 
