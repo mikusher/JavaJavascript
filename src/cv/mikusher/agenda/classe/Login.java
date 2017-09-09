@@ -5,30 +5,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  */
-
 /**
  * Luis Amilcar Tavares
  */
-
-
-
-
-
 package cv.mikusher.agenda.classe;
 
-
-
-
-
+import static cv.mikusher.agenda.classe.LoggOperation.LOGGER;
 import java.awt.HeadlessException;
 
 import javax.swing.JOptionPane;
 
 import cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL;
-
-
-
-
+import java.util.logging.Level;
 
 /**
  *
@@ -36,24 +24,18 @@ import cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL;
  */
 public class Login extends javax.swing.JFrame {
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * Creates new form Login
      */
     ConnectionToSQL ctdb = new ConnectionToSQL();
-
-
-
-
 
     public Login() {
 
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
-
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -152,19 +134,11 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-
-
-
     private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbCancelActionPerformed
 
         // TODO add your handling code here:
         System.exit(0);
     }// GEN-LAST:event_jbCancelActionPerformed
-
-
-
-
 
     private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbLoginActionPerformed
 
@@ -182,17 +156,12 @@ public class Login extends javax.swing.JFrame {
             }
         } catch (HeadlessException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Não é possivel adicionar utilizador.", e);
         }
     }// GEN-LAST:event_jbLoginActionPerformed
 
-
-
-
-
     /**
-     * @param args
-     *            the command line arguments
+     * @param args the command line arguments
      */
     public static void main(String args[]) {
 
@@ -211,32 +180,29 @@ public class Login extends javax.swing.JFrame {
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName())
-                                    .log(java.util.logging.Level.SEVERE, null, ex);
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName())
-                                    .log(java.util.logging.Level.SEVERE, null, ex);
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName())
-                                    .log(java.util.logging.Level.SEVERE, null, ex);
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName())
-                                    .log(java.util.logging.Level.SEVERE, null, ex);
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         }
         // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
 
                 new Login().setVisible(true);
             }
         });
     }
-
-
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel         jLabel1;

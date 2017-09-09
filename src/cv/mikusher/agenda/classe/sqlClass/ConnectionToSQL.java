@@ -75,7 +75,7 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
             Class.forName("org.postgresql.Driver")
                  .newInstance();
             conn = DriverManager.getConnection(POSTGRES, pUser, pPassword);
-            Statement stmt = (Statement) conn.createStatement();
+            Statement stmt = conn.createStatement();
             stmt.executeQuery(queryUSERS);
             ResultSet resultS = stmt.getResultSet();
             while (resultS.next()) {

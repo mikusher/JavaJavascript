@@ -23,6 +23,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import cv.mikusher.agenda.classe.LoggOperation;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -42,8 +44,8 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
         try (Connection conn = connect("psql")) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                LoggOperation.LOGGER.info("O Drive usado é" + meta.getDriverName());
-                LoggOperation.LOGGER.info("Base de dados " + GENERAL_TABLE + " criado com sucesso.");
+                LoggOperation.LOGGER.log(Level.INFO, "O Drive usado \u00e9{0}", meta.getDriverName());
+                LoggOperation.LOGGER.log(Level.INFO, "Base de dados {0} criado com sucesso.", GENERAL_TABLE);
             }
 
         } catch (SQLException e) {
@@ -59,7 +61,7 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
      * Criar uma nova Tabela com os parametros da base de dados e a tabela
      * 
      * @param_dataBaseName
-     *            indica a base de dados que sera chamada para efetuar a operação
+     *                     indica a base de dados que sera chamada para efetuar a operação
      * @param_tableName
      */
     public static void createNewTable() {
@@ -71,7 +73,7 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
         } catch (SQLException e) {
             LoggOperation.LOGGER.warning(e.getMessage());
         }
-        LoggOperation.LOGGER.info("Tabela " + GENERAL_TABLE + " criado na base de dados " + DATABASE_NAME + " com sucesso!!");
+        LoggOperation.LOGGER.log(Level.INFO, "Tabela {0} criado na base de dados " + DATABASE_NAME + " com sucesso!!", GENERAL_TABLE);
     }
 
 
@@ -81,16 +83,21 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
     /**
      * Para o inserta das informações na tabela, tem de passar alguns dados!!
      * 
+     * @param uuid
+     * @param id
+     * @param nome
+     * @param idade
+     * @param endereco
      * @param_dataBaseName
-     *            indica a base de dados que sera chamada para efetuar a operação
+     *                     indica a base de dados que sera chamada para efetuar a operação
      * @param_GENERAL_TABLE
-     *            o nome da tabela a ser utilizado
+     *                      o nome da tabela a ser utilizado
      * @param_nome
-     *            o nome do contato
+     *             o nome do contato
      * @param_idade
-     *            a idade do contato
+     *              a idade do contato
      * @param_telefone
-     *            o numero de telefone do contato
+     *                 o numero de telefone do contato
      */
     public static void insert(String uuid, Integer id, String nome, Integer idade, String endereco) {
 
@@ -157,6 +164,8 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
 
     /**
      * 
+     * @param name
+     * @param password
      * @param_name
      * @param_password
      */
@@ -177,9 +186,14 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL implements QueryOpera
         LoggOperation.LOGGER.info("Novo utilizaror de Login criado com sucesso!");
     }
 
-    public static void deleteUsersLogin(String username) throws SQLException{
+
+
+
+
+    public static void deleteUsersLogin(String username) throws SQLException {
+
         Connection conn = connect("psql");
         PreparedStatement pstmt = conn.prepareStatement(queryDeleteUSERS);
-            pstmt.setString(1, username);
+        pstmt.setString(1, username);
     }
 }

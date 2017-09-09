@@ -26,6 +26,8 @@ package cv.mikusher.agenda.classe;
 
 
 
+import static cv.mikusher.agenda.classe.LoggOperation.LOGGER;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -33,6 +35,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
@@ -80,7 +83,7 @@ public class Operacao {
             saveOperationXML();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error occur on add user.", e);
         }
 
     }
@@ -100,9 +103,8 @@ public class Operacao {
             saveOperationSER();
             saveOperationXML();
 
-        } catch (Exception e) {
-            LoggOperation.LOGGER.warning("N�o foi possivel gravar");
-            e.printStackTrace();
+        } catch (IOException | ParserConfigurationException | TransformerException e) {
+            LoggOperation.LOGGER.log(Level.SEVERE, "Não foi possivel gravar", e);
         }
 
     }
@@ -113,12 +115,12 @@ public class Operacao {
 
     public void saveOperationSER() throws FileNotFoundException, IOException {
 
-        FileOutputStream fileOut = new FileOutputStream(DADOS_EMPREGADO_SERIAL + p.getId() + ".ser");
-        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        out.writeObject(p);
-        out.close();
-        fileOut.close();
-        LoggOperation.LOGGER.info("Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_" + p.getId() + ".ser");
+        try (FileOutputStream fileOut = new FileOutputStream(DADOS_EMPREGADO_SERIAL + p.getId() + ".ser"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(p);
+        } catch (FileNotFoundException e) {
+            LoggOperation.LOGGER.log(Level.SEVERE, "Não foi possivel gravar", e);
+        }
+        LoggOperation.LOGGER.log(Level.INFO, "Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_{0}.ser", p.getId());
     }
 
 
@@ -173,7 +175,7 @@ public class Operacao {
             result = new StreamResult(new File(DADOS_EMPREGADO_XML + p.getId() + ".xml").getCanonicalPath());
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            LoggOperation.LOGGER.log(Level.SEVERE, "Não foi possivel gravar", e);
         }
 
         // Output to console for testing
@@ -210,7 +212,7 @@ public class Operacao {
                 JOptionPane.showMessageDialog(null, "O id " + id + " nao existe.");
             }
 
-        } catch (Exception e) {
+        } catch (HeadlessException e) {
             LoggOperation.LOGGER.warning(e.getMessage());
         }
     }
@@ -220,6 +222,7 @@ public class Operacao {
 
 
     /**
+     * @param idpesp
      * @param p
      * @return
      */
@@ -228,11 +231,9 @@ public class Operacao {
         p.setidPesquisa(Integer.parseInt(idpesp.toString()));
 
         try {
-            FileInputStream fileEntrada = new FileInputStream(DADOS_EMPREGADO_SERIAL + p.getidPesquisa() + ".ser");
-            ObjectInputStream inputStream = new ObjectInputStream(fileEntrada);
-            p = (Pessoa) inputStream.readObject();
-            inputStream.close();
-            fileEntrada.close();
+            try (FileInputStream fileEntrada = new FileInputStream(DADOS_EMPREGADO_SERIAL + p.getidPesquisa() + ".ser"); ObjectInputStream inputStream = new ObjectInputStream(fileEntrada)) {
+                p = (Pessoa) inputStream.readObject();
+            }
         } catch (IOException e) {
             JOptionPane.showConfirmDialog(null, "O id " + p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
             return null;
@@ -252,11 +253,9 @@ public class Operacao {
         p.setidPesquisa(Integer.parseInt(idpesp.toString()));
 
         try {
-            FileInputStream fileEntrada = new FileInputStream(DADOS_EMPREGADO_SERIAL + p.getidPesquisa() + ".ser");
-            ObjectInputStream inputStream = new ObjectInputStream(fileEntrada);
-            p = (Pessoa) inputStream.readObject();
-            inputStream.close();
-            fileEntrada.close();
+            try (FileInputStream fileEntrada = new FileInputStream(DADOS_EMPREGADO_SERIAL + p.getidPesquisa() + ".ser"); ObjectInputStream inputStream = new ObjectInputStream(fileEntrada)) {
+                p = (Pessoa) inputStream.readObject();
+            }
         } catch (IOException e) {
             JOptionPane.showConfirmDialog(null, "O id " + p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
             return null;

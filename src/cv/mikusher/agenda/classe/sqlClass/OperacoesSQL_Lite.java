@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import cv.mikusher.agenda.classe.LoggOperation;
+import java.util.logging.Level;
 
 
 
@@ -42,7 +43,7 @@ public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation
         try (Connection conn = connect("lite")) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                LoggOperation.LOGGER.info("O Drive usado �" + meta.getDriverName());
+                LoggOperation.LOGGER.log(Level.INFO, "O Drive usado \ufffd{0}", meta.getDriverName());
                 LoggOperation.LOGGER.info("Base de dados " + DATABASE_NAME + " criado com sucesso.");
             }
 
@@ -59,7 +60,7 @@ public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation
      * Criar uma nova Tabela com os parametros da base de dados e a tabela
      * 
      * @param_dataBaseName
-     *            indica a base de dados que sera chamada para efetuar a operação
+     *                     indica a base de dados que sera chamada para efetuar a operação
      * @param_tableName
      */
     public static void createNewTable() {
@@ -71,7 +72,7 @@ public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation
         } catch (SQLException e) {
             LoggOperation.LOGGER.warning(e.getMessage());
         }
-        LoggOperation.LOGGER.info("Tabela " + GENERAL_TABLE + " criado na base de dados " + DATABASE_NAME + " com sucesso!!");
+        LoggOperation.LOGGER.log(Level.INFO, "Tabela {0} criado na base de dados " + DATABASE_NAME + " com sucesso!!", GENERAL_TABLE);
     }
 
 
@@ -81,16 +82,21 @@ public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation
     /**
      * Para o inserta das informações na tabela, tem de passar alguns dados!!
      * 
+     * @param uuid
+     * @param id
+     * @param nome
+     * @param idade
+     * @param endereco
      * @param_dataBaseName
-     *            indica a base de dados que sera chamada para efetuar a operação
+     *                     indica a base de dados que sera chamada para efetuar a operação
      * @param_GENERAL_TABLE
-     *            o nome da tabela a ser utilizado
+     *                      o nome da tabela a ser utilizado
      * @param_nome
-     *            o nome do contato
+     *             o nome do contato
      * @param_idade
-     *            a idade do contato
+     *              a idade do contato
      * @param_telefone
-     *            o numero de telefone do contato
+     *                 o numero de telefone do contato
      */
     public static void insert(String uuid, Integer id, String nome, Integer idade, String endereco) {
 

@@ -5,17 +5,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  */
-// Luis Amilcar Tavares
-
-
-
-
-
 package cv.mikusher.agenda.classe;
-
-
-
-
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,10 +16,7 @@ import javax.xml.transform.TransformerException;
 
 import cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Lite;
 import cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Postgres;
-
-
-
-
+import java.util.logging.Level;
 
 /**
  *
@@ -37,15 +24,11 @@ import cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Postgres;
  */
 public class Gui extends javax.swing.JFrame {
 
-    static Object         uuid   = null;
-    Operacao              opr    = new Operacao();
-    OperacoesSQL_Lite     opLSql = new OperacoesSQL_Lite();
+    static Object uuid = null;
+    Operacao opr = new Operacao();
+    OperacoesSQL_Lite opLSql = new OperacoesSQL_Lite();
     OperacoesSQL_Postgres opPSql = new OperacoesSQL_Postgres();
-    Pessoa                ps     = new Pessoa();
-
-
-
-
+    Pessoa ps = new Pessoa();
 
     /**
      * Creates new form Gui
@@ -56,17 +39,13 @@ public class Gui extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.isLimpo();
         this.isEditable(false);
-        this.opLSql.createNewDatabase();
-        this.opLSql.createNewTable();
-        this.opPSql.createNewTable();
+        OperacoesSQL_Lite.createNewDatabase();
+        OperacoesSQL_Lite.createNewTable();
+        OperacoesSQL_Postgres.createNewTable();
 
     }
 
-
-
-
-
-    public void isEditable(boolean status) {
+    public final void isEditable(boolean status) {
 
         jt_EditName.setEditable(status);
         jt_EditEndereco.setEditable(status);
@@ -74,35 +53,27 @@ public class Gui extends javax.swing.JFrame {
         jbEDSave.setEnabled(status);
     }
 
-
-
-
-
-    public void isLimpo() {
+    public final void isLimpo() {
 
         try {
             if (jtName.getText()
-                      .trim()
-                      .equals("")
-                || jtEndereco.getText()
-                             .trim()
-                             .equals("")
-                || jtIdade.getText()
-                          .trim()
-                          .equals("")
-                || jtId.getText()
-                       .trim()
-                       .equals("")) {
+                    .trim()
+                    .isEmpty()
+                    || jtEndereco.getText()
+                            .trim()
+                            .isEmpty()
+                    || jtIdade.getText()
+                            .trim()
+                            .isEmpty()
+                    || jtId.getText()
+                            .trim()
+                            .isEmpty()) {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Campo nao pode ser limpo.");
             // TODO: handle exception
         }
     }
-
-
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -656,20 +627,16 @@ public class Gui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-
-
-
     private void jbClearNewUPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbClearNewUPActionPerformed
 
         String userToDelete = jtNewName.getText().trim();
-        if (userToDelete.equals("")){
+        if (userToDelete.isEmpty()) {
             LoggOperation.LOGGER.info("Campo vazio, por favor corrigir");
-        }else {
+        } else {
             try {
                 OperacoesSQL_Postgres.deleteUsersLogin(userToDelete);
             } catch (SQLException e) {
-                e.printStackTrace();
+                LoggOperation.LOGGER.warning("Error to remove");
             }
         }
         jtNewName.setText("");
@@ -677,19 +644,15 @@ public class Gui extends javax.swing.JFrame {
 
     }// GEN-LAST:event_jbClearNewUPActionPerformed
 
-
-
-
-
     private void jbNewUserLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbNewUserLoginActionPerformed
 
         if (!jtNewName.getText()
-                      .equalsIgnoreCase("")
-            && !jtNewPassword.getText()
-                             .equalsIgnoreCase("")) {
+                .isEmpty()
+                && !jtNewPassword.getText()
+                        .isEmpty()) {
             try {
                 OperacoesSQL_Postgres.insertUsers(jtNewName.getText(),
-                                                  jtNewPassword.getText());
+                        jtNewPassword.getText());
             } catch (Exception e) {
                 LoggOperation.LOGGER.warning("Error in add new User in database");
             }
@@ -701,18 +664,14 @@ public class Gui extends javax.swing.JFrame {
 
     }// GEN-LAST:event_jbNewUserLoginActionPerformed
 
-
-
-
-
     private void jbRemoveActionPerformed(java.awt.event.ActionEvent evt) {
 
         // code for remove ID
         int idRemove = Integer.parseInt(jtIDRemove.getText()
-                                                  .trim());
+                .trim());
         try {
             // Remove the XML File and SER File
-            opr.deleteFileUser(idRemove);
+            Operacao.deleteFileUser(idRemove);
             // Remove the SQL Query
             OperacoesSQL_Lite.deleteSQLUser(idRemove);
 
@@ -723,25 +682,21 @@ public class Gui extends javax.swing.JFrame {
         }
     }
 
-
-
-
-
     private void jb_IDCheckActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jb_IDCheckActionPerformed
 
-        if (jt_IDCheck.getText().equals("") || jt_IDCheck.getText()
-                                                    .isEmpty()
-            || jt_IDCheck.getText()
-                         .equals("")) {
+        if (jt_IDCheck.getText().isEmpty() || jt_IDCheck.getText()
+                .isEmpty()
+                || jt_IDCheck.getText()
+                        .isEmpty()) {
             JOptionPane.showConfirmDialog(null, "Campo vazio, indica um ID valido para pesquisa", "Campo ID vazio", JOptionPane.CANCEL_OPTION);
 
         } else {
             try {
                 int idCheck = Integer.parseInt(jt_IDCheck.getText()
-                                                         .trim());
+                        .trim());
                 String _idade = String.valueOf(opr.p.getIdade());
                 if (opr.checkUtilizador(idCheck) == null) {
-                    LoggOperation.LOGGER.warning(idCheck + " não encontrado!");
+                    LoggOperation.LOGGER.log(Level.WARNING, "{0} n\u00e3o encontrado!", idCheck);
                 } else {
                     this.jt_EditName.setText(opr.p.getNome());
                     this.jt_EditEndereco.setText(opr.p.getEndereco());
@@ -749,95 +704,78 @@ public class Gui extends javax.swing.JFrame {
                     this.isEditable(true);
                 }
 
-            } catch (Exception e) {
-                LoggOperation.LOGGER.warning("Erro na verificação de ID!");
+            } catch (NumberFormatException e) {
+                LoggOperation.LOGGER.warning("Erro in check ID!");
             }
 
         }
     }
-
-
-
-
 
     private void jbEDSaveActionPerformed(java.awt.event.ActionEvent evt) throws SecurityException, IOException {
 
         // Save Operation after edit
         try {
             opr.gravarBeforEditUser(jt_EditName.getText(),
-                                    jt_EditEndereco.getText(),
-                                    Integer.parseInt(jt_EditIdade.getText()));
+                    jt_EditEndereco.getText(),
+                    Integer.parseInt(jt_EditIdade.getText()));
 
-            // Atualiza��es somento na base de dados funcional por momento
+            // Atualizações somento na base de dados funcional por momento
             OperacoesSQL_Lite.updateUser(Integer.parseInt(jt_IDCheck.getText()
-                                                                    .trim()),
-                                         jt_EditName.getText(),
-                                         Integer.parseInt(jt_EditIdade.getText()),
-                                         jt_EditEndereco.getText());
+                    .trim()),
+                    jt_EditName.getText(),
+                    Integer.parseInt(jt_EditIdade.getText()),
+                    jt_EditEndereco.getText());
 
             // Database operation (psql)
             OperacoesSQL_Postgres.updateUser(Integer.parseInt(jt_IDCheck.getText()
-                                                                        .trim()),
-                                             jt_EditName.getText(),
-                                             Integer.parseInt(jt_EditIdade.getText()),
-                                             jt_EditEndereco.getText());
+                    .trim()),
+                    jt_EditName.getText(),
+                    Integer.parseInt(jt_EditIdade.getText()),
+                    jt_EditEndereco.getText());
 
-            LoggOperation.LOGGER.info("Informa��es Editadas com Sucesso!!");
+            LoggOperation.LOGGER.info("Informações Editadas com Sucesso!!");
         } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
             // TODO Auto-generated catch block
-            LoggOperation.LOGGER.warning("N�o foi possivel editar!");
-            e.printStackTrace();
+            LoggOperation.LOGGER.warning("Não foi possivel editar!");
         }
 
     }
 
-
-
-
-
     private void jtIdActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jtIdActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_jtIdActionPerformed
-
-
-
-
 
     private void jbSaveActionPerformed(java.awt.event.ActionEvent evt) throws SecurityException, IOException {// GEN-FIRST:event_jbSaveActionPerformed
 
         try {
             // Operation (xml/ser)
             opr.gravarUtilizador(jtName.getText(),
-                                 jtEndereco.getText(),
-                                 Integer.parseInt(jtIdade.getText()),
-                                 Integer.parseInt(jtId.getText()),
-                                 uuid);
+                    jtEndereco.getText(),
+                    Integer.parseInt(jtIdade.getText()),
+                    Integer.parseInt(jtId.getText()),
+                    uuid);
 
             // create on initial Gui
             // Database operation (sqlLite)
             OperacoesSQL_Lite.insert(opr.p.getUUID(),
-                                     Integer.parseInt(jtId.getText()),
-                                     jtName.getText(),
-                                     Integer.parseInt(jtIdade.getText()),
-                                     jtEndereco.getText());
+                    Integer.parseInt(jtId.getText()),
+                    jtName.getText(),
+                    Integer.parseInt(jtIdade.getText()),
+                    jtEndereco.getText());
 
             // Database operation (psql)
             OperacoesSQL_Postgres.insert(opr.p.getUUID(),
-                                         Integer.parseInt(jtId.getText()),
-                                         jtName.getText(),
-                                         Integer.parseInt(jtIdade.getText()),
-                                         jtEndereco.getText());
+                    Integer.parseInt(jtId.getText()),
+                    jtName.getText(),
+                    Integer.parseInt(jtIdade.getText()),
+                    jtEndereco.getText());
 
         } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            LoggOperation.LOGGER.warning("Não foi possivel adicionar!");
         }
 
     }// GEN-LAST:event_jbSaveActionPerformed
-
-
-
-
 
     private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbCancelActionPerformed
 
@@ -845,24 +783,20 @@ public class Gui extends javax.swing.JFrame {
         System.exit(0);
     }// GEN-LAST:event_jbCancelActionPerformed
 
-
-
-
-
     private void jbPesquisaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbPesquisaActionPerformed
 
         // TODO add your handling code here:
-        if (jtidPesquisa.getText().equals("") || jtidPesquisa.getText()
-                                                        .isEmpty()
-            || jtidPesquisa.getText()
-                           .equals("")) {
+        if (jtidPesquisa.getText().isEmpty() || jtidPesquisa.getText()
+                .isEmpty()
+                || jtidPesquisa.getText()
+                        .isEmpty()) {
             JOptionPane.showConfirmDialog(null, "Campo vazio, indica um ID valido para pesquisa", "Campo ID vazio", JOptionPane.CANCEL_OPTION);
         } else {
             try {
                 int idCheck = Integer.parseInt(jtidPesquisa.getText()
-                                                           .trim());
+                        .trim());
                 if (opr.pesquisarUtilizador(idCheck) == null) {
-                    LoggOperation.LOGGER.warning("O ID " + idCheck + " n�o foi encontrado!");
+                    LoggOperation.LOGGER.log(Level.WARNING, "O ID {0} n\ufffdo foi encontrado!", idCheck);
                     jtidPesquisa.setText("");
                     jtResultado.setText("");
 
@@ -877,13 +811,8 @@ public class Gui extends javax.swing.JFrame {
 
     }
 
-
-
-
-
     /**
-     * @param args
-     *            the command line arguments
+     * @param args the command line arguments
      */
     public static void main(String args[]) {
 
@@ -902,19 +831,12 @@ public class Gui extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Gui.class.getName())
-                                    .log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Gui.class.getName())
-                                    .log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Gui.class.getName())
-                                    .log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Gui.class.getName())
-                                    .log(java.util.logging.Level.SEVERE, null, ex);
+                    .log(java.util.logging.Level.SEVERE, null, ex);
         }
+        // </editor-fold>
+
         // </editor-fold>
 
         /* Create and display the form */
@@ -927,10 +849,6 @@ public class Gui extends javax.swing.JFrame {
             }
         });
     }
-
-
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel      jLabel1;
