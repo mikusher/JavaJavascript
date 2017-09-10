@@ -27,6 +27,7 @@ package cv.mikusher.agenda.classe;
 
 
 import static cv.mikusher.agenda.classe.LoggOperation.LOGGER;
+
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -71,11 +72,11 @@ public class Operacao {
 
     public void gravarUtilizador(Object nome, Object endereco, Object idade, Object id, Object uuid) throws ParserConfigurationException, TransformerException {
 
-        p.setNome(nome.toString());
-        p.setEndereco(endereco.toString());
-        p.setIdade(Integer.parseInt(idade.toString()));
-        p.setId(Integer.parseInt(id.toString()));
-        p.setUUID(null);
+        this.p.setNome(nome.toString());
+        this.p.setEndereco(endereco.toString());
+        this.p.setIdade(Integer.parseInt(idade.toString()));
+        this.p.setId(Integer.parseInt(id.toString()));
+        this.p.setUUID(null);
 
         try {
             // -----------------------SER / XML Configuration----------------------- //
@@ -94,9 +95,9 @@ public class Operacao {
 
     public void gravarBeforEditUser(Object nome, Object endereco, Object idade) throws ParserConfigurationException, TransformerException {
 
-        p.setNome(nome.toString());
-        p.setEndereco(endereco.toString());
-        p.setIdade(Integer.parseInt(idade.toString()));
+        this.p.setNome(nome.toString());
+        this.p.setEndereco(endereco.toString());
+        this.p.setIdade(Integer.parseInt(idade.toString()));
 
         try {
             // -----------------------SER / XML Configuration----------------------- //
@@ -115,12 +116,12 @@ public class Operacao {
 
     public void saveOperationSER() throws FileNotFoundException, IOException {
 
-        try (FileOutputStream fileOut = new FileOutputStream(DADOS_EMPREGADO_SERIAL + p.getId() + ".ser"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
-            out.writeObject(p);
+        try (FileOutputStream fileOut = new FileOutputStream(DADOS_EMPREGADO_SERIAL + this.p.getId() + ".ser"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(this.p);
         } catch (FileNotFoundException e) {
             LoggOperation.LOGGER.log(Level.SEVERE, "Não foi possivel gravar", e);
         }
-        LoggOperation.LOGGER.log(Level.INFO, "Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_{0}.ser", p.getId());
+        LoggOperation.LOGGER.log(Level.INFO, "Serializacao gravado com sucesso em: src/cv/mikusher/agenda/serie/Empregado_{0}.ser", this.p.getId());
     }
 
 
@@ -143,27 +144,27 @@ public class Operacao {
 
         // set attribute to staff element
         Attr func_uuid = doc.createAttribute("Uuid");
-        func_uuid.setValue(String.valueOf(p.getUUID()));
+        func_uuid.setValue(String.valueOf(this.p.getUUID()));
         staff.setAttributeNode(func_uuid);
 
         // firstname elements
         Element func_name = doc.createElement("Nome");
-        func_name.appendChild(doc.createTextNode(p.getNome()));
+        func_name.appendChild(doc.createTextNode(this.p.getNome()));
         staff.appendChild(func_name);
 
         // lastname elements
         Element func_ender = doc.createElement("Endereco");
-        func_ender.appendChild(doc.createTextNode(p.getEndereco()));
+        func_ender.appendChild(doc.createTextNode(this.p.getEndereco()));
         staff.appendChild(func_ender);
 
         // nickname elements
         Element func_idade = doc.createElement("Idade");
-        func_idade.appendChild(doc.createTextNode(String.valueOf(p.getIdade())));
+        func_idade.appendChild(doc.createTextNode(String.valueOf(this.p.getIdade())));
         staff.appendChild(func_idade);
 
         // salary elements
         Element func_salario = doc.createElement("Salario");
-        func_salario.appendChild(doc.createTextNode(String.valueOf(p.getSalario())));
+        func_salario.appendChild(doc.createTextNode(String.valueOf(this.p.getSalario())));
         staff.appendChild(func_salario);
 
         // write the content into xml file
@@ -172,7 +173,7 @@ public class Operacao {
         DOMSource source = new DOMSource(doc);
         StreamResult result = null;
         try {
-            result = new StreamResult(new File(DADOS_EMPREGADO_XML + p.getId() + ".xml").getCanonicalPath());
+            result = new StreamResult(new File(DADOS_EMPREGADO_XML + this.p.getId() + ".xml").getCanonicalPath());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             LoggOperation.LOGGER.log(Level.SEVERE, "Não foi possivel gravar", e);
@@ -228,20 +229,20 @@ public class Operacao {
      */
     public Pessoa pesquisarUtilizador(Object idpesp) {
 
-        p.setidPesquisa(Integer.parseInt(idpesp.toString()));
+        this.p.setidPesquisa(Integer.parseInt(idpesp.toString()));
 
         try {
-            try (FileInputStream fileEntrada = new FileInputStream(DADOS_EMPREGADO_SERIAL + p.getidPesquisa() + ".ser"); ObjectInputStream inputStream = new ObjectInputStream(fileEntrada)) {
-                p = (Pessoa) inputStream.readObject();
+            try (FileInputStream fileEntrada = new FileInputStream(DADOS_EMPREGADO_SERIAL + this.p.getidPesquisa() + ".ser"); ObjectInputStream inputStream = new ObjectInputStream(fileEntrada)) {
+                this.p = (Pessoa) inputStream.readObject();
             }
         } catch (IOException e) {
-            JOptionPane.showConfirmDialog(null, "O id " + p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
+            JOptionPane.showConfirmDialog(null, "O id " + this.p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
             return null;
         } catch (ClassNotFoundException c) {
             LoggOperation.LOGGER.info("Pessoa nao encontrado");
             return null;
         }
-        return p;
+        return this.p;
     }
 
 
@@ -250,20 +251,20 @@ public class Operacao {
 
     public Pessoa checkUtilizador(Object idpesp) {
 
-        p.setidPesquisa(Integer.parseInt(idpesp.toString()));
+        this.p.setidPesquisa(Integer.parseInt(idpesp.toString()));
 
         try {
-            try (FileInputStream fileEntrada = new FileInputStream(DADOS_EMPREGADO_SERIAL + p.getidPesquisa() + ".ser"); ObjectInputStream inputStream = new ObjectInputStream(fileEntrada)) {
-                p = (Pessoa) inputStream.readObject();
+            try (FileInputStream fileEntrada = new FileInputStream(DADOS_EMPREGADO_SERIAL + this.p.getidPesquisa() + ".ser"); ObjectInputStream inputStream = new ObjectInputStream(fileEntrada)) {
+                this.p = (Pessoa) inputStream.readObject();
             }
         } catch (IOException e) {
-            JOptionPane.showConfirmDialog(null, "O id " + p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
+            JOptionPane.showConfirmDialog(null, "O id " + this.p.getidPesquisa() + " nao existe.", "Funcionario nao existe", JOptionPane.CANCEL_OPTION);
             return null;
         } catch (ClassNotFoundException c) {
             LoggOperation.LOGGER.info("Pessoa nao encontrado");
             return null;
         }
-        return p;
+        return this.p;
     }
 
 }

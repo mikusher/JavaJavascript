@@ -40,18 +40,18 @@ public class LoggOperation {
 
         // TODO Auto-generated constructor stub
         try {
-            consoleHandler = new ConsoleHandler();
-            fileHandler = new FileHandler(LOG_DIR + "logfile.log");
-            LOGGER.addHandler(consoleHandler);
-            LOGGER.addHandler(fh);
+            this.consoleHandler = new ConsoleHandler();
+            this.fileHandler = new FileHandler(LOG_DIR + "logfile.log");
+            LOGGER.addHandler(this.consoleHandler);
+            LOGGER.addHandler(this.fh);
 
-            consoleHandler.setLevel(Level.ALL);
-            fileHandler.setLevel(Level.ALL);
+            this.consoleHandler.setLevel(Level.ALL);
+            this.fileHandler.setLevel(Level.ALL);
             LOGGER.setLevel(Level.ALL);
 
             LOGGER.config("Configuration done.");
 
-            LOGGER.removeHandler(consoleHandler);
+            LOGGER.removeHandler(this.consoleHandler);
 
         } catch (IOException | SecurityException e) {
             // TODO: handle exception

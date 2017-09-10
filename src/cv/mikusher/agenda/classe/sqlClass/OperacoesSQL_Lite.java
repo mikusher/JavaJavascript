@@ -21,9 +21,9 @@ import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
 
 import cv.mikusher.agenda.classe.LoggOperation;
-import java.util.logging.Level;
 
 
 
@@ -33,7 +33,7 @@ import java.util.logging.Level;
  *
  * @author Miky Mikusher
  */
-public class OperacoesSQL_Lite extends ConnectionToSQL implements QueryOperation {
+public class OperacoesSQL_Lite extends ConnectionToSQL {
 
     /**
      * 

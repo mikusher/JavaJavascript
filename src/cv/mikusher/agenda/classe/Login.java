@@ -8,15 +8,29 @@
 /**
  * Luis Amilcar Tavares
  */
+
+
+
+
+
 package cv.mikusher.agenda.classe;
 
+
+
+
+
 import static cv.mikusher.agenda.classe.LoggOperation.LOGGER;
+
 import java.awt.HeadlessException;
+import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
 
 import cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL;
-import java.util.logging.Level;
+
+
+
+
 
 /**
  *
@@ -29,13 +43,21 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    ConnectionToSQL ctdb = new ConnectionToSQL();
+    ConnectionToSQL           ctdb             = new ConnectionToSQL();
+
+
+
+
 
     public Login() {
 
         initComponents();
         this.setLocationRelativeTo(null);
     }
+
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,6 +90,7 @@ public class Login extends javax.swing.JFrame {
         jbLogin.setText("Login");
         jbLogin.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jbLoginActionPerformed(evt);
@@ -77,6 +100,7 @@ public class Login extends javax.swing.JFrame {
         jbCancel.setText("Cancel");
         jbCancel.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jbCancelActionPerformed(evt);
@@ -134,25 +158,33 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+
+
+
     private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbCancelActionPerformed
 
         // TODO add your handling code here:
         System.exit(0);
     }// GEN-LAST:event_jbCancelActionPerformed
 
+
+
+
+
     private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbLoginActionPerformed
 
         // TODO add your handling code here:
         try {
-            if (ctdb.loginCheck(jtUsername.getText(), String.valueOf(jtPassword.getPassword()))) {
+            if (ConnectionToSQL.loginCheck(this.jtUsername.getText(), String.valueOf(this.jtPassword.getPassword()))) {
                 new Gui().setVisible(true);
                 this.dispose();
                 this.setResizable(false);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Dados errado. Tente novamente!");
-                jtUsername.setText("");
-                jtPassword.setText("");
+                this.jtUsername.setText("");
+                this.jtPassword.setText("");
             }
         } catch (HeadlessException e) {
             // TODO Auto-generated catch block
@@ -160,8 +192,13 @@ public class Login extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_jbLoginActionPerformed
 
+
+
+
+
     /**
-     * @param args the command line arguments
+     * @param args
+     *            the command line arguments
      */
     public static void main(String args[]) {
 
@@ -180,16 +217,16 @@ public class Login extends javax.swing.JFrame {
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
+                                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
+                                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
+                                    .log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName())
-                    .log(java.util.logging.Level.SEVERE, null, ex);
+                                    .log(java.util.logging.Level.SEVERE, null, ex);
         }
         // </editor-fold>
 
@@ -203,6 +240,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
+
+
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel         jLabel1;

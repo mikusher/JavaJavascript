@@ -22,9 +22,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
+import java.util.logging.Level;
 
 import cv.mikusher.agenda.classe.LoggOperation;
-import java.util.logging.Level;
 
 
 
@@ -34,9 +34,11 @@ import java.util.logging.Level;
  *
  * @author Luis Amilcar Tavares
  */
-public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
+public class ConnectionToSQL implements QueryOperation {
 
     private static Connection conn = null;
+    private static Statement  stmt;
+    private static ResultSet  resultS;
 
 
 
@@ -45,12 +47,14 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
     public static Connection connect(String connectionType) {
 
         try {
-            if (Objects.equals(connectionType, "lite".toLowerCase()
-                                                     .trim())) {
+            if (Objects.equals(connectionType,
+                               "lite".toLowerCase()
+                                     .trim())) {
                 conn = DriverManager.getConnection(SQLLite);
                 LoggOperation.LOGGER.log(Level.INFO, "Connection to {0} has been established.", connectionType);
-            } else if (Objects.equals(connectionType, "psql".toLowerCase()
-                                                            .trim())) {
+            } else if (Objects.equals(connectionType,
+                                      "psql".toLowerCase()
+                                            .trim())) {
                 conn = DriverManager.getConnection(POSTGRES, pUser, pPassword);
                 LoggOperation.LOGGER.log(Level.INFO, "Connection to {0} has been established.", connectionType);
             } else {
@@ -66,7 +70,7 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
 
 
 
-    public boolean loginCheck(String username, String password) {
+    public static boolean loginCheck(String username, String password) {
 
         String dbUsername, dbPassword;
         boolean login = false;
@@ -75,9 +79,9 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
             Class.forName("org.postgresql.Driver")
                  .newInstance();
             conn = DriverManager.getConnection(POSTGRES, pUser, pPassword);
-            Statement stmt = conn.createStatement();
+            stmt = conn.createStatement();
             stmt.executeQuery(queryUSERS);
-            ResultSet resultS = stmt.getResultSet();
+            resultS = stmt.getResultSet();
             while (resultS.next()) {
                 dbUsername = resultS.getString("users_name");
                 dbPassword = resultS.getString("users_password");
