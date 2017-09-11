@@ -40,14 +40,13 @@ public class Login extends javax.swing.JFrame {
 
     private static final long serialVersionUID = 1L;
 
+
+
+
+
     /**
      * Creates new form Login
      */
-    //ConnectionToSQL           ctdb             = new ConnectionToSQL();
-
-
-
-
 
     public Login() {
 

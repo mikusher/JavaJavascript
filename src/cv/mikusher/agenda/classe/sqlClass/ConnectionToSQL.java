@@ -85,6 +85,7 @@ public class ConnectionToSQL implements QueryOperation {
             while (resultS.next()) {
                 dbUsername = resultS.getString("users_name");
                 dbPassword = resultS.getString("users_password");
+
                 if (dbUsername.equalsIgnoreCase(username) && dbPassword.equals(password)) {
                     login = true;
                     LoggOperation.LOGGER.info("Connection Done");
