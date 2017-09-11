@@ -43,7 +43,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    ConnectionToSQL           ctdb             = new ConnectionToSQL();
+    //ConnectionToSQL           ctdb             = new ConnectionToSQL();
 
 
 
@@ -164,7 +164,6 @@ public class Login extends javax.swing.JFrame {
 
     private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbCancelActionPerformed
 
-        // TODO add your handling code here:
         System.exit(0);
     }// GEN-LAST:event_jbCancelActionPerformed
 
@@ -174,7 +173,6 @@ public class Login extends javax.swing.JFrame {
 
     private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbLoginActionPerformed
 
-        // TODO add your handling code here:
         try {
             if (ConnectionToSQL.loginCheck(this.jtUsername.getText(), String.valueOf(this.jtPassword.getPassword()))) {
                 new Gui().setVisible(true);
@@ -187,7 +185,6 @@ public class Login extends javax.swing.JFrame {
                 this.jtPassword.setText("");
             }
         } catch (HeadlessException e) {
-            // TODO Auto-generated catch block
             LOGGER.log(Level.SEVERE, "Não é possivel adicionar utilizador.", e);
         }
     }// GEN-LAST:event_jbLoginActionPerformed

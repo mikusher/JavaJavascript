@@ -45,7 +45,7 @@ public class CC extends javax.swing.JFrame {
             try {
                 valor = Long.parseLong(Numero.getText());
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Esse Campo só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Esse campo só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
                 Numero.grabFocus();
             }
 
@@ -675,7 +675,6 @@ public class CC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDividirActionPerformed
-        // TODO add your handling code here:
         Double dvUm = Double.parseDouble(jtfdividirUm.getText());
         Double dvDois = Double.parseDouble(jtfdividirDois.getText());
         Double rsDividir = dvUm / dvDois;
@@ -683,7 +682,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jbDividirActionPerformed
 
     private void jbMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMultiplicarActionPerformed
-        // TODO add your handling code here:
         Double mlUm = Double.parseDouble(jtfmultiplicarUm.getText());
         Double mlDois = Double.parseDouble(jtfmultiplicarDois.getText());
         Double rsMultiplicar = mlUm * mlDois;
@@ -691,7 +689,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jbMultiplicarActionPerformed
 
     private void jbSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSubtrairActionPerformed
-        // TODO add your handling code here:
         Double sbUm = Double.parseDouble(jtfsubtrairUm.getText());
         Double sbDois = Double.parseDouble(jtfsubtrairDois.getText());
         Double rsSubtrair = sbUm - sbDois;
@@ -700,7 +697,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSubtrairActionPerformed
 
     private void jbSomarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSomarActionPerformed
-        // TODO add your handling code here:
         Double smUm = Double.parseDouble(jtfsomaUm.getText());
         Double smDois = Double.parseDouble(jtfsomaDois.getText());
         Double rsSoma = smUm + smDois;
@@ -708,7 +704,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSomarActionPerformed
 
     private void jbClearallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClearallActionPerformed
-        // TODO add your handling code here:
         jtfsomaUm.setText("");
         jtfsomaDois.setText("");
         jtfmultiplicarUm.setText("");
@@ -728,9 +723,9 @@ public class CC extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jbClearallActionPerformed
 
+    static final String caracteres = "0987654321";
+
     private void jtfsomaUmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfsomaUmKeyTyped
-        // TODO add your handling code here:
-        String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
         // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
@@ -739,8 +734,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfsomaUmKeyTyped
 
     private void jtfsomaDoisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfsomaDoisKeyTyped
-        // TODO add your handling code here:
-                String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
         // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
@@ -749,8 +742,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfsomaDoisKeyTyped
 
     private void jtfsubtrairUmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfsubtrairUmKeyTyped
-        // TODO add your handling code here:
-                String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
         // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
@@ -759,8 +750,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfsubtrairUmKeyTyped
 
     private void jtfsubtrairDoisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfsubtrairDoisKeyTyped
-        // TODO add your handling code here:
-                String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
         // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
@@ -769,8 +758,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfsubtrairDoisKeyTyped
 
     private void jtfmultiplicarUmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfmultiplicarUmKeyTyped
-        // TODO add your handling code here:
-                String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
         // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
@@ -779,8 +766,7 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfmultiplicarUmKeyTyped
 
     private void jtfmultiplicarDoisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfmultiplicarDoisKeyTyped
-        // TODO add your handling code here:
-                String caracteres = "0987654321";
+
         if (!caracteres.contains(evt.getKeyChar() + "")) {
         // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
@@ -789,8 +775,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfmultiplicarDoisKeyTyped
 
     private void jtfdividirUmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfdividirUmKeyTyped
-        // TODO add your handling code here:
-                String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
         // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
@@ -799,8 +783,6 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfdividirUmKeyTyped
 
     private void jtfdividirDoisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfdividirDoisKeyTyped
-        // TODO add your handling code here:
-                String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
         // se o caractere digitado for um contido na String caracteres
             evt.consume(); // o caractere é removido através do método consume
@@ -809,24 +791,19 @@ public class CC extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfdividirDoisKeyTyped
 
     private void jbClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClearActionPerformed
-        // TODO add your handling code here:
         jtfResultadoCalculo.setText("");
     }//GEN-LAST:event_jbClearActionPerformed
 
     private void jtfResultadoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfResultadoCalculoActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jtfResultadoCalculoActionPerformed
 
     private void jtfResultadoCalculoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfResultadoCalculoKeyTyped
-        // TODO add your handling code here:
     }//GEN-LAST:event_jtfResultadoCalculoKeyTyped
 
     private void jtRaizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtRaizActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jtRaizActionPerformed
 
     private void jbCal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCal1ActionPerformed
-        // TODO add your handling code here:
         Double SomaAdvanced = Double.parseDouble(jtfResultadoSoma.getText());
         Double finalAdvanced = Math.sqrt(SomaAdvanced);
         jtSeno.setText(String.valueOf(Math.round(finalAdvanced)));

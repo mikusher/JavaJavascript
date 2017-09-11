@@ -175,7 +175,6 @@ public class Operacao {
         try {
             result = new StreamResult(new File(DADOS_EMPREGADO_XML + this.p.getId() + ".xml").getCanonicalPath());
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             LoggOperation.LOGGER.log(Level.SEVERE, "Não foi possivel gravar", e);
         }
 

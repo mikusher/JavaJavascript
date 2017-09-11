@@ -100,7 +100,6 @@ public class Gui extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Campo nao pode ser limpo.");
-            // TODO: handle exception
         }
     }
 
@@ -193,7 +192,6 @@ public class Gui extends javax.swing.JFrame {
                 try {
                     jbSaveActionPerformed(evt);
                 } catch (SecurityException | IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -407,7 +405,6 @@ public class Gui extends javax.swing.JFrame {
                 try {
                     jbEDSaveActionPerformed(evt);
                 } catch (SecurityException | IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -797,7 +794,6 @@ public class Gui extends javax.swing.JFrame {
 
             LoggOperation.LOGGER.info("Informações Editadas com Sucesso!!");
         } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
-            // TODO Auto-generated catch block
             LoggOperation.LOGGER.warning("Não foi possivel editar!");
         }
 
@@ -808,7 +804,6 @@ public class Gui extends javax.swing.JFrame {
 
 
     private void jtIdActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jtIdActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_jtIdActionPerformed
 
 
@@ -829,7 +824,6 @@ public class Gui extends javax.swing.JFrame {
             OperacoesSQL_Postgres.insert(opr.p.getUUID(), Integer.parseInt(jtId.getText()), jtName.getText(), Integer.parseInt(jtIdade.getText()), jtEndereco.getText());
 
         } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
-            // TODO Auto-generated catch block
             LoggOperation.LOGGER.warning("Não foi possivel adicionar!");
         }
 
@@ -841,7 +835,6 @@ public class Gui extends javax.swing.JFrame {
 
     private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbCancelActionPerformed
 
-        // TODO add your handling code here:
         System.exit(0);
     }// GEN-LAST:event_jbCancelActionPerformed
 
@@ -851,7 +844,6 @@ public class Gui extends javax.swing.JFrame {
 
     private void jbPesquisaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbPesquisaActionPerformed
 
-        // TODO add your handling code here:
         if (jtidPesquisa.getText()
                         .isEmpty()
             || jtidPesquisa.getText()

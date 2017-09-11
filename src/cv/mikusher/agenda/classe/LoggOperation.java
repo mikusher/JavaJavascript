@@ -38,7 +38,6 @@ public class LoggOperation {
 
     public LoggOperation() {
 
-        // TODO Auto-generated constructor stub
         try {
             this.consoleHandler = new ConsoleHandler();
             this.fileHandler = new FileHandler(LOG_DIR + "logfile.log");
@@ -54,7 +53,6 @@ public class LoggOperation {
             LOGGER.removeHandler(this.consoleHandler);
 
         } catch (IOException | SecurityException e) {
-            // TODO: handle exception
             LOGGER.log(Level.SEVERE, "Error occur in FileHandler.", e);
         }
     }
