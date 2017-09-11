@@ -11,8 +11,7 @@ package cv.mikusher.agenda.classe.sqlClass;
 
 public class Teste {
 
-    static String pass = null;
-    static int    id   = 1;
+    static String passen = null;
 
 
 
@@ -21,10 +20,11 @@ public class Teste {
     public static void main(String[] args) {
 
         try {
-            pass = CriptoLogin.encrypt("1", "mikusher");
-            System.out.println(CriptoLogin.encrypt("1", "mikusher"));
-            System.out.println(CriptoLogin.decrypt("1", pass));
-            System.out.println(String.valueOf(id));
+            passen = CriptoLogin.encrypt("1", "mikusher");
+            System.out.println(passen);
+            System.out.println(CriptoLogin.decrypt("1", passen));
+
+            // System.out.println(CriptoLogin.decrypt("1", pass));
         } catch (Exception e) {
             e.printStackTrace();
         }

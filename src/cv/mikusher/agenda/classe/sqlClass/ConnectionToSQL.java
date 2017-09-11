@@ -34,7 +34,7 @@ import cv.mikusher.agenda.classe.LoggOperation;
  *
  * @author Luis Amilcar Tavares
  */
-public class ConnectionToSQL implements QueryOperation {
+public class ConnectionToSQL extends CriptoLogin implements QueryOperation {
 
     private static Connection conn = null;
     private static Statement  stmt;
@@ -47,14 +47,12 @@ public class ConnectionToSQL implements QueryOperation {
     public static Connection connect(String connectionType) {
 
         try {
-            if (Objects.equals(connectionType,
-                               "lite".toLowerCase()
-                                     .trim())) {
+            if (Objects.equals(connectionType, "lite".toLowerCase()
+                                                     .trim())) {
                 conn = DriverManager.getConnection(SQLLite);
                 LoggOperation.LOGGER.log(Level.INFO, "Connection to {0} has been established.", connectionType);
-            } else if (Objects.equals(connectionType,
-                                      "psql".toLowerCase()
-                                            .trim())) {
+            } else if (Objects.equals(connectionType, "psql".toLowerCase()
+                                                            .trim())) {
                 conn = DriverManager.getConnection(POSTGRES, pUser, pPassword);
                 LoggOperation.LOGGER.log(Level.INFO, "Connection to {0} has been established.", connectionType);
             } else {
@@ -70,9 +68,9 @@ public class ConnectionToSQL implements QueryOperation {
 
 
 
-    public static boolean loginCheck(String username, String password) {
+    public static boolean loginCheck(String username, String password) throws Exception {
 
-        String dbUsername, dbPassword;
+        String dbUsername, dbPassword, dbPasswordDesc;
         boolean login = false;
 
         try {
@@ -85,8 +83,9 @@ public class ConnectionToSQL implements QueryOperation {
             while (resultS.next()) {
                 dbUsername = resultS.getString("users_name");
                 dbPassword = resultS.getString("users_password");
+                dbPasswordDesc = CriptoLogin.decrypt(dbUsername, dbPassword);
 
-                if (dbUsername.equalsIgnoreCase(username) && dbPassword.equals(password)) {
+                if (dbUsername.equals(username) && dbPasswordDesc.equals(password)) {
                     login = true;
                     LoggOperation.LOGGER.info("Connection Done");
                 } else {

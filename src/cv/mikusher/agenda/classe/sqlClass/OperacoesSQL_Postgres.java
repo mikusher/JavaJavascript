@@ -168,13 +168,14 @@ public class OperacoesSQL_Postgres extends ConnectionToSQL {
      * @param_name
      * @param_password
      */
-    public static void insertUsers(String name, String password) {
+    public static void insertUsers(String name, String password) throws Exception {
 
+        String criptPass = CriptoLogin.encrypt(name, password);
         try (Connection conn = connect("psql");
 
                         PreparedStatement pstmt = conn.prepareStatement(queryNewUSERS)) {
             pstmt.setString(1, name);
-            pstmt.setString(2, password);
+            pstmt.setString(2, criptPass);
             pstmt.executeQuery();
 
         } catch (SQLException e) {
