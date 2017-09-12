@@ -23,8 +23,6 @@ public class Teste {
             passen = CriptoLogin.encrypt("1", "mikusher");
             System.out.println(passen);
             System.out.println(CriptoLogin.decrypt("1", passen));
-
-            // System.out.println(CriptoLogin.decrypt("1", pass));
         } catch (Exception e) {
             e.printStackTrace();
         }

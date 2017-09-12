@@ -185,6 +185,8 @@ public class Login extends javax.swing.JFrame {
             }
         } catch (HeadlessException e) {
             LOGGER.log(Level.SEVERE, "Não é possivel adicionar utilizador.", e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }// GEN-LAST:event_jbLoginActionPerformed
 
