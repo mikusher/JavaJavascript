@@ -26,7 +26,7 @@ public class StaticImport {
 
         System.out.println(pow(a, b));
 
-        System.out.println(sqrt(a));
+        System.out.println(sqrt(a * c));
     }
 
 }

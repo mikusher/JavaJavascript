@@ -39,6 +39,7 @@ public class PrincipalTela extends javax.swing.JFrame {
 
 
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -114,6 +115,7 @@ public class PrincipalTela extends javax.swing.JFrame {
 
         jTextcolocarParticao.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jTextcolocarParticaoActionPerformed(evt);
@@ -123,6 +125,7 @@ public class PrincipalTela extends javax.swing.JFrame {
         jButton_criarparticao.setText("Criar");
         jButton_criarparticao.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jButton_criarparticaoActionPerformed(evt);
@@ -242,6 +245,8 @@ public class PrincipalTela extends javax.swing.JFrame {
         jComboBoxkbmbgb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "KB", "MB", "GB" }));
         jComboBoxkbmbgb.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
+            @SuppressWarnings("synthetic-access")
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jComboBoxkbmbgbActionPerformed(evt);
@@ -251,6 +256,7 @@ public class PrincipalTela extends javax.swing.JFrame {
         jButton_adicionararquivo.setText("Adicionar");
         jButton_adicionararquivo.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jButton_adicionararquivoActionPerformed(evt);
@@ -377,6 +383,7 @@ public class PrincipalTela extends javax.swing.JFrame {
         jButton_Pesquisarparaexcluir.setText("Pesquisar");
         jButton_Pesquisarparaexcluir.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jButton_PesquisarparaexcluirActionPerformed(evt);
@@ -386,6 +393,7 @@ public class PrincipalTela extends javax.swing.JFrame {
         jTabledosArqaExcluir.setModel(new javax.swing.table.DefaultTableModel(new Object[][] { { null, null }, { null, null }, { null, null }, { null, null } }, new String[] { "Nome", "Tamanho" }));
         jTabledosArqaExcluir.addContainerListener(new java.awt.event.ContainerAdapter() {
 
+            @Override
             public void componentAdded(java.awt.event.ContainerEvent evt) {
 
                 jTabledosArqaExcluirComponentAdded(evt);
@@ -395,6 +403,7 @@ public class PrincipalTela extends javax.swing.JFrame {
 
 
 
+            @Override
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
 
                 jTabledosArqaExcluirComponentRemoved(evt);
@@ -405,6 +414,7 @@ public class PrincipalTela extends javax.swing.JFrame {
         jButton_excluir.setText("Excluir");
         jButton_excluir.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jButton_excluirActionPerformed(evt);
@@ -479,6 +489,7 @@ public class PrincipalTela extends javax.swing.JFrame {
 
         jButtonAtualizarInformacao.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jButtonAtualizarInformacaoPerformed(evt);
@@ -546,6 +557,7 @@ public class PrincipalTela extends javax.swing.JFrame {
 
         jButtonAtualizarUnidadeTotal.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jButtonAtualizarUnidadeTotalPerformed(evt);
@@ -960,6 +972,7 @@ public class PrincipalTela extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
 
                 new PrincipalTela().setVisible(true);
