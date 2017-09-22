@@ -42,9 +42,9 @@ public class TesteWekaMilhao {
      */
     public static void main(String[] args) throws Exception {
 
-        final int TAMANHO_DA_CARTELA = 7;
+        final int TAMANHO_DA_CARTELA = 7; // TICKET_SIZE
 
-        Instances data = carregamnetoFicheiro();
+        Instances data = carregamentoFicheiro(); // loadFile
 
         //
         IBk k3 = new IBk();
@@ -105,10 +105,10 @@ public class TesteWekaMilhao {
      * @return
      * @throws Exception
      */
-    private static Instances carregamnetoFicheiro() throws Exception {
+    private static Instances carregamentoFicheiro() throws Exception {
 
         // criação do datasouce, indicando o caminho da BD "vendas"
-        DataSource source = new DataSource("src/cv/mikusher/testeweka/milhao.arff");
+        DataSource source = new DataSource("src/cv/mikusher/weka/testeweka/milhao.arff");
 
         // pega as instancias da base de dados
         Instances data = source.getDataSet();
