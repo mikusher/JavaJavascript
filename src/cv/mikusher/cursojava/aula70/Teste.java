@@ -27,14 +27,13 @@ public class Teste {
         Thread t2 = new Thread(thread2);
         Thread t3 = new Thread(thread3);
 
-        t1.setPriority(5);
-        t2.setPriority(2);
-        t3.setPriority(Thread.MAX_PRIORITY);
+        t1.setPriority(Thread.MAX_PRIORITY);
+        t2.setPriority(Thread.NORM_PRIORITY);
+        t3.setPriority(Thread.MIN_PRIORITY);
 
         t1.start();
         t2.start();
         t3.start();
-
     }
 
 }
