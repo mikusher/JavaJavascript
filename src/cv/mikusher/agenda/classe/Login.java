@@ -5,7 +5,6 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  */
-
 /**
  * Luis Amilcar Tavares
  */
@@ -20,7 +19,10 @@ package cv.mikusher.agenda.classe;
 
 
 
+import static cv.mikusher.agenda.classe.LoggOperation.LOGGER;
+
 import java.awt.HeadlessException;
+import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
 
@@ -36,14 +38,15 @@ import cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL;
  */
 public class Login extends javax.swing.JFrame {
 
+    private static final long serialVersionUID = 1L;
+
+
+
+
+
     /**
      * Creates new form Login
      */
-    ConnectionToSQL ctdb = new ConnectionToSQL();
-
-
-
-
 
     public Login() {
 
@@ -86,6 +89,7 @@ public class Login extends javax.swing.JFrame {
         jbLogin.setText("Login");
         jbLogin.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jbLoginActionPerformed(evt);
@@ -95,6 +99,7 @@ public class Login extends javax.swing.JFrame {
         jbCancel.setText("Cancel");
         jbCancel.addActionListener(new java.awt.event.ActionListener() {
 
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                 jbCancelActionPerformed(evt);
@@ -158,7 +163,6 @@ public class Login extends javax.swing.JFrame {
 
     private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbCancelActionPerformed
 
-        // TODO add your handling code here:
         System.exit(0);
     }// GEN-LAST:event_jbCancelActionPerformed
 
@@ -168,20 +172,20 @@ public class Login extends javax.swing.JFrame {
 
     private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbLoginActionPerformed
 
-        // TODO add your handling code here:
         try {
-            if (ctdb.loginCheck(jtUsername.getText(), String.valueOf(jtPassword.getPassword()))) {
+            if (ConnectionToSQL.loginCheck(this.jtUsername.getText(), String.valueOf(this.jtPassword.getPassword()))) {
                 new Gui().setVisible(true);
                 this.dispose();
                 this.setResizable(false);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Dados errado. Tente novamente!");
-                jtUsername.setText("");
-                jtPassword.setText("");
+                this.jtUsername.setText("");
+                this.jtPassword.setText("");
             }
         } catch (HeadlessException e) {
-            // TODO Auto-generated catch block
+            LOGGER.log(Level.SEVERE, "Não é possivel adicionar utilizador.", e);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }// GEN-LAST:event_jbLoginActionPerformed
@@ -227,6 +231,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
 
                 new Login().setVisible(true);

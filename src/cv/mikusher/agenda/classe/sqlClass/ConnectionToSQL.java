@@ -21,6 +21,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
+import java.util.logging.Level;
 
 import cv.mikusher.agenda.classe.LoggOperation;
 
@@ -32,9 +34,11 @@ import cv.mikusher.agenda.classe.LoggOperation;
  *
  * @author Luis Amilcar Tavares
  */
-public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
+public class ConnectionToSQL extends CriptoLogin implements QueryOperation {
 
-    static Connection conn = null;
+    private static Connection conn = null;
+    private static Statement  stmt;
+    private static ResultSet  resultS;
 
 
 
@@ -43,16 +47,14 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
     public static Connection connect(String connectionType) {
 
         try {
-            if (connectionType == "lite".toLowerCase()
-                                        .toString()
-                                        .trim()) {
+            if (Objects.equals(connectionType, "lite".toLowerCase()
+                                                     .trim())) {
                 conn = DriverManager.getConnection(SQLLite);
-                LoggOperation.LOGGER.info("Connection to " + connectionType + " has been established.");
-            } else if (connectionType == "psql".toLowerCase()
-                                               .toString()
-                                               .trim()) {
+                LoggOperation.LOGGER.log(Level.INFO, "Connection to {0} has been established.", connectionType);
+            } else if (Objects.equals(connectionType, "psql".toLowerCase()
+                                                            .trim())) {
                 conn = DriverManager.getConnection(POSTGRES, pUser, pPassword);
-                LoggOperation.LOGGER.info("Connection to " + connectionType + " has been established.");
+                LoggOperation.LOGGER.log(Level.INFO, "Connection to {0} has been established.", connectionType);
             } else {
                 System.err.println("Error to connect to " + connectionType);
             }
@@ -66,36 +68,31 @@ public class ConnectionToSQL implements ConstantesSQL, QueryOperation {
 
 
 
-    public boolean loginCheck(String username, String password) {
+    public static boolean loginCheck(String username, String password) throws Exception {
 
-        String dbUsername, dbPassword;
+        String dbUsername, dbPassword, dbPasswordDesc;
         boolean login = false;
 
         try {
             Class.forName("org.postgresql.Driver")
                  .newInstance();
             conn = DriverManager.getConnection(POSTGRES, pUser, pPassword);
-            Statement stmt = (Statement) conn.createStatement();
+            stmt = conn.createStatement();
             stmt.executeQuery(queryUSERS);
-            ResultSet resultS = stmt.getResultSet();
+            resultS = stmt.getResultSet();
             while (resultS.next()) {
                 dbUsername = resultS.getString("users_name");
                 dbPassword = resultS.getString("users_password");
+                dbPasswordDesc = CriptoLogin.decrypt(dbUsername, dbPassword);
 
-                if (dbUsername.equalsIgnoreCase(username) && dbPassword.equals(password)) {
+                if (dbUsername.equals(username) && dbPasswordDesc.equals(password)) {
                     login = true;
                     LoggOperation.LOGGER.info("Connection Done");
                 } else {
                     LoggOperation.LOGGER.warning("Fail connection");
                 }
             }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (InstantiationException | IllegalAccessException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return login;

@@ -311,34 +311,28 @@ public class Calculadora extends javax.swing.JFrame {
         visorescrita.requestFocus();
     }
     private void sinalsomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinalsomaActionPerformed
-        // TODO add your handling code here:
         setValor();
         operacao = 1;
     }//GEN-LAST:event_sinalsomaActionPerformed
 
     private void nun0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun0ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("0");
     }//GEN-LAST:event_nun0ActionPerformed
 
     private void nun8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun8ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("8");
     }//GEN-LAST:event_nun8ActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_sairActionPerformed
 
     private void limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparActionPerformed
-        // TODO add your handling code here:
         valor = 0;
         visorescrita.setText("");
     }//GEN-LAST:event_limparActionPerformed
 
     private void visorescritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visorescritaActionPerformed
-        // TODO add your handling code here:
         visorescrita.setEditable(false);
         visorescrita.setBackground(Color.YELLOW);
         visorescrita.setHorizontalAlignment(WIDTH);
@@ -346,65 +340,53 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_visorescritaActionPerformed
 
     private void nun1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun1ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("1");
     }//GEN-LAST:event_nun1ActionPerformed
 
     private void nun2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun2ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("2");
     }//GEN-LAST:event_nun2ActionPerformed
 
     private void nun3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun3ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("3");
     }//GEN-LAST:event_nun3ActionPerformed
 
     private void nun4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun4ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("4");
     }//GEN-LAST:event_nun4ActionPerformed
 
     private void nun5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun5ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("5");
     }//GEN-LAST:event_nun5ActionPerformed
 
     private void nun6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun6ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("6");
     }//GEN-LAST:event_nun6ActionPerformed
 
     private void nun7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun7ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("7");
     }//GEN-LAST:event_nun7ActionPerformed
 
     private void nun9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nun9ActionPerformed
-        // TODO add your handling code here:
         visorescrita.setText("9");
     }//GEN-LAST:event_nun9ActionPerformed
 
     private void sinalmultiplicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinalmultiplicaActionPerformed
-        // TODO add your handling code here:
         setValor();
         operacao = 4;
     }//GEN-LAST:event_sinalmultiplicaActionPerformed
 
     private void sinalsubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinalsubtrairActionPerformed
-        // TODO add your handling code here:
         setValor();
         operacao = 2;
     }//GEN-LAST:event_sinalsubtrairActionPerformed
 
     private void sinaldivisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinaldivisorActionPerformed
-        // TODO add your handling code here:
         setValor();
         operacao = 3;
     }//GEN-LAST:event_sinaldivisorActionPerformed
 
     private void sinaligualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinaligualActionPerformed
-        // TODO add your handling code here:
         switch (operacao)
         {
             //somar 

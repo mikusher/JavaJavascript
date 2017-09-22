@@ -19,6 +19,22 @@ public class Contato {
 
 
 
+    public Contato() {
+        // TODO Auto-generated constructor stub
+    }
+
+
+
+
+
+    public Contato(String nome, String endereco, String string) {
+        // TODO Auto-generated constructor stub
+    }
+
+
+
+
+
     public String getNome() {
 
         return nome;

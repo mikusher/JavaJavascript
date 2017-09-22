@@ -25,7 +25,6 @@ public enum WhoisRIR {
 
 
 
-
     WhoisRIR(String url) {
 
         this.url = url;

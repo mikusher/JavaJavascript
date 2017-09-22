@@ -72,12 +72,13 @@ public class TesteWeka {
         novo.setValue(2, "Sim"); // filho
 
         // fazendo a previsão do elemento novo
-        double probabilidade[] = nb.distributionForInstance(novo);
+        /*double probabilidade[] = nb.distributionForInstance(novo);
 
         // imprimindo os resultados
         System.out.println("Não: " + probabilidade[0]);
         System.out.println("");
         System.out.println("Sim: " + probabilidade[1]);
+        */
     }
 
 }

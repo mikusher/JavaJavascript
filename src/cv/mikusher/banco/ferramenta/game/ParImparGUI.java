@@ -211,7 +211,6 @@ public class ParImparGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonImparActionPerformed
 
     private void jtextnumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtextnumeroKeyTyped
-        // TODO add your handling code here:
         String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
             // se o caractere digitado for um contido na String caracteres
