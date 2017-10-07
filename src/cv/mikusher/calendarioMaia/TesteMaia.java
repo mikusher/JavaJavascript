@@ -19,8 +19,7 @@ public class TesteMaia {
 
     public static void main(String[] args) {
 
-        int dia = 36;
-        // TODO Auto-generated method stub
+        final int dia = 36;
         Dia d = new Dia();
         System.out.println("Domingo: " + Arrays.toString(d.getDomingo()));
         System.out.println("Segunda: " + Arrays.toString(d.getSegunda()));
