@@ -9,7 +9,6 @@ package cv.mikusher.banco;
 
 
 
-import cv.mikusher.banco.Pessoa;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,8 +31,8 @@ public class WriterReader {
 
     public static void main(String[] args) {
 
-        Pessoa p1 = new Pessoa("Cintia", 31, "Feminino");
-        Pessoa p2 = new Pessoa("Luis", 29, "Masculino");
+        Pessoa p1 = new Pessoa("Maria", 31, "Feminino");
+        Pessoa p2 = new Pessoa("Mario", 29, "Masculino");
 
         try {
             FileOutputStream f = new FileOutputStream(new File(caminho));
@@ -65,7 +64,6 @@ public class WriterReader {
         } catch (IOException e) {
             System.out.println("Error initializing stream");
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

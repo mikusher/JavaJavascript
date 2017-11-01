@@ -824,7 +824,7 @@ public class Gui extends javax.swing.JFrame {
             OperacoesSQL_Postgres.insert(opr.p.getUUID(), Integer.parseInt(jtId.getText()), jtName.getText(), Integer.parseInt(jtIdade.getText()), jtEndereco.getText());
 
         } catch (NumberFormatException | ParserConfigurationException | TransformerException e) {
-            LoggOperation.LOGGER.warning("NÃ£o foi possivel adicionar!");
+            LoggOperation.LOGGER.warning("Não foi possivel adicionar!");
         }
 
     }// GEN-LAST:event_jbSaveActionPerformed
