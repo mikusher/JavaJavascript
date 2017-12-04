@@ -12,7 +12,6 @@ package cv.mikusher.neuralnet;
 import java.util.ArrayList;
 
 import cv.mikusher.neuralnet.math.IActivationFunction;
-import weka.core.pmml.jaxbbindings.NeuralInput;
 
 
 

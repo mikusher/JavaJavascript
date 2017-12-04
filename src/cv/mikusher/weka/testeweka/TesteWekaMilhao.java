@@ -36,13 +36,17 @@ import weka.core.converters.ConverterUtils.DataSource;
  */
 public class TesteWekaMilhao {
 
+    private static final String CAMINHO_FILE = "src/cv/mikusher/weka/testeweka/milhao.arff";
+    private static final int TAMANHO_DA_CARTELA = 7;
+
+
+
+
     /**
      * @param args
      *            the command line arguments
      */
-    public static void main(String[] args) throws Exception {
-
-        final int TAMANHO_DA_CARTELA = 7;
+    public static void main(String[] args) throws Exception {        
 
         Instances data = carregamnetoFicheiro();
 
@@ -76,26 +80,24 @@ public class TesteWekaMilhao {
 
         gerarChave(primeiro_numero, segundo_numero, terceiro_numero, quarto_numero, quinto_numero, primeira_estrela, segunda_estrela);
 
-        // classifica√ß√£o da nova inst√¢ncia
-        /*
+        // classificaÁ„o da nova instancia
         double pred_num_1 = k3.classifyInstance(primeiro_numero);
         double pred_num_2 = k3.classifyInstance(segundo_numero);
         double pred_num_3 = k3.classifyInstance(terceiro_numero);
         double pred_num_4 = k3.classifyInstance(quarto_numero);
         double pred_num_5 = k3.classifyInstance(quinto_numero);
+        
         // estrelas
         double pred_str_1 = k3.classifyInstance(primeira_estrela);
         double pred_str_2 = k3.classifyInstance(segunda_estrela);
 
-        //
-        // System.out.println("Predi√ß√£o percentual: " + pred_str_1);
+        // System.out.println("PrediÁ„o percentual: " + pred_str_1);
         Attribute atb = data.attribute(6);
         String predClass = atb.value((int) pred_str_1);
-        System.out.println("Privis√£o dos proximos numeros e estrela");
+        System.out.println("Privis„o dos proximos numeros e estrela");
         System.out.println("Numeros: \n" + "Numero 1: " + Math.round(pred_num_1) + "" + "\nNumero 2: " + Math.round(pred_num_2) + "\nNumero 3: " + Math.round(pred_num_3) + "\nNumero 4: "
                            + Math.round(pred_num_4) + "\nNumero 5: " + Math.round(pred_num_5) + "\n");
         System.out.println("Estrelas: \n" + "Estrela 1: " + Math.round(pred_str_1) + "\nEstrela 2: " + Math.round(pred_str_2));
-        */
     }
 
 
@@ -109,7 +111,7 @@ public class TesteWekaMilhao {
     private static Instances carregamnetoFicheiro() throws Exception {
 
         // cria√ß√£o do datasouce, indicando o caminho da BD "vendas"
-        DataSource source = new DataSource("src/cv/mikusher/testeweka/milhao.arff");
+        DataSource source = new DataSource(CAMINHO_FILE);
 
         // pega as instancias da base de dados
         Instances data = source.getDataSet();
