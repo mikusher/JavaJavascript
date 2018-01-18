@@ -50,7 +50,7 @@ import javafx.util.Duration;
 
 
 
-/** Example of playing all audio files in a given directory. */
+/* Example of playing all audio files in a given directory. */
 @SuppressWarnings("deprecation")
 public class MainPlay extends Application {
 
