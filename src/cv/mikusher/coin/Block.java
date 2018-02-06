@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 // https://www.ssaurel.com/blog/create-your-own-blockchain-in-30-minutes/
+// https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa
 
 public class Block {
 
@@ -84,15 +85,6 @@ public class Block {
 	    }
 		  
 	    return null;
-	  }
-
-	   public void mineBlock(int difficulty) {
-	     nonce = 0;
-			
-	     while (!getHash().substring(0,  difficulty).equals(Utils.zeros(difficulty))) {
-	       nonce++;
-	       hash = Block.calculateHash(this);
-	     }
 	  }
 		
 	}
