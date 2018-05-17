@@ -14,30 +14,19 @@
 
 // Link Jar: https://search.maven.org/remotecontent?filepath=redis/clients/jedis/2.9.0/jedis-2.9.0.jar
 
-
-
-
-
 package cv.tools;
-
-
-
-
 
 import redis.clients.jedis.Jedis;
 
-
-
-
-
 public class RedisJava {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        // Connecting to Redis server on localhost
-        Jedis jedis = new Jedis("localhost");
-        System.out.println("Connection to server sucessfully");
-        // check whether server is running or not
-        System.out.println("Server is running: " + jedis.ping());
-    }
+		// Connecting to Redis server on localhost
+		Jedis jedis = new Jedis("localhost");
+		System.out.println("Connection to server sucessfully");
+		// check whether server is running or not
+		System.out.println("Server is running: " + jedis.ping());
+		jedis.close();
+	}
 }

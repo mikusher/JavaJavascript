@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 Miky Mikusher
+
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7,20 +8,8 @@
  * (at your option) any later version.
  *
  */
-package cv.mikusher.analise;
 
-/**
- *
- * @author Miky Mikusher
- */
-/*
- **************************************************************************
- *
- *   Applies correlation between two arrays, either of type double or int.
- *
- **************************************************************************
- */
-import java.io.*;
+package cv.mikusher.analise;
 
 public class Correlation {
   static String argValue[];

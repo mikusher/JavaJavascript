@@ -20,9 +20,11 @@ public class Teste {
     public static void main(String[] args) {
 
         try {
-            passen = CriptoLogin.encrypt("1", "mikusher");
-            System.out.println(passen);
-            System.out.println(CriptoLogin.decrypt("1", passen));
+			String inputValue = "mikusher";
+			System.out.println("Input Value is: " + inputValue);
+			passen = CriptoLogin.encrypt("1", inputValue);
+			System.out.println("Encrypt the InputValue: " + passen);
+			System.out.println("Decrypt the Value: " + CriptoLogin.decrypt("1", passen));
         } catch (Exception e) {
             e.printStackTrace();
         }
