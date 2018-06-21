@@ -16,7 +16,6 @@ package cv.mikusher.banco;
 
 
 
-import cv.mikusher.agenda.*;
 import java.io.Serializable;
 import java.util.Random;
 import java.util.UUID;
