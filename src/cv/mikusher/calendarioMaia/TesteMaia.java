@@ -23,12 +23,12 @@ public class TesteMaia {
         Dia d = new Dia();
         System.out.println("Domingo: " + Arrays.toString(d.getDomingo()));
         System.out.println("Segunda: " + Arrays.toString(d.getSegunda()));
-        System.out.println("Terça: " + Arrays.toString(d.getTerca()));
+        System.out.println("Terï¿½a: " + Arrays.toString(d.getTerca()));
         System.out.println("Quarta: " + Arrays.toString(d.getQuarta()));
         System.out.println("Quinta: " + Arrays.toString(d.getQuinta()));
         System.out.println("Sexta: " + Arrays.toString(d.getSexta()));
         System.out.println("Sabado: " + Arrays.toString(d.getSabado()));
-        System.out.println("\nMeu dia de semana escolhido é " + dia + " em semana é " + d.Dia(dia)
+        System.out.println("\nMeu dia de semana escolhido foi " + dia + " em semana  " + d.Dia(dia)
                                                                                          .toString());
 
     }

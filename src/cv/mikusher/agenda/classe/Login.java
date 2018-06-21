@@ -27,6 +27,7 @@ import java.util.logging.Level;
 import javax.swing.JOptionPane;
 
 import cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL;
+import cv.mikusher.agenda.mensagem.Msg;
 
 
 
@@ -171,22 +172,28 @@ public class Login extends javax.swing.JFrame {
 
 
     private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbLoginActionPerformed
-
+        
         try {
-            if (ConnectionToSQL.loginCheck(this.jtUsername.getText(), String.valueOf(this.jtPassword.getPassword()))) {
+            String userName = this.jtUsername.getText();
+            String userPassword = String.valueOf(this.jtPassword.getPassword());
+            if (userName.trim().length() <= 0 || userPassword.trim().length() <= 0){
+                throw new Exception(Msg.C_LOGIN_CAMPOS_USR_PASS_VAZIO);
+            }
+        
+            if (ConnectionToSQL.loginCheck(userName, userPassword)) {
                 new Gui().setVisible(true);
                 this.dispose();
                 this.setResizable(false);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Dados errado. Tente novamente!");
+                JOptionPane.showMessageDialog(null, Msg.C_LOGIN_TENTE_NOVAMENTE);
                 this.jtUsername.setText("");
                 this.jtPassword.setText("");
             }
         } catch (HeadlessException e) {
-            LOGGER.log(Level.SEVERE, "Não é possivel adicionar utilizador.", e);
+            LOGGER.log(Level.SEVERE, Msg.C_LOGIN_IMPOSSIVEL_ADICIONAR_USER, e);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, e.getMessage());
         }
     }// GEN-LAST:event_jbLoginActionPerformed
 

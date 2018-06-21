@@ -56,7 +56,7 @@ public class Exec12 {
             System.out.print(vetorA[i] + " + ");
         }
         System.out.println();
-        System.out.println("O resultado da soma é: " + soma);
+        System.out.println("O resultado da soma: " + soma);
 
     }
 

@@ -33,7 +33,7 @@ public class Dia {
             } else if (dia == segunda[i]) {
                 diaSemana = "Segunda";
             } else if (dia == terca[i]) {
-                diaSemana = "Terça";
+                diaSemana = "Terca";
             } else if (dia == quarta[i]) {
                 diaSemana = "Quarta";
             } else if (dia == quinta[i]) {
