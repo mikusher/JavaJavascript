@@ -67,7 +67,7 @@ public class BubbleSort {
             }
         }
 
-        System.out.println("Sorted list of numbers");
+        System.out.println("Sortear numero da lista");
 
         StringBuilder sb = new StringBuilder();
 

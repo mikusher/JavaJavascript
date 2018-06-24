@@ -20,8 +20,8 @@ public class TCalcular {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int soma = (int) (4 + 6 / 2 - (10 * Math.pow(3, 2) * (5 - 4)) * 3);
-        System.out.println(soma);
+        double soma = (4 + 6 / 2 - (10 * Math.pow(3, 2) * (5 - 4)) * 3);
+        System.out.println((int)soma);
     }
     
 }

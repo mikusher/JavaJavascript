@@ -29,13 +29,14 @@ public class Sql_Principal {
     public static void main(String[] args) {
 
         Sql4_InsertDate id = new Sql4_InsertDate();
+        String[] column = {"id","nome","idade","telefone"};
 
         // criando a base de dados
         Sql2_CreateDataBase.createNewDatabase("src/cv/mikusher/qsllite/BaseDados/", "Agenda.s3db");
 
         // criando a tabela, na base de dados
-        Sql3_CreateTable.createNewTable("src/cv/mikusher/qsllite/BaseDados/", "Contatos.s3db", "UTILIZADOR");
-        Sql3_CreateTable.createNewTable("src/cv/mikusher/qsllite/BaseDados/", "Contatos.s3db", "CONTATOS");
+        Sql3_CreateTable.createNewTable("src/cv/mikusher/qsllite/BaseDados/", "Contatos.s3db", "UTILIZADOR", column);
+        Sql3_CreateTable.createNewTable("src/cv/mikusher/qsllite/BaseDados/", "Contatos.s3db", "CONTATOS", column);
 
         // inserindo dados na base de dados
         id.insert("Contatos.s3db", "UTILIZADOR", "Luis Tavares", 28, 92555656);
