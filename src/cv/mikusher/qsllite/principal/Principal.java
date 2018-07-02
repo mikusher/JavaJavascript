@@ -194,20 +194,21 @@ public class Principal extends javax.swing.JFrame {
         String cdTable = (String) jtDataBaseNameCTable.getText();
         String cdName = (String) jtTableName.getText();
         String cdDirectory = (String) jtDiretory.getText();
+        String[] column = {"id","nome","idade","telefone"};
 
         if (jtDataBaseNameCTable.getText().equals("") || jtTableName.getText().equals("") || jtDiretory.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "O campo não pode estar limpo");
 
         } else if (jtExtension.getText().equals("") || !jtExtension.getText().equals(".s3db")) {
             jtExtension.setText(".s3db");
-            Sql3_CreateTable.createNewTable(cdDirectory, cdTable + ".s3db", cdName);
+            Sql3_CreateTable.createNewTable(cdDirectory, cdTable + ".s3db", cdName, column);
             JOptionPane.showMessageDialog(null, "Na base de dados " + cdTable + " foi criado a tabela " + cdName + " com sucesso, e extensão mudada para .s3db");
             jtDataBaseNameCTable.setText("");
             jtExtension.setText("");
             jtTableName.setText("");
 
         } else {
-            Sql3_CreateTable.createNewTable(cdDirectory, cdTable + ".s3db", cdName);
+            Sql3_CreateTable.createNewTable(cdDirectory, cdTable + ".s3db", cdName, column);
             JOptionPane.showMessageDialog(null, "Na base de dados " + cdTable + " foi criado a tabela " + cdName + " com sucesso!");
             jtDataBaseNameCTable.setText("");
             jtExtension.setText("");

@@ -21,9 +21,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
+import java.util.HashMap;
 
-
-
+import static org.bouncycastle.asn1.x509.X509ObjectIdentifiers.id;
 
 
 /**
@@ -36,16 +37,22 @@ public class Sql3_CreateTable {
      * Criar uma nova Tabela com os parametros da base de dados e a tabela
      * 
      * @param dataBaseName
-     *            indica a base de dados que sera chamada para efetuar a operação
+     *           indica a base de dados que sera chamada para efetuar a operação
      * @param tableName
      */
-    public static void createNewTable(String directory, String dataBaseName, String tableName) {
+    public static void createNewTable(String directory, String dataBaseName, String tableName, String[] columnInput) {
 
         // SQLite conexão com a base de dados
         String url = "jdbc:sqlite:" + directory + dataBaseName;
 
         // SQL criação da nova tabela (id, nome, idade, telefone)
-        String sql = "CREATE TABLE IF NOT EXISTS " + tableName + " (\n" + "	id integer PRIMARY KEY,\n" + "	nome text NOT NULL,\n" + "	idade text NOT NULL,\n" + "	telefone real\n" + ");";
+
+        String sql = "CREATE TABLE IF NOT EXISTS " +
+                tableName + " (\n" +
+                columnInput[0] + " integer PRIMARY KEY,\n" +
+                columnInput[1] + " text NOT NULL,\n" +
+                columnInput[2] + " text NOT NULL,\n" +
+                columnInput[3] + " real\n" + ");";
 
         try (Connection conn = DriverManager.getConnection(url); Statement stmt = conn.createStatement()) {
             // executando a query
@@ -65,8 +72,9 @@ public class Sql3_CreateTable {
      *            the command line arguments
      */
     public static void main(String[] args) {
+        String[] myColumnArray = {"id","nome","idade","telefone"};
 
         // criar a tabela com o nome de "utilizadores"
-        createNewTable("src/cv/mikusher/qsllite/BaseDados/", "Agenda.s3db", "utilizadores");
+        createNewTable("src/cv/mikusher/qsllite/BaseDados/", "Agenda.s3db", "utilizadores", myColumnArray);
     }
 }

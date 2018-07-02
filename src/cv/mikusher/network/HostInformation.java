@@ -156,9 +156,15 @@ public class HostInformation extends javax.swing.JFrame {
         try {
             printAddressDetails(enderecoText);
             InetAddress addr = InetAddress.getByName(host);
-            jtResultado.setText("Host '" + host + "' details starts..." + '\n' + "Host  IP  Address: " + addr.getHostAddress() + '\n' + "Canonical  Host  Name: " + addr.getCanonicalHostName() + '\n'
-                                + "Local Address: " + addr.isSiteLocalAddress() + '\n' + "Multicast: " + addr.isMulticastAddress() + '\n' + "isReachable(): " + addr.isReachable(this.timeOutinMillis)
-                                + '\n' + "isLoopbackAddress(): " + addr.isLoopbackAddress());
+            jtResultado.setText(
+                                "Host '" + host + "' details starts..." + '\n' +
+                                "Host IP Address: " + addr.getHostAddress() + '\n' +
+                                "Canonical Host Name: " + addr.getCanonicalHostName() + '\n' +
+                                "Local Address: " + addr.isSiteLocalAddress() + '\n' +
+                                "Multicast: " + addr.isMulticastAddress() + '\n' +
+                                "isReachable(): " + addr.isReachable(this.timeOutinMillis) + '\n' +
+                                "isLoopbackAddress(): " + addr.isLoopbackAddress()
+            );
         } catch (IOException ex) {
             Logger.getLogger(HostInformation.class.getName())
                   .log(Level.SEVERE, null, ex);
@@ -176,8 +182,8 @@ public class HostInformation extends javax.swing.JFrame {
         InetAddress addr = InetAddress.getByName(host);
 
         System.out.println("Host '" + host + "' details starts...");
-        System.out.println("Host  IP  Address: " + addr.getHostAddress());
-        System.out.println("Canonical  Host  Name: " + addr.getCanonicalHostName());
+        System.out.println("Host IP Address: " + addr.getHostAddress());
+        System.out.println("Canonical Host Name: " + addr.getCanonicalHostName());
 
         System.out.println("isReachable(): " + addr.isReachable(this.timeOutinMillis));
         System.out.println("isLoopbackAddress(): " + addr.isLoopbackAddress());
