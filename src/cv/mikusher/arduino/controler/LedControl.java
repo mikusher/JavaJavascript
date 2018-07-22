@@ -47,6 +47,8 @@ public class LedControl extends javax.swing.JFrame {
         inputPiscar = new javax.swing.JTextField();
         bPiscar = new javax.swing.JButton();
         bClose = new javax.swing.JButton();
+        bMorse = new javax.swing.JButton();
+        bBinario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CONTROLE DE LED");
@@ -88,15 +90,26 @@ public class LedControl extends javax.swing.JFrame {
             }
         });
 
+        bMorse.setText("Morse");
+        bMorse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMorseActionPerformed(evt);
+            }
+        });
+
+        bBinario.setText("Binario");
+        bBinario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBinarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(bClose)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -110,6 +123,17 @@ public class LedControl extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bPiscar)
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bClose)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bMorse, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bBinario, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bDesligar, bLigar, bPiscar});
@@ -125,7 +149,11 @@ public class LedControl extends javax.swing.JFrame {
                     .addComponent(bDesligar)
                     .addComponent(inputPiscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bPiscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(bMorse)
+                .addGap(18, 18, 18)
+                .addComponent(bBinario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(bClose, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -171,6 +199,70 @@ public class LedControl extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_bCloseActionPerformed
 
+    private void bMorseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMorseActionPerformed
+                
+        char[] english = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+              'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 
+              'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+              ',', '.', '?' };
+
+        String[] morse = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", 
+                    ".---", "-.-", ".-..", "--", "-.", "---", ".---.", "--.-", ".-.",
+                    "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----",
+                    "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.",
+                    "-----", "--..--", ".-.-.-", "..--.." };
+        
+        int time = 1;
+        String userInput = textToMorse.getText().toLowerCase();
+        char[] chars = userInput.toCharArray();
+        
+        String str = "";
+        for (int i = 0; i < chars.length; i++){
+            for (int j = 0; j < english.length; j++){
+
+                if (english[j] == chars[i]){
+                    str = str + morse[j] + " ";  
+                }
+            }
+        }
+        String strConvert = str.replace(".", "l").replace("-", "d");
+        char[] charsFinal = strConvert.toCharArray();
+        System.out.println(charsFinal);
+        for (int i = 0; i < charsFinal.length; i++) {
+            switch (charsFinal[i]) {
+                case 'l':
+                    arduino.send("l");
+                    break;
+                case 'd':
+                    arduino.send("d");
+                    break;
+                default:
+                    try {
+                        TimeUnit.SECONDS.sleep(time);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(LedControl.class.getName()).log(Level.SEVERE, null, ex);
+                    }   break;
+            }
+        }
+        arduino.send("d");
+    }//GEN-LAST:event_bMorseActionPerformed
+
+    private void bBinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBinarioActionPerformed
+        int time = 1;
+        String _inputPisca = inputPisca.getText();
+        int numeroPisca = Integer.parseInt(_inputPisca);
+        
+        for (int i = 0; i < numeroPisca; i++) {
+            try {
+                TimeUnit.SECONDS.sleep(time);
+                arduino.send("l");
+                arduino.send("d");
+            } catch (InterruptedException ex) {
+                Logger.getLogger(LedControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bBinarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,9 +299,11 @@ public class LedControl extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bBinario;
     private javax.swing.JButton bClose;
     private javax.swing.JButton bDesligar;
     private javax.swing.JButton bLigar;
+    private javax.swing.JButton bMorse;
     private javax.swing.JButton bPiscar;
     private javax.swing.JTextField inputPiscar;
     private javax.swing.JLabel jLabel1;
