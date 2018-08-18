@@ -24,7 +24,7 @@ public class LedControl extends javax.swing.JFrame {
     /**
      * Creates new form LedControl
      */
-    ArduinoSerial arduino = new ArduinoSerial("COM4");
+    ArduinoSerial arduino = new ArduinoSerial("COM3");
 
     public LedControl() {
         initComponents();
@@ -49,6 +49,8 @@ public class LedControl extends javax.swing.JFrame {
         bClose = new javax.swing.JButton();
         bMorse = new javax.swing.JButton();
         bBinario = new javax.swing.JButton();
+        textToMorse = new javax.swing.JTextField();
+        jtBinarioInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CONTROLE DE LED");
@@ -109,34 +111,36 @@ public class LedControl extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(149, 149, 149))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bLigar)
-                        .addGap(18, 18, 18)
-                        .addComponent(bDesligar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(inputPiscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bPiscar)
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bClose)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jtBinarioInput)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bBinario))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(textToMorse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bMorse))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bMorse, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bBinario, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(149, 149, 149))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(bLigar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bDesligar)
+                                .addGap(95, 95, 95)
+                                .addComponent(inputPiscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bPiscar)))
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bDesligar, bLigar, bPiscar});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bBinario, bDesligar, bLigar, bMorse, bPiscar});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,14 +154,18 @@ public class LedControl extends javax.swing.JFrame {
                     .addComponent(inputPiscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bPiscar))
                 .addGap(18, 18, 18)
-                .addComponent(bMorse)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bMorse)
+                    .addComponent(textToMorse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(bBinario)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bBinario)
+                    .addComponent(jtBinarioInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(bClose, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bDesligar, bLigar, bPiscar});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bBinario, bDesligar, bLigar, bMorse, bPiscar});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,7 +257,7 @@ public class LedControl extends javax.swing.JFrame {
 
     private void bBinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBinarioActionPerformed
         int time = 1;
-        String _inputPisca = inputPisca.getText();
+        String _inputPisca = inputPiscar.getText();
         int numeroPisca = Integer.parseInt(_inputPisca);
         
         for (int i = 0; i < numeroPisca; i++) {
@@ -307,5 +315,7 @@ public class LedControl extends javax.swing.JFrame {
     private javax.swing.JButton bPiscar;
     private javax.swing.JTextField inputPiscar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jtBinarioInput;
+    private javax.swing.JTextField textToMorse;
     // End of variables declaration//GEN-END:variables
 }
