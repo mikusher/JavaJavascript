@@ -26,31 +26,35 @@ public class TestarEscola {
 
     public static void main(String[] args) {
 
-        Alunos al = new Alunos();
-        Turmas tr = new Turmas();
-        Funcionarios fm = new Funcionarios();
+        Alunos aluno = new Alunos();
+        Turmas turma_1 = new Turmas();
+        Funcionarios funcionario = new Funcionarios();
 
-        al.turma = tr;
+        aluno.setTurma(turma_1);
 
-        al.nome = "Mikusher";
-        tr.sigla = "UM";
+        aluno.setNome("Mikusher");
+        turma_1.setSigla("UM");
 
-        fm.nome = "Hmtavares";
-        fm.salario = 500;
-        fm.consultaFuncionario();
+        funcionario.setNome("Neves");
+        funcionario.setSalario(500);
+        funcionario.consultaFuncionario();
+        
         System.out.println("-----");
-        fm.aumentarSalario(500);
-        fm.consultaFuncionario();
+        funcionario.aumentarSalario(500);
+        funcionario.consultaFuncionario();
+        
         System.out.println("");
-        fm.nome = "Latavares";
-        fm.salario = 500;
-        fm.consultaFuncionario();
+        
+        funcionario.setNome("Latavares");
+        funcionario.setSalario(500);
+        funcionario.consultaFuncionario();
+        
         System.out.println("-----");
-        fm.aumentarSalario(500);
-        fm.consultaFuncionario();
+        funcionario.aumentarSalario(500);
+        funcionario.consultaFuncionario();
 
-        // System.out.println(al.nome);
-        // System.out.println(al.turma.sigla);
+        // System.out.println(aluno.nome);
+        // System.out.println(aluno.turma.sigla);
 
     }
 

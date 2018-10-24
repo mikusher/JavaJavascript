@@ -23,6 +23,8 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 
 import cv.mikusher.modeloIdentidade.agenda.bancodedados.CriaConexao;
+import cv.mikusher.modeloIdentidade.agenda.bancodedados.QueryStatement;
+import cv.mikusher.modeloIdentidade.agenda.bancodedados.Utils;
 import cv.mikusher.modeloIdentidade.agenda.codigo.ContatosProfessor;
 
 
@@ -35,7 +37,7 @@ import cv.mikusher.modeloIdentidade.agenda.codigo.ContatosProfessor;
  */
 public class ContatoProfessorCombina {
 
-    private Connection conexao;
+    private final Connection conexao;
 
 
 
@@ -52,17 +54,15 @@ public class ContatoProfessorCombina {
 
     public void adicionaprof(ContatosProfessor cp) throws SQLException {
 
-        String sql = "insert into professor(nome, telefone, email, sexo, departamento)" + "values(?,?,?,?,?)";
-        PreparedStatement stmt2 = conexao.prepareStatement(sql);
-
-        stmt2.setString(1, cp.getNome());
-        stmt2.setString(2, cp.getTelefone());
-        stmt2.setString(3, cp.getEmail());
-        stmt2.setString(4, cp.getSexo());
-        stmt2.setString(5, cp.getDepartamento());
-
-        stmt2.execute();
-        stmt2.close();
+        try (PreparedStatement stmt2 = conexao.prepareStatement(QueryStatement.ADDPROF.query())) {
+            stmt2.setString(1, cp.getNome());
+            stmt2.setString(2, cp.getTelefone());
+            stmt2.setString(3, cp.getEmail());
+            stmt2.setString(4, cp.getSexo());
+            stmt2.setString(5, cp.getDepartamento());
+            
+            stmt2.execute();
+        }
     }
 
 
@@ -71,24 +71,23 @@ public class ContatoProfessorCombina {
 
     public List<ContatosProfessor> getLista(String nome) throws SQLException {
 
-        String sql = "select * from contato where nome like ?";
-        PreparedStatement stmt2 = this.conexao.prepareStatement(sql);
-        stmt2.setString(1, nome);
-        ResultSet rs2 = stmt2.executeQuery();
-        List<ContatosProfessor> minhaLista = new ArrayList<ContatosProfessor>();
-
-        while (rs2.next()) {
-            ContatosProfessor cp = new ContatosProfessor();
-            cp.setId(Long.valueOf(rs2.getString("Id")));
-            cp.setNome(rs2.getString("nome"));
-            cp.setTelefone(rs2.getString("telefone"));
-            cp.setEmail(rs2.getString("email"));
-            cp.setSexo(rs2.getString("sexo"));
-            cp.setDepartamento(rs2.getString("departamento"));
-            minhaLista.add(cp);
+        List<ContatosProfessor> minhaLista;
+        try (PreparedStatement stmt2 = this.conexao.prepareStatement(QueryStatement.LISTPROF.query())) {
+            stmt2.setString(1, nome);
+            try (ResultSet rs2 = stmt2.executeQuery()) {
+                minhaLista = new ArrayList<>();
+                while (rs2.next()) {
+                    ContatosProfessor cp = new ContatosProfessor();
+                    cp.setId(Long.valueOf(rs2.getString(Utils.id.toString())));
+                    cp.setNome(rs2.getString(Utils.nome.toString()));
+                    cp.setTelefone(rs2.getString(Utils.telefone.toString()));
+                    cp.setEmail(rs2.getString(Utils.email.toString()));
+                    cp.setSexo(rs2.getString(Utils.sexo.toString()));
+                    cp.setDepartamento(rs2.getString(Utils.departamento.toString()));
+                    minhaLista.add(cp);
+                }
+            }
         }
-        rs2.close();
-        stmt2.close();
         return minhaLista;
     }
 
@@ -98,18 +97,18 @@ public class ContatoProfessorCombina {
 
     public void alteraprof(ContatosProfessor cp2) throws SQLException {
 
-        String sql = "update contato set nome=?, telefone=?, email=?, sexo=?, departamento=? where id=?";
-        PreparedStatement stmt2 = conexao.prepareStatement(sql);
         // seta os valores
-        stmt2.setString(1, cp2.getNome());
-        stmt2.setString(2, cp2.getTelefone());
-        stmt2.setString(3, cp2.getEmail());
-        stmt2.setString(4, cp2.getSexo());
-        stmt2.setString(5, cp2.getDepartamento());
-        stmt2.setLong(6, cp2.getId());
-        // executa o codigo sql
-        stmt2.execute();
-        stmt2.close();
+        try (PreparedStatement stmt2 = conexao.prepareStatement(QueryStatement.ALTPROF.query())) {
+            // seta os valores
+            stmt2.setString(1, cp2.getNome());
+            stmt2.setString(2, cp2.getTelefone());
+            stmt2.setString(3, cp2.getEmail());
+            stmt2.setString(4, cp2.getSexo());
+            stmt2.setString(5, cp2.getDepartamento());
+            stmt2.setLong(6, cp2.getId());
+            // executa o codigo sql
+            stmt2.execute();
+        }
     }
 
 
@@ -118,10 +117,9 @@ public class ContatoProfessorCombina {
 
     public void removeprof(ContatosProfessor cp3) throws SQLException {
 
-        String sql = "delete from contato where id=?";
-        PreparedStatement stmt2 = conexao.prepareStatement(sql);
-        stmt2.setLong(1, cp3.getId());
-        stmt2.execute();
-        stmt2.close();
+        try (PreparedStatement stmt2 = conexao.prepareStatement(QueryStatement.REMOVEPROF.query())) {
+            stmt2.setLong(1, cp3.getId());
+            stmt2.execute();
+        }
     }
 }
