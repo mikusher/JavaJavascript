@@ -55,6 +55,7 @@ public class Exec11 {
                 vetorB[i] = vetorA[i];
             }
         }
+        scan.close();
         System.out.println("O resultado: " + Arrays.toString(vetorB)
                                                    .replaceAll("0,", ""));
         System.out.println("numero de pares: " + qpar);

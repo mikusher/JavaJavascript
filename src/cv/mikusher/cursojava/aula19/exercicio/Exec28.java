@@ -3,8 +3,6 @@ package cv.mikusher.cursojava.aula19.exercicio;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import org.jfree.util.ArrayUtilities;
-
 public class Exec28 {
 
     public static void main(String[] args) {
@@ -24,7 +22,7 @@ public class Exec28 {
             vetorB[vetorA.length -i - 1] = vetorA[i];
             vetorB[i] = tmp;
         }
-        
+        scan.close();
         System.out.println();
         System.out.println("O vetor A " + Arrays.toString(vetorA));
         System.out.println("O vetor B " + Arrays.toString(vetorB));
