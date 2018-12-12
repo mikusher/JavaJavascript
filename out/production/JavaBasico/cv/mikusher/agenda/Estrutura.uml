@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="80.0">cv.mikusher.agenda.classe.sqlClass.CriptoLogin</node>
+    <node x="133.00000000000003" y="80.0">cv.mikusher.agenda.classe.sqlClass.QueryOperation</node>
+    <node x="366.3428571428572" y="-5.0">cv.mikusher.agenda.classe.LoggOperation</node>
+    <node x="98.21051587301594" y="240.0">cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Postgres</node>
+    <node x="493.7595238095239" y="244.0">cv.mikusher.agenda.classe.Operacao</node>
+    <node x="108.62500000000003" y="160.0">cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL</node>
+    <node x="317.0928571428572" y="240.0">cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Lite</node>
+    <node x="474.5095238095239" y="158.0">cv.mikusher.agenda.classe.Pessoa</node>
+    <node x="252.04166666666669" y="439.16666666666663">cv.mikusher.agenda.classe.Login</node>
+    <node x="135.50000000000003" y="0.0">cv.mikusher.agenda.classe.sqlClass.ConstantesSQL</node>
+    <node x="424.79166666666674" y="362.1666666666667">cv.mikusher.agenda.classe.Gui</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.QueryOperation" target="cv.mikusher.agenda.classe.sqlClass.ConstantesSQL">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL" target="cv.mikusher.agenda.classe.LoggOperation">
+      <point x="55.125" y="-15.0" />
+      <point x="237.25000000000003" y="130.0" />
+      <point x="378.3428571428572" y="130.0" />
+      <point x="-52.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL" target="cv.mikusher.agenda.classe.sqlClass.QueryOperation">
+      <point x="18.375" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Postgres" target="cv.mikusher.agenda.classe.sqlClass.CriptoLogin">
+      <point x="-59.0" y="-15.0" />
+      <point x="127.71051587301594" y="210.0" />
+      <point x="50.56468253968262" y="210.0" />
+      <point x="50.56468253968262" y="140.0" />
+      <point x="18.833333333333314" y="140.0" />
+      <point x="-37.666666666666686" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Gui" target="cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Postgres">
+      <point x="-25.5" y="-15.0" />
+      <point x="433.79166666666674" y="330.0" />
+      <point x="186.71051587301594" y="330.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Operacao" target="cv.mikusher.agenda.classe.Pessoa">
+      <point x="-12.625" y="-15.0" />
+      <point x="532.6345238095239" y="220.0" />
+      <point x="535.709523809524" y="220.0" />
+      <point x="17.20000000000001" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Postgres" target="cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL">
+      <point x="0.0" y="-15.0" />
+      <point x="186.71051587301594" y="220.0" />
+      <point x="182.12500000000003" y="220.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Login" target="cv.mikusher.agenda.classe.Gui">
+      <point x="20.0" y="-15.0" />
+      <point x="311.20833333333337" y="415.0" />
+      <point x="459.29166666666674" y="415.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Lite" target="cv.mikusher.agenda.classe.LoggOperation">
+      <point x="37.75" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Operacao" target="cv.mikusher.agenda.classe.LoggOperation">
+      <point x="37.875" y="-15.0" />
+      <point x="579.1345238095239" y="226.0" />
+      <point x="581.008134920635" y="219.0" />
+      <point x="575.008134920635" y="140.0" />
+      <point x="456.3428571428572" y="140.0" />
+      <point x="26.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Gui" target="cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Lite">
+      <point x="-8.5" y="-15.0" />
+      <point x="450.79166666666674" y="300.0" />
+      <point x="392.5928571428572" y="300.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Gui" target="cv.mikusher.agenda.classe.Pessoa">
+      <point x="8.5" y="-15.0" />
+      <point x="467.79166666666674" y="300.0" />
+      <point x="484.2595238095239" y="300.0" />
+      <point x="484.2595238095239" y="220.0" />
+      <point x="501.3095238095239" y="220.0" />
+      <point x="-17.19999999999999" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Postgres" target="cv.mikusher.agenda.classe.LoggOperation">
+      <point x="59.0" y="-15.0" />
+      <point x="245.71051587301594" y="220.0" />
+      <point x="308.6323412698413" y="220.0" />
+      <point x="308.6323412698413" y="140.0" />
+      <point x="404.3428571428572" y="140.0" />
+      <point x="-26.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.OperacoesSQL_Lite" target="cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL">
+      <point x="-37.75" y="-15.0" />
+      <point x="354.8428571428572" y="210.0" />
+      <point x="231.12500000000003" y="210.0" />
+      <point x="49.0" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Gui" target="cv.mikusher.agenda.classe.LoggOperation">
+      <point x="31.166666666666686" y="-15.0" />
+      <point x="490.45833333333337" y="340.0" />
+      <point x="606.2595238095239" y="340.0" />
+      <point x="606.2595238095239" y="130.0" />
+      <point x="482.3428571428572" y="130.0" />
+      <point x="52.000000000000014" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL" target="cv.mikusher.agenda.classe.sqlClass.CriptoLogin">
+      <point x="-18.375" y="-15.0" />
+      <point x="163.75000000000003" y="130.0" />
+      <point x="94.16666666666666" y="130.0" />
+      <point x="37.66666666666666" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Gui" target="cv.mikusher.agenda.classe.Operacao">
+      <point x="14.166666666666686" y="-15.0" />
+      <point x="473.45833333333337" y="310.0" />
+      <point x="511.5928571428572" y="310.0" />
+      <point x="-33.666666666666686" y="15.0" />
+    </edge>
+    <edge source="cv.mikusher.agenda.classe.Login" target="cv.mikusher.agenda.classe.sqlClass.ConnectionToSQL">
+      <point x="-20.0" y="-15.0" />
+      <point x="271.20833333333337" y="415.0" />
+      <point x="87.71051587301594" y="415.0" />
+      <point x="87.71051587301594" y="220.0" />
+      <point x="133.12500000000003" y="220.0" />
+      <point x="-49.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="546.0" y="224.0" />
+  <SelectedNodes>
+    <node>cv.mikusher.agenda.classe.Pessoa</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

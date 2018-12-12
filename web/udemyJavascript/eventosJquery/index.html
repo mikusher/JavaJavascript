@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evento JQ</title>
+    <script src="lib/jquery-3.2.1.js"></script>
+    <script src="js.js"></script>
+</head>
+
+<body>
+    <div id="div1" style="height: 150px; width: 150px; background: black"></div>
+    <br />
+    <br />
+    <span id="entradas" class="dadosUtilizador">
+        <label for="username">Name:
+            <input type="text" name="username" id="username" value="indica o user" onfocus="if(this.value=='indica o user') this.value=''"
+                onblur="multipleValidate(username.value,password.value)">
+        </label>
+        <br />
+        <label for="password">Password:
+            <input type="password" name="password" id="password" onblur="multipleValidate(username.value,password.value)">
+        </label>
+        <br />
+        <span id="notificationMenssage" style="color: red"></span>
+    </span>
+    <div id="botaoGo">
+        <span id="bValue">
+            <button type="submit" onclick="clickGo(username.value,password.value)">Entrar</button>
+            <button type="reset" value="Reset" onclick="clickClean(username.value,password.value)">Limpar</button>
+        </span>
+    </div>
+    <br />
+    <div id="selecao">
+        <select name="opcao" class="campos">
+            <option value="1">Luis</option>
+            <option value="2">Amilcar</option>
+        </select>
+    </div>
+    <button class="alert" type="reset" value="Reset">BT</button>
+    <div>
+        <input type="checkbox" id="myCheckbox" checked="checked" />
+        <!-- Checked -->
+        <input type="checkbox" id="myCheckbox" />
+        <!-- Unchecked -->
+
+    </div>
+    <div>
+        <table id="news_list">
+            <tr>
+                <td>
+                    <input type="checkbox" name="news[1]" />
+                </td>
+                <td>TEXT</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Modal Inside Modal</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#test1">Open Modal 1</button>
+  <div id="test1" class="modal fade" role="dialog" style="z-index: 1400;">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#test2">Open Modal 2</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="test2" class="modal fade" role="dialog" style="z-index: 1600;">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni sit eum ipsa animi a. Temporibus voluptatem exercitationem
+            accusamus qui rerum, deserunt assumenda ducimus asperiores illo, nisi, eius odio enim similique. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

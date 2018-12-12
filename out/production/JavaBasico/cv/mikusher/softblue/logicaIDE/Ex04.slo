@@ -1,0 +1,13 @@
+início {
+    inteiro: v;
+    
+    leia (v);
+    
+    se (v > 10){
+        v = 10;
+    } senão {
+        v = 0;
+    }
+    
+    escreva (v);        
+}

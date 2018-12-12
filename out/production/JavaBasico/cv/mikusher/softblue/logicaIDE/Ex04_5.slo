@@ -1,0 +1,19 @@
+início {
+    // Declaração das variáveis
+    inteiro: max;
+    inteiro: i;
+    inteiro: a;
+    
+    // Lê o valor máximo
+    leia("Valor máximo", max);
+    
+    // a inicia com valor 1
+    a = 1;
+    
+    // Repete enquanto o valor máximo não for atingido
+    enquanto (i < max) {
+        escreva(i);
+        i = i + a;
+        a = i - a;
+    }
+}

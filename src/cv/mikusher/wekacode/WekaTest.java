@@ -32,7 +32,7 @@ import weka.core.Instances;
 @SuppressWarnings("deprecation")
 public class WekaTest {
 
-    public static BufferedReader readDataFile(String filename) {
+    private static BufferedReader readDataFile(String filename) {
 
         BufferedReader inputReader = null;
 
@@ -49,7 +49,7 @@ public class WekaTest {
 
 
 
-    public static Evaluation classify(Classifier model, Instances trainingSet, Instances testingSet) throws Exception {
+    private static Evaluation classify(Classifier model, Instances trainingSet, Instances testingSet) throws Exception {
 
         Evaluation evaluation = new Evaluation(trainingSet);
 
@@ -63,7 +63,7 @@ public class WekaTest {
 
 
 
-    public static double calculateAccuracy(FastVector predictions) {
+    private static double calculateAccuracy(FastVector predictions) {
 
         double correct = 0;
 
@@ -81,7 +81,7 @@ public class WekaTest {
 
 
 
-    public static Instances[][] crossValidationSplit(Instances data, int numberOfFolds) {
+    private static Instances[][] crossValidationSplit(Instances data, int numberOfFolds) {
 
         Instances[][] split = new Instances[2][numberOfFolds];
 
@@ -121,14 +121,14 @@ public class WekaTest {
         };
 
         // Run for each model
-        for (int j = 0; j < models.length; j++) {
+        for (Classifier model : models) {
 
             // Collect every group of predictions for current model in a FastVector
             FastVector predictions = new FastVector();
 
             // For each training-testing split pair, train and test the classifier
             for (int i = 0; i < trainingSplits.length; i++) {
-                Evaluation validation = classify(models[j], trainingSplits[i], testingSplits[i]);
+                Evaluation validation = classify(model, trainingSplits[i], testingSplits[i]);
 
                 predictions.appendElements(validation.predictions());
 
@@ -142,9 +142,7 @@ public class WekaTest {
             // Print current classifier's name and accuracy in a complicated,
             // but nice-looking way.
 
-            System.out.println("Accuracy of " + models[j].getClass()
-                                                         .getSimpleName()
-                               + ": " + String.format("%.2f%%", accuracy) + "\n---------------------------------");
+            System.out.println("Accuracy of " + model.getClass().getSimpleName() + ": " + String.format("%.2f%%", accuracy) + "\n---------------------------------");
         }
     }
 }

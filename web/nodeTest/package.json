@@ -1,0 +1,14 @@
+{
+  "name": "userinformation",
+  "version": "1.0.0",
+  "description": "information about user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Miky Mikusher",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

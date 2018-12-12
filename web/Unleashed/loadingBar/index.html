@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <style>
+        #loadingholder {
+            width: 100%;
+            background-color: #ddd;
+        }
+
+        #loading {
+            width: 0%;
+            height: 30px;
+            background-color: #337AB7;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://sourcecodester.com">Sourcecodester.com</a>
+        </div>
+    </nav>
+    <div class="col-md-3"></div>
+    <div class="col-md-6 well">
+        <h3 class="text-primary">Javascript - Simple Loading Bar</h3>
+        <hr style="border-top:1px dotted #ccc;" />
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <div id="loadingholder">
+                <div id="loading"></div>
+            </div>
+            <center>
+                <h4>Now Loading...</h4>
+            </center>
+        </div>
+
+
+
+    </div>
+</body>
+<script src="script.js"></script>
+<script type="text/javascript">
+    Progress();
+</script>
+
+</html>

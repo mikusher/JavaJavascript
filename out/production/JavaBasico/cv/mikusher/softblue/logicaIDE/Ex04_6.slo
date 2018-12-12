@@ -1,0 +1,22 @@
+início {
+    // Declaração das variáveis
+    inteiro: min;
+    inteiro: max;
+    inteiro: i;
+    
+    // Lê os valores mínimo e máximo da sequência
+    leia("Valor mínimo", min);
+    leia("Valor máximo", max);
+    
+    // O contador começa no valor mínimo
+    i = min; 
+    
+    // Repete enquanto não chegar ao máximo da sequência
+    enquanto(i <= max) {
+        // Só escreve se o resultado da divisão do número por 2 for 0 (número par)
+        se (i % 2 == 0) {
+            escreva(i);
+        }
+        i = i + 1;
+    }
+}

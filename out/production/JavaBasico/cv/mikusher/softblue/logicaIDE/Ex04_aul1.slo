@@ -1,0 +1,13 @@
+início {
+    inteiro: num;
+    
+    leia(num);
+    
+    se (num == 0){
+        escreva("numero igual a zero");
+    } senão se (num > 0){
+        escreva ("numero positivo");
+    } senão {
+        escreva ("numero negativo");
+    }
+}
