@@ -33,6 +33,7 @@ public class TesteWeka {
 
     private static final String CAMINHO_FILE = "src/cv/mikusher/weka/testeweka/vendas_tst.arff";
 
+
     /**
      * @param args
      *            the command line arguments
@@ -74,7 +75,7 @@ public class TesteWeka {
         double probabilidade[] = nb.distributionForInstance(novo);
 
         // imprimindo os resultados
-        System.out.println("Não: " + probabilidade[0]);
+		System.out.println("NÃ£o: " + probabilidade[0]);
         System.out.println("");
         System.out.println("Sim: " + probabilidade[1]);
         
