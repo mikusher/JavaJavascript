@@ -27,6 +27,7 @@ public class Exec27 {
             } 
             
         }
+        scan.close();
         System.out.println();
         System.out.println("O vetor A " + Arrays.toString(vetorA));
         System.out.println("O vetor B " + Arrays.toString(vetorB));

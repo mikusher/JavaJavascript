@@ -1,0 +1,1 @@
+console.log('Isso vai para o log, arquivo externo.');

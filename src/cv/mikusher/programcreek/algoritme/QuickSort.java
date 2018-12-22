@@ -1,6 +1,7 @@
 package cv.mikusher.programcreek.algoritme;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class QuickSort {
 	static void quickSort(int[] arr, int start, int end) {
@@ -51,13 +52,17 @@ public class QuickSort {
 	};
 
 	public static void main(String[] args) {
-		//int[] arr = { 9, 7, 5, 11, 12, 2, 14, 3, 10, 4, 6 };
-
-		int[] arr = generateArray(10);
-		System.out.print("Before: ");
-		print(arr);
-		quickSort(arr, 0, arr.length - 1);
-		System.out.print("After: ");
-		print(arr);
+            //int[] arr = { 9, 7, 5, 11, 12, 2, 14, 3, 10, 4, 6 };
+            Scanner input = new Scanner(System.in);
+            System.out.print("Indica o tamanho do array: ");
+            int arraylength = input.nextInt();
+            int[] arr = generateArray(arraylength);
+            
+            System.out.println("");
+            System.out.print("Before: ");
+            print(arr);
+            quickSort(arr, 0, arr.length - 1);
+            System.out.print("After: ");
+            print(arr);
 	}
 }

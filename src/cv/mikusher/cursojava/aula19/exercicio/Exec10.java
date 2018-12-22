@@ -53,6 +53,7 @@ public class Exec10 {
             vetorB[i] = vetorA[i] % 2;
 
         }
+        scan.close();
         System.out.println("O vetor A " + Arrays.toString(vetorA));
         System.out.println("O vetor B " + Arrays.toString(vetorB));
 

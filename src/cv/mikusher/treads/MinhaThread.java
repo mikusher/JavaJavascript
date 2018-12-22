@@ -33,6 +33,62 @@ public class MinhaThread extends Thread {
     private int valor;
     private int tempo;
 
+    
+    
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public int getTempo() {
+        return tempo;
+    }
+
+    public void setTempo(int tempo) {
+        this.tempo = tempo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 41 * hash + this.id;
+        hash = 41 * hash + this.valor;
+        hash = 41 * hash + this.tempo;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MinhaThread other = (MinhaThread) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.valor != other.valor) {
+            return false;
+        }
+        if (this.tempo != other.tempo) {
+            return false;
+        }
+        return true;
+    }
+
 
 
 
@@ -56,12 +112,12 @@ public class MinhaThread extends Thread {
     public void run() {
 
         try {
-            for (int i = 0; i < valor; i++) {
-                System.out.println("Thread ID: " + id + " valor: " + i);
-                Thread.sleep(tempo);
+            for (int i = 0; i < getValor(); i++) {
+                System.out.println("Thread ID: " + getId() + " valor: " + i);
+                Thread.sleep(getTempo());
             }
         } catch (Exception e) {
-            System.out.println("Erro na execução: " + e);
+            System.out.println("Erro na execuï¿½ï¿½o: " + e);
         }
 
     }

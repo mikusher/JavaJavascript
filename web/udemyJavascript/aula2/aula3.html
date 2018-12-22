@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 3 - Arrays</title>
+
+    <script type="text/javascript">
+
+        var valor = prompt('Indica um valor: ');
+        var lista_nomes = [];
+        lista_nomes[1] = "Luis";
+        lista_nomes[2] = "Amilcar";
+        lista_nomes[3] = "Dias";
+        lista_nomes[4] = "Neves";
+        lista_nomes[5] = "Tavares";
+
+        if (lista_nomes[valor] !== undefined) {
+            alert(lista_nomes[valor]);
+        } else {
+            var mensagem = prompt('Deseja adicionar o novo valor, y/n ?')
+            if (mensagem == 'y') {
+                var newName = prompt('Indica o novo nome: ')
+                lista_nomes[valor] = newName;
+                alert(lista_nomes[valor]);
+            } else {
+                document.writeln('Obrigado')
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

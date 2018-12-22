@@ -75,7 +75,11 @@ public class TesteWeka {
         double probabilidade[] = nb.distributionForInstance(novo);
 
         // imprimindo os resultados
+<<<<<<< HEAD
 		System.out.println("Não: " + probabilidade[0]);
+=======
+        System.out.println("Nao: " + probabilidade[0]);
+>>>>>>> 7079d1e843893e822c16e3d411dfc1125618e04e
         System.out.println("");
         System.out.println("Sim: " + probabilidade[1]);
         

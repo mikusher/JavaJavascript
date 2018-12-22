@@ -43,6 +43,7 @@ public class Pessoa implements Serializable {
     private transient int     _id;
     private int               _idPesquisa;
     private String            _randomUUIDString;
+    private Random rnd 		= new Random();
 
 
 
@@ -200,13 +201,13 @@ public class Pessoa implements Serializable {
 
 
 
-    public void setSalario(int _salario) {
-        this._salario = _salario;
+    public void setSalario(int salario) {
+        this._salario = salario;
     }
 
     
     public int getSalario() {
-        Random rnd = new Random();
+    	
         _salario = rnd.nextInt(10000 - 1000 + 1) + 1000;
         return _salario;
     }

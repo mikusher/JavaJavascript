@@ -1,0 +1,3 @@
+p5 
+Install: sudo npm install p5-manager -g
+Create Projects: p5 generate -b <project_name>

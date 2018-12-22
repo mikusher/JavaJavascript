@@ -29,4 +29,37 @@ public class Alunos {
     String dataNascimento;
     Turmas turma;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getRg() {
+        return rg;
+    }
+
+    public void setRg(int rg) {
+        this.rg = rg;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public Turmas getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turmas turma) {
+        this.turma = turma;
+    }
+
+    
 }

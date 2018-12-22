@@ -1,0 +1,13 @@
+início {
+    inteiro: c;
+    
+    c = 1;
+    
+    repita {
+        escreva (c);
+        c = c + 1;
+        
+    } enquanto (c <= 10);
+    
+    escreva ("FIM");    
+}

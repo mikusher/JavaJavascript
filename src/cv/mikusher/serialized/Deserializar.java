@@ -52,7 +52,7 @@ public class Deserializar {
             return;
         }
 
-        System.out.println("Deserialized Empregado...");
+        System.out.println("Deserialized...");
         System.out.println("Numero: " + emp.getNumero());
         System.out.println("Nome: " + emp.getNome());
         System.out.println("Idade: " + emp.getIdade());

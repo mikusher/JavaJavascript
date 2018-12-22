@@ -48,7 +48,7 @@ public class Serializar {
             out.writeObject(emp);
             out.close();
             fileOut.close();
-            System.out.println("Serialização gravado com sucesso em: E:/ser/empregado.ser");
+            System.out.println("Serializacao gravado com sucesso em: E:/ser/empregado.ser");
         } catch (Exception e) {
             e.printStackTrace();
         }

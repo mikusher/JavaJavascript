@@ -24,7 +24,6 @@ import java.sql.Statement;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static org.bouncycastle.asn1.x509.X509ObjectIdentifiers.id;
 
 
 /**

@@ -25,7 +25,7 @@ public class Empregado implements java.io.Serializable {
     private String        nome;
     private String        endereco;
     private int           idade;
-    private transient int ssn;     // esse valor por utilizar o transient não sera serializado.
+    private transient int ssn;     // esse valor por utilizar o transient nï¿½o sera serializado.
     private int           numero;
 
 
@@ -124,7 +124,7 @@ public class Empregado implements java.io.Serializable {
 
     public void vereficaEmail() {
 
-        System.out.println("Email verificado para o " + nome + " " + endereco);
+        System.out.println("Email verificado para o " + getNome() + " " + getEndereco());
     }
 
 }
