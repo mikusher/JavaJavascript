@@ -60,7 +60,7 @@ public class ContatoProfessorCombina {
             stmt2.setString(3, cp.getEmail());
             stmt2.setString(4, cp.getSexo());
             stmt2.setString(5, cp.getDepartamento());
-            
+
             stmt2.execute();
         }
     }

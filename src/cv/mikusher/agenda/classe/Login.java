@@ -172,14 +172,17 @@ public class Login extends javax.swing.JFrame {
 
 
     private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbLoginActionPerformed
-        
+
         try {
             String userName = this.jtUsername.getText();
             String userPassword = String.valueOf(this.jtPassword.getPassword());
-            if (userName.trim().length() <= 0 || userPassword.trim().length() <= 0){
+            if (userName.trim()
+                        .length() <= 0
+                || userPassword.trim()
+                               .length() <= 0) {
                 throw new Exception(Msg.C_LOGIN_CAMPOS_USR_PASS_VAZIO);
             }
-        
+
             if (ConnectionToSQL.loginCheck(userName, userPassword)) {
                 new Gui().setVisible(true);
                 this.dispose();

@@ -36,9 +36,9 @@ import cv.mikusher.modeloIdentidade.agenda.codigo.ContatosAluno;
  * @author Miky Mikusher Wayne
  */
 public class ContatoAlunoCombina {
-    
+
     private final Connection conexao;
-    
+
 
 
 
@@ -56,7 +56,7 @@ public class ContatoAlunoCombina {
 
         // seta os valores
         try ( // prepara a conexão
-                PreparedStatement stmt = conexao.prepareStatement(QueryStatement.ADDSTUD.query())) {
+                        PreparedStatement stmt = conexao.prepareStatement(QueryStatement.ADDSTUD.query())) {
             // seta os valores
             stmt.setString(1, cx1.getNome());
             stmt.setString(2, cx1.getEndereco());
@@ -65,7 +65,7 @@ public class ContatoAlunoCombina {
             stmt.setString(5, cx1.getSexo());
             stmt.setString(6, cx1.getGrau());
             stmt.setString(7, cx1.getDisciplinas());
-            
+
             // executa o codigo sql
             stmt.execute();
         }
