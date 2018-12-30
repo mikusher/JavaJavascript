@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36e58b7b-ccf4-41cd-80d4-ff3954b67321" name="Default" comment="Passing all JS content to Java Dir" />
+    <list default="true" id="36e58b7b-ccf4-41cd-80d4-ff3954b67321" name="Default" comment="Passing all JS content to Java Dir">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="193243fb-edf2-4e60-afac-149d39f078a2" name="NotC" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,7 +46,7 @@
     <favorites_list name="JavaBasico" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -94,6 +96,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -102,11 +105,28 @@
               <item name="JavaBasico" type="b2602c69:ProjectViewProjectNode" />
               <item name="JavaBasico" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="JavaBasico" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBasico" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaBasico" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBasico" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaBasico" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBasico" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cv" type="462c0819:PsiDirectoryNode" />
+              <item name="mikusher" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -117,7 +137,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="403" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544657828509" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544657844357" />
     <property name="last_opened_file_path" value="H:/Libs/JarPrg" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -271,7 +291,10 @@
       <workItem from="1544312151822" duration="2107000" />
       <workItem from="1544650651341" duration="3147000" />
       <workItem from="1544653843489" duration="3156000" />
-      <workItem from="1544657479920" duration="252000" />
+      <workItem from="1544657479920" duration="741000" />
+      <workItem from="1544658257436" duration="309000" />
+      <workItem from="1546130105008" duration="631000" />
+      <workItem from="1546130944314" duration="730000" />
     </task>
     <task id="LOCAL-00002" summary="n/a">
       <created>1544651010112</created>
@@ -298,12 +321,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16495000" />
+    <option name="totallyTimeSpent" value="18654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.301059" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31467474" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Nl-Palette" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -320,7 +343,7 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49573562" weight="0.32967034" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4978678" weight="0.32922536" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.4227079" side_tool="true" weight="0.22637363" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4978678" weight="0.23129252" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.4978678" visible="true" weight="0.23129252" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4978678" weight="0.2840136" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
