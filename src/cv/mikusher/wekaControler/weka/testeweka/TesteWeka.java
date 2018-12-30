@@ -19,7 +19,7 @@ import weka.core.converters.ConverterUtils.DataSource;
  */
 public class TesteWeka {
 
-	private static final String CAMINHO_FILE = "src/cv/mikusher/weka/testeweka/vendas_tst.arff";
+	private static final String CAMINHO_FILE = "src/cv/mikusher/wekaControler/testeweka/vendas_tst.arff";
 
 	/**
 	 * @param args the command line arguments
