@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36e58b7b-ccf4-41cd-80d4-ff3954b67321" name="Default" comment="Passing all JS content to Java Dir">
-      <change afterPath="$PROJECT_DIR$/.idea/eclipseCodeFormatter.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/wekaianma/Driver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/wekaianma/TesteDriverControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/wekaianma/controleSqlite" afterDir="false" />
+    <list default="true" id="36e58b7b-ccf4-41cd-80d4-ff3954b67321" name="Default" comment="Configuration weka to Postgres">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaBasico/cv/mikusher/weka/testeweka/milhao.arff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaBasico/cv/mikusher/weka/testeweka/vendas.arff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaBasico/cv/mikusher/weka/testeweka/vendas_tst.arff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaBasico/cv/mikusher/wekacode/weather.arff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/weka/testeweka/TesteWeka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/weka/testeweka/TesteWeka.java" afterDir="false" />
     </list>
     <list id="193243fb-edf2-4e60-afac-149d39f078a2" name="NotC" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -72,7 +62,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/wekaianma/TesteDriverControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
+            <state relative-caret-position="92">
               <caret line="16" column="70" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -163,6 +153,14 @@
               <item name="cv" type="462c0819:PsiDirectoryNode" />
               <item name="mikusher" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="JavaBasico" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBasico" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cv" type="462c0819:PsiDirectoryNode" />
+              <item name="mikusher" type="462c0819:PsiDirectoryNode" />
+              <item name="wekaControler" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -177,12 +175,12 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="403" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546193260919" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546195096072" />
     <property name="last_opened_file_path" value="H:/Libs/JarPrg" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
+    <property name="settings.editor.selected.configurable" value="EclipseFormatter" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -347,7 +345,7 @@
       <workItem from="1546130105008" duration="631000" />
       <workItem from="1546130944314" duration="1326000" />
       <workItem from="1546174768155" duration="10784000" />
-      <workItem from="1546189751034" duration="3120000" />
+      <workItem from="1546189751034" duration="4378000" />
     </task>
     <task id="LOCAL-00002" summary="n/a">
       <created>1544651010112</created>
@@ -370,11 +368,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544654774986</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Configuration weka to Postgres">
+      <created>1546194250830</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1546194250830</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33154000" />
+    <option name="totallyTimeSpent" value="34412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-452" width="1936" height="1066" extended-state="6" />
@@ -389,7 +394,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5772921" visible="true" weight="0.1711111" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5772921" weight="0.1711111" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -421,7 +426,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="n/a" />
     <MESSAGE value="Passing all JS content to Java Dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="Passing all JS content to Java Dir" />
+    <MESSAGE value="Configuration weka to Postgres" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configuration weka to Postgres" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -766,7 +772,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/wekaianma/TesteDriverControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
+        <state relative-caret-position="92">
           <caret line="16" column="70" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
