@@ -13,7 +13,7 @@ public class TesteDriverControler {
     InstanceQuery query = new InstanceQuery();
     query.setUsername("postgres");
     query.setPassword("mikusher");
-    query.setQuery("SELECT sexo,idade,filhos,gasta_muito FROM vendas LIMIT 20");
+    query.setQuery("SELECT sexo,idade,filhos,gasta_muito FROM vendas");
 
     Instances data = query.retrieveInstances();
 
