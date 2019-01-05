@@ -207,22 +207,20 @@ public class ModelCT extends javax.swing.JFrame {
       String sexo = jtxtSexo.getText();
       int idade = Integer.parseInt(jtxtIdade.getText());
 
-      ModelControler mc = new ModelControler(query);
-      Instances data = mc.instanceDataPresent(query, 3);
+      ModelController mc = new ModelController(query);
+      Instances data = mc.instanceDataPresent(query);
 
       double[] probabilidade = mc.naiveUse(data)
-          .distributionForInstance(mc.clientDataInput(mc.newClientePromoveUser(4, data), sexo, idade, filho));
+          .distributionForInstance(mc.clientDataInput(mc.newClientPromoteUser(4, data), sexo, idade, filho));
 
       txtIndifinido.setText((probabilidade[1] < probabilidade[0] ? "Vai Comprar" : "Nao Compra"));
       txtResultYes.setText(String.valueOf(probabilidade[0]));
       txtResultNo.setText(String.valueOf(probabilidade[1]));
 
-      if (probabilidade.length != 0) {
-        jtxtSexo.setEnabled(false);
-        jtxtFilho.setEnabled(false);
-        jtxtIdade.setEnabled(false);
-        jbCheck.setEnabled(false);
-      }
+      jtxtSexo.setEnabled(false);
+      jtxtFilho.setEnabled(false);
+      jtxtIdade.setEnabled(false);
+      jbCheck.setEnabled(false);
 
     } catch (Exception ex) {
       Logger.getLogger(ModelCT.class.getName()).log(Level.SEVERE, null, ex);
