@@ -5,7 +5,6 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  */
-
 package cv.bockdamm.connsecurity;
 
 import java.sql.Connection;
@@ -17,17 +16,17 @@ import cv.bockdamm.utils.LoggOperation;
 
 public class Connectionsql implements Queryoperation {
 
-  private static Connection conn = null;
+    private static Connection conn = null;
 
-  public static Connection connect() {
+    public static Connection connect() {
 
-    try {
-      conn = DriverManager.getConnection(postgresconnection, postgresuser, postgrespassword);
-      LoggOperation.LOGGER.log(Level.INFO, "Connection has been established.");
-    } catch (SQLException e) {
-      LoggOperation.LOGGER.warning(e.getMessage());
+        try {
+            conn = DriverManager.getConnection(postgresconnection, postgresuser, postgrespassword);
+            LoggOperation.LOGGER.log(Level.INFO, "Connection has been established.");
+        } catch (SQLException e) {
+            LoggOperation.LOGGER.warning(e.getMessage());
+        }
+        return conn;
     }
-    return conn;
-  }
 
 }

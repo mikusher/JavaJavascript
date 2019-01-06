@@ -11,22 +11,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
 // Link Jar: https://search.maven.org/remotecontent?filepath=redis/clients/jedis/2.9.0/jedis-2.9.0.jar
-
 package cv.tools;
 
 import redis.clients.jedis.Jedis;
 
 public class RedisJava {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-            try ( // Connecting to Redis server on localhost
-                    Jedis jedis = new Jedis("localhost")) {
-                System.out.println("Connection to server successfully");
-                // check whether server is running or not
-                System.out.println("Server is running: " + jedis.ping());
-            }
-	}
+        try ( // Connecting to Redis server on localhost
+                Jedis jedis = new Jedis("localhost")) {
+            System.out.println("Connection to server successfully");
+            // check whether server is running or not
+            System.out.println("Server is running: " + jedis.ping());
+        }
+    }
 }
