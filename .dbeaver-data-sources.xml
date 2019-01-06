@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="sqlite_jdbc-16823992d55-4461b0e073993369" provider="generic" driver="sqlite_jdbc" name="SQLite - Sales.db" save-password="true" show-system-objects="true" read-only="false">
+		<connection server="" database="C:\Users\Miky Mikusher\git\JavaBasico\src\cv\bockdamm\tst\Sales.db" url="jdbc:sqlite:C:\Users\Miky Mikusher\git\JavaBasico\src\cv\bockdamm\tst\Sales.db" type="dev"/>
+	</data-source>
+	<filters/>
+</data-sources>

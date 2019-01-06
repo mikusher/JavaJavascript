@@ -6,7 +6,15 @@
  * (at your option) any later version.
  */
 
+
+
+
+
 package cv.bockdamm.connsecurity;
+
+
+
+
 
 /**
  *
@@ -14,12 +22,16 @@ package cv.bockdamm.connsecurity;
  */
 public interface Constantesql {
 
-  String GENERAL_TABLE = "wekacontrole";
+    String GENERAL_TABLE      = "wekacontrole";
 
-  // Postgres Configuration / Login validation
+    // Postgres Configuration / Login validation
+    String DATABASE_FOLDER    = "src/cv/bockdamm/tst/";
+    String DATABASE_NAME      = "Sales.db";
+    String SQLITE             = "jdbc:sqlite:" + DATABASE_FOLDER + DATABASE_NAME.replaceAll(".db", "")
+                                                                                .trim();
 
-  String postgresconnection = "jdbc:postgresql://localhost:5432/" + GENERAL_TABLE;
-  String postgresuser = "postgres";
-  String postgrespassword = "mikusher";
+    String postgresconnection = "jdbc:postgresql://localhost:5433/" + GENERAL_TABLE;
+    String postgresuser       = "postgres";
+    String postgrespassword   = "mikusher";
 
 }
