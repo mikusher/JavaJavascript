@@ -38,11 +38,11 @@ public class Driver {
          * // Create and Check Connection
          * Class.forName("org.postgresql.Driver");
          */
+        Class.forName("org.postgresql.Driver");
         Connection dbpsql = Connectionsql.connect("psql");
         DatabaseMetaData dbpsqlmd = dbpsql.getMetaData();
         System.out.println("Connection to " + dbpsqlmd.getDatabaseProductName() + " " + dbpsqlmd.getDatabaseProductVersion() + " successful.\n");
         dbpsql.close();
-        System.out.println("");
 
         Connection dblite = Connectionsql.connect("sqlite");
         DatabaseMetaData dblitemd = dblite.getMetaData();

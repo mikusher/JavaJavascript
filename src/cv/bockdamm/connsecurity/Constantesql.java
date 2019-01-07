@@ -30,7 +30,8 @@ public interface Constantesql {
     String SQLITE             = "jdbc:sqlite:" + DATABASE_FOLDER + DATABASE_NAME.replaceAll(".db", "")
                                                                                 .trim();
 
-    String postgresconnection = "jdbc:postgresql://localhost:5433/" + GENERAL_TABLE;
+    // change in dif pc
+    String postgresconnection = "jdbc:postgresql://localhost:5432/" + GENERAL_TABLE;
     String postgresuser       = "postgres";
     String postgrespassword   = "mikusher";
 

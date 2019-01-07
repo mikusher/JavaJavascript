@@ -16,14 +16,14 @@ public class StatementCheck {
     public static void main(String[] args) throws Exception {
 
         InstanceQuery query = new InstanceQuery();
+        Class.forName("org.postgresql.Driver");
         Connection dbpsql = Connectionsql.connect("psql");
         DatabaseMetaData dbpsqlmd = dbpsql.getMetaData();
-        System.out.println("Connection to " + dbpsqlmd.getDatabaseProductName() + " " + dbpsqlmd.getDatabaseProductVersion() + " successful.\n");
-
-
+        //System.out.println("Connection to " + dbpsqlmd.getDatabaseProductName() + " " + dbpsqlmd.getDatabaseProductVersion() + " successful.\n");
+        query.setDatabaseURL(dbpsqlmd.getURL());
         query.setUsername("postgres");
         query.setPassword("mikusher");
-        query.setQuery("SELECT sexo,idade,filhos,gasta_muito FROM vendas LIMIT 20");
+        query.setQuery("SELECT sexo,idade,filhos,gasta_muito FROM vendas");
         Instances data = query.retrieveInstances();
         System.out.println(data);
 
