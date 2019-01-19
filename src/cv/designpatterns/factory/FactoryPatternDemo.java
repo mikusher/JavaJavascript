@@ -1,8 +1,18 @@
+
+
+
+
+
 package cv.designpatterns.factory;
+
+
+
+
 
 public class FactoryPatternDemo {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+
         ShapeFactory shapeFactory = new ShapeFactory();
 
         Shape shape_i = shapeFactory.getShape("CIRCLE");
