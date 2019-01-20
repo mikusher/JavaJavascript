@@ -20,7 +20,7 @@ package cv.designpatterns.factory;
  * @author Miky Mikusher
  *
  */
-public class ShapeFactory {
+public class ShapeFactory extends AbstractFactory {
 
     public Shape getShape(String shapeType) {
 
@@ -38,6 +38,21 @@ public class ShapeFactory {
             return null;
         }
 
+    }
+
+
+
+
+
+    /*
+     * (non-Javadoc)
+     * @see cv.designpatterns.factory.AbstractFactory#getColor(java.lang.String)
+     */
+    @Override
+    Color getColor(String color) {
+
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
