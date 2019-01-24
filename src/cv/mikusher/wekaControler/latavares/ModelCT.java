@@ -12,6 +12,7 @@ package cv.mikusher.wekaControler.latavares;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import weka.core.DenseInstance;
 import weka.core.Instances;
 import weka.experiment.InstanceQuery;
 
@@ -235,8 +236,10 @@ public class ModelCT extends javax.swing.JFrame {
       ModelController mc = new ModelController(query);
       Instances data = mc.instanceDataPresent(query);
 
-      double[] probabilidade = mc.naiveUse(data)
-          .distributionForInstance(mc.clientDataInput(mc.newClientPromoteUser(4, data), sexo, idade, filho));
+      DenseInstance newdi = mc.newClientPromoteUser(data.numAttributes(), data);
+      DenseInstance diCls = mc.clientDataInput(newdi, sexo, idade, filho);
+
+      double[] probabilidade = mc.naiveUse(data).distributionForInstance(diCls);
 
       txtIndifinido.setText((probabilidade[1] < probabilidade[0] ? "Vai Comprar" : "Nao Compra"));
       txtResultYes.setText(String.valueOf(probabilidade[0]));

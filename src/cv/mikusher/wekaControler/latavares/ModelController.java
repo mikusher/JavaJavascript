@@ -11,6 +11,7 @@ package cv.mikusher.wekaControler.latavares;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.DenseInstance;
 import weka.core.Instances;
@@ -27,12 +28,10 @@ class ModelController {
    * @param query
    */
   ModelController(InstanceQuery query) {
-    String USER_DB = "postgres";
-    query.setUsername(USER_DB);
-    String PASS_DB = "mikusher";
-    query.setPassword(PASS_DB);
-    String QUERY_DB = "SELECT sexo,idade,filhos,gasta_muito FROM vendas";
-    query.setQuery(QUERY_DB);
+
+    query.setUsername(QueryConstants.USER_DB.getText());
+    query.setPassword(QueryConstants.PASS_DB.getText());
+    query.setQuery(QueryConstants.QUERY_DB.getText());
   }
 
   /**
