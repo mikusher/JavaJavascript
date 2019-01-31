@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36e58b7b-ccf4-41cd-80d4-ff3954b67321" name="Default" comment="Configuration weka to Postgres">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaBasico/cv/mikusher/wekaControler/wekaianma/controleSqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cv/bockdamm/connsecurity/Constantesql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cv/bockdamm/connsecurity/Constantesql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cv/bockdamm/tst/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cv/bockdamm/tst/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cv/bockdamm/tst/Sales.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/cv/bockdamm/tst/Sales.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cv/bockdamm/tst/StatementCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cv/bockdamm/tst/StatementCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelCT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelCT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/TesteDriverControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/TesteDriverControler.java" afterDir="false" />
     </list>
     <list id="193243fb-edf2-4e60-afac-149d39f078a2" name="NotC" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,12 +34,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Funcionarios" type="feb32156:DbDataSourceImpl" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ErrorTreeViewConfiguration">
@@ -52,41 +46,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cv/bockdamm/connsecurity/Connectionsql.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelCT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="42" column="54" lean-forward="true" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cv/bockdamm/connsecurity/Constantesql.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cv/bockdamm/tst/Driver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+            <state relative-caret-position="276">
+              <caret line="356" column="34" selection-start-line="356" selection-start-column="24" selection-end-line="356" selection-end-column="34" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1111#1200#0" expanded="true" />
+                <element signature="e#2587#2588#0" expanded="true" />
+                <element signature="e#2646#2647#0" expanded="true" />
+                <element signature="e#2839#2840#0" expanded="true" />
+                <element signature="e#2898#2899#0" expanded="true" />
+                <element signature="e#5951#5952#0" expanded="true" />
+                <element signature="e#6017#6018#0" expanded="true" />
+                <element signature="e#16770#16771#0" expanded="true" />
+                <element signature="e#16832#16833#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cv/bockdamm/tst/StatementCheck.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/DBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+            <state relative-caret-position="-416">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bced26e2-f05a-4a6f-b38e-75dddd961d7d/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -99,6 +92,12 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>txt_Indifinido</find>
+      <find>indifinido</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -125,10 +124,12 @@
         <option value="$PROJECT_DIR$/src/cv/mikusher/wekaControler/wekaianma/controleSqlite" />
         <option value="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelControler.java" />
         <option value="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelController.java" />
-        <option value="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelCT.java" />
         <option value="$PROJECT_DIR$/src/cv/bockdamm/connsecurity/Constantesql.java" />
         <option value="$PROJECT_DIR$/src/cv/bockdamm/tst/Driver.java" />
         <option value="$PROJECT_DIR$/src/cv/bockdamm/tst/StatementCheck.java" />
+        <option value="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/TesteDriverControler.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/bced26e2-f05a-4a6f-b38e-75dddd961d7d/console.sql" />
+        <option value="$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelCT.java" />
       </list>
     </option>
   </component>
@@ -152,8 +153,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,22 +183,6 @@
               <item name="JavaJavascript" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="cv" type="462c0819:PsiDirectoryNode" />
-              <item name="bockdamm" type="462c0819:PsiDirectoryNode" />
-              <item name="connsecurity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaJavascript" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaJavascript" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cv" type="462c0819:PsiDirectoryNode" />
-              <item name="bockdamm" type="462c0819:PsiDirectoryNode" />
-              <item name="tst" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaJavascript" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaJavascript" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cv" type="462c0819:PsiDirectoryNode" />
               <item name="mikusher" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -208,15 +191,27 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="cv" type="462c0819:PsiDirectoryNode" />
               <item name="mikusher" type="462c0819:PsiDirectoryNode" />
-              <item name="qsllite" type="462c0819:PsiDirectoryNode" />
+              <item name="wekaControler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaJavascript" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaJavascript" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cv" type="462c0819:PsiDirectoryNode" />
+              <item name="mikusher" type="462c0819:PsiDirectoryNode" />
+              <item name="wekaControler" type="462c0819:PsiDirectoryNode" />
+              <item name="latavares" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -224,7 +219,8 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="403" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546821962979" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548970035131" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="H:/Libs/JarPrg" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -243,23 +239,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StatementCheck">
+  <component name="RunManager" selected="Application.ModelCT">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CallRandomUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cv.mikusher.uuid.CallRandomUtil" />
-      <module name="JavaBasico" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cv.mikusher.uuid.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -292,13 +274,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SampleVelocity" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cv.mikusher.velocityEngine.SampleVelocity" />
+    <configuration name="RedisJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cv.tools.RedisJava" />
       <module name="JavaBasico" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cv.mikusher.velocityEngine.*" />
+          <option name="PATTERN" value="cv.tools.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -313,6 +295,20 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cv.bockdamm.tst.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TesteDriverControler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cv.mikusher.wekaControler.latavares.TesteDriverControler" />
+      <module name="JavaBasico" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cv.mikusher.wekaControler.latavares.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -350,19 +346,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.SampleVelocity" />
-      <item itemvalue="Application.CallRandomUtil" />
       <item itemvalue="Application.ModelCT" />
       <item itemvalue="Application.Driver" />
       <item itemvalue="Application.StatementCheck" />
+      <item itemvalue="Application.TesteDriverControler" />
+      <item itemvalue="Application.RedisJava" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ModelCT" />
+        <item itemvalue="Application.RedisJava" />
+        <item itemvalue="Application.TesteDriverControler" />
         <item itemvalue="Application.StatementCheck" />
         <item itemvalue="Application.Driver" />
-        <item itemvalue="Application.ModelCT" />
-        <item itemvalue="Application.CallRandomUtil" />
-        <item itemvalue="Application.SampleVelocity" />
       </list>
     </recent_temporary>
   </component>
@@ -437,13 +433,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43713000" />
+    <option name="totallyTimeSpent" value="47721000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20347957" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18759455" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Nl-Palette" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -451,19 +447,20 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" weight="0.32993197" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5772921" weight="0.30782312" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39965987" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39965987" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49573562" weight="0.32967034" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4978678" weight="0.26870748" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5030257" side_tool="true" weight="0.20068027" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4969743" weight="0.14965986" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4969743" weight="0.3180272" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4978678" weight="0.25510204" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="13" weight="0.27891156" />
       <window_info anchor="bottom" id="TypeScript" order="14" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -473,7 +470,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Properties" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.32980332" />
+      <window_info anchor="right" id="Database" order="7" weight="0.18835099" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.32928678" />
       <window_info anchor="right" id="Maven" order="10" />
@@ -568,28 +565,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/agenda/classe/sqlClass/Teste.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/algoritme/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/basicwebcrawler/WebCrawlerWithDepth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/media/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cv/mikusher/security/outFile/decrypted_secFile.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -801,13 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelCT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="222" column="32" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1554">
@@ -826,14 +794,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cv/bockdamm/connsecurity/Connectionsql.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="42" column="54" lean-forward="true" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+        <state relative-caret-position="690">
+          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cv/bockdamm/connsecurity/Constantesql.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="552">
           <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
         </state>
       </provider>
@@ -847,18 +815,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cv/bockdamm/tst/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+        <state relative-caret-position="266">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/TesteDriverControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="60" column="52" lean-forward="true" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cv/bockdamm/tst/StatementCheck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/Weka_PostgresBDConnection">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bced26e2-f05a-4a6f-b38e-75dddd961d7d/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/DBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-416">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cv/mikusher/wekaControler/latavares/ModelCT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="356" column="34" selection-start-line="356" selection-start-column="24" selection-end-line="356" selection-end-column="34" />
+          <folding>
+            <element signature="e#1111#1200#0" expanded="true" />
+            <element signature="e#2587#2588#0" expanded="true" />
+            <element signature="e#2646#2647#0" expanded="true" />
+            <element signature="e#2839#2840#0" expanded="true" />
+            <element signature="e#2898#2899#0" expanded="true" />
+            <element signature="e#5951#5952#0" expanded="true" />
+            <element signature="e#6017#6018#0" expanded="true" />
+            <element signature="e#16770#16771#0" expanded="true" />
+            <element signature="e#16832#16833#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

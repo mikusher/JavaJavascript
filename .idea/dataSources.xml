@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Funcionarios" uuid="1dac7684-0522-4b7c-abe7-572b12872d77">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="wekacontrole@localhost" uuid="bced26e2-f05a-4a6f-b38e-75dddd961d7d">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Miky Mikusher\git\JavaBasico\src\cv\mikusher\agenda\sqlLite\Funcionarios.s3db</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
+      <remarks>Weka Controler</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/wekacontrole</jdbc-url>
     </data-source>
   </component>
 </project>

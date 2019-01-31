@@ -56,9 +56,12 @@ public class TesteDriverControler {
 
   private static void printProbabilityData(double[] probabilite) {
     // imprimindo os resultados
+    String result = (probabilite[0] >= probabilite[1] ? "Não Compra" : "Vai Comprar");
+
     System.out.println("Probabilidade de compra: ");
     System.out.println("Nao: " + probabilite[0]);
     System.out.println("Sim: " + probabilite[1]);
+    System.out.println(result);
   }
 
   private static void printInputData() {

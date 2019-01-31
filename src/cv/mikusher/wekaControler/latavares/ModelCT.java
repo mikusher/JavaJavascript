@@ -246,6 +246,7 @@ public class ModelCT extends javax.swing.JFrame {
                 String estado = txtIndifinido.getText();
 
                 DBController.insert(yes, no, sexo, idade, filhos, estado);
+                txt_Indifinido.setEnabled(false);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ModelCT.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -261,6 +262,7 @@ public class ModelCT extends javax.swing.JFrame {
         jtxtFilho.setEnabled(true);
         jtxtIdade.setEnabled(true);
         jbCheck.setEnabled(true);
+        txt_Indifinido.setEnabled(true);
 
         txtIndifinido.setText("Indifinido");
         txtResultYes.setText("");
@@ -268,33 +270,36 @@ public class ModelCT extends javax.swing.JFrame {
     }// GEN-LAST:event_jbClearActionPerformed
 
     private void jbCheckActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbCheckActionPerformed
-        try {
-            InstanceQuery query = new InstanceQuery();
-            String filho = jtxtFilho.getText();
-            String sexo = jtxtSexo.getText();
-            int idade = Integer.parseInt(jtxtIdade.getText());
+        if(!txtIndifinido.getText().equalsIgnoreCase("Indifinido")){
+            try {
+                InstanceQuery query = new InstanceQuery();
+                String filho = jtxtFilho.getText();
+                String sexo = jtxtSexo.getText();
+                int idade = Integer.parseInt(jtxtIdade.getText());
 
-            ModelController mc = new ModelController(query);
-            Instances data = mc.instanceDataPresent(query);
+                ModelController mc = new ModelController(query);
+                Instances data = mc.instanceDataPresent(query);
 
-            DenseInstance newdi = mc.newClientPromoteUser(data.numAttributes(), data);
-            DenseInstance diCls = mc.clientDataInput(newdi, sexo, idade, filho);
+                DenseInstance newdi = mc.newClientPromoteUser(data.numAttributes(), data);
+                DenseInstance diCls = mc.clientDataInput(newdi, sexo, idade, filho);
 
-            double[] probabilidade = mc.naiveUse(data).distributionForInstance(diCls);
+                double[] probabilidade = mc.naiveUse(data).distributionForInstance(diCls);
 
-            txtIndifinido.setText((probabilidade[1] < probabilidade[0] ? "Vai Comprar" : "Nao Compra"));
-            txtResultYes.setText(String.valueOf(probabilidade[0]));
-            txtResultNo.setText(String.valueOf(probabilidade[1]));
+                txtIndifinido.setText((probabilidade[1] < probabilidade[0] ? "Vai Comprar" : "Nao Compra"));
+                txtResultYes.setText(String.valueOf(probabilidade[0]));
+                txtResultNo.setText(String.valueOf(probabilidade[1]));
 
-            jtxtSexo.setEnabled(false);
-            jtxtFilho.setEnabled(false);
-            jtxtIdade.setEnabled(false);
-            jbCheck.setEnabled(false);
+                jtxtSexo.setEnabled(false);
+                jtxtFilho.setEnabled(false);
+                jtxtIdade.setEnabled(false);
+                jbCheck.setEnabled(false);
 
-            // INSERT USER
-        } catch (Exception ex) {
-            Logger.getLogger(ModelCT.class.getName()).log(Level.SEVERE, null, ex);
+                // INSERT USER
+            } catch (Exception ex) {
+                Logger.getLogger(ModelCT.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+
     }// GEN-LAST:event_jbCheckActionPerformed
 
     /**
