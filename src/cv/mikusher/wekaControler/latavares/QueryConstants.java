@@ -15,10 +15,12 @@
 package cv.mikusher.wekaControler.latavares;
 
 public enum QueryConstants {
-  USER_DB("postgres"), PASS_DB("mikusher"), QUERY_DB_SELECT("SELECT sexo,idade,filhos,gasta_muito FROM vendas"), QUERY_DB_INSERT(
-      "INSERT INTO sales_results(\"yes\", \"no\", sexo, idade, filhos, estado) VALUES(?, ?, ?, ?, ?, ?)");
+  USER_DB("postgres"), PASS_DB("mikusher"), QUERY_DB_SELECT(
+      "SELECT sexo,idade,filhos,gasta_muito FROM vendas"), QUERY_DB_INSERT_NEW_ELEMENT(
+          "INSERT INTO vendas (sexo, idade, filhos, gasta_muito) VALUES(?, ?, ?, ?)"), QUERY_DB_INSERT(
+              "INSERT INTO sales_results(\"yes\", \"no\", sexo, idade, filhos, estado) VALUES(?, ?, ?, ?, ?, ?)");
 
-  private String text;
+  private final String text;
 
   QueryConstants(String text) {
     this.text = text;

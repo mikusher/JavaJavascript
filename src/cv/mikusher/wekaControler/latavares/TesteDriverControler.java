@@ -46,8 +46,7 @@ public class TesteDriverControler {
 
   private static void buildClient(DenseInstance newCliente) {
     /**
-     * os atributos do novo elemento -- o atributo da previsão não deve ser passada @attribute gasta_muito por ser este que queremos
-     * prever
+     * os atributos do novo elemento -- o atributo da previsão não deve ser passada @attribute gasta_muito por ser este que queremos prever
      */
     newCliente.setValue(0, sexo); // sexo
     newCliente.setValue(1, idade); // idade vai ser um random de 18-80
@@ -65,7 +64,7 @@ public class TesteDriverControler {
   }
 
   private static void printInputData() {
-    System.out.println("--------New User In-----------");
+    System.out.println("------------New User----------");
     System.out.println("Sexo: " + sexo);
     System.out.println("Idade: " + idade);
     System.out.println("Filhos: " + filhos);

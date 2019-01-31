@@ -12,9 +12,7 @@ package cv.mikusher.wekaControler.latavares;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -36,18 +34,18 @@ public class DBController {
       // Create and Check Connection
       Class.forName("org.postgresql.Driver");
       conn = DriverManager.getConnection("jdbc:postgresql:" + database, username, password);
-      System.out.println("Connection to DB has been established.");
+      Logger.getLogger(DBController.class.getName()).log(Level.INFO, "Connection to DB has been established.");
     } catch (SQLException e) {
       System.err.println(e.getMessage());
     }
     return conn;
   }
 
-  public void insert(String yes, String no, String sexo, Integer idade, String filhos, String estado) throws ClassNotFoundException {
+  public void insertResults(String yes, String no, String sexo, Integer idade, String filhos, String estado) throws ClassNotFoundException {
 
-    try (Connection conn = connect();
+    try (Connection connect = connect();
 
-        PreparedStatement pstmt = conn.prepareStatement(QueryConstants.QUERY_DB_INSERT.getText())) {
+        PreparedStatement pstmt = connect.prepareStatement(QueryConstants.QUERY_DB_INSERT.getText())) {
       pstmt.setString(1, yes);
       pstmt.setString(2, no);
       pstmt.setString(3, sexo);
@@ -61,7 +59,7 @@ public class DBController {
     } finally {
       try {
         conn.close();
-        System.out.println("Connection to DB has been closed.");
+        Logger.getLogger(DBController.class.getName()).log(Level.INFO, "Connection to DB has been closed.");
       } catch (SQLException ex) {
         Logger.getLogger(DBController.class.getName()).log(Level.SEVERE, null, ex);
       }
@@ -72,4 +70,26 @@ public class DBController {
 
   }
 
+  public void insertNewElement(String sexo, int idade, String filhos, String gasta_muito) throws ClassNotFoundException {
+
+    try (Connection connect = connect();
+
+        PreparedStatement pstmt = connect.prepareStatement(QueryConstants.QUERY_DB_INSERT_NEW_ELEMENT.getText())) {
+      pstmt.setString(1, sexo);
+      pstmt.setInt(2, idade);
+      pstmt.setString(3, filhos);
+      pstmt.setString(4, gasta_muito);
+      pstmt.executeUpdate();
+
+    } catch (SQLException e) {
+      System.out.println(e.getMessage());
+    } finally {
+      try {
+        conn.close();
+        Logger.getLogger(DBController.class.getName()).log(Level.INFO, "Connection to DB has been closed.");
+      } catch (SQLException ex) {
+        Logger.getLogger(DBController.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    }
+  }
 }

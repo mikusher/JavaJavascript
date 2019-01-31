@@ -34,6 +34,7 @@ public class ModelCT extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        jbSaveResult.setEnabled(false);
     }
 
     /**
@@ -62,7 +63,7 @@ public class ModelCT extends javax.swing.JFrame {
         txtResultYes = new javax.swing.JLabel();
         txtResultNo = new javax.swing.JLabel();
         txtIndifinido = new javax.swing.JLabel();
-        txt_Indifinido = new javax.swing.JButton();
+        jbSaveResult = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,10 +141,10 @@ public class ModelCT extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        txt_Indifinido.setText("Guardar Resultados");
-        txt_Indifinido.addActionListener(new java.awt.event.ActionListener() {
+        jbSaveResult.setText("Guardar Resultados");
+        jbSaveResult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_IndifinidoActionPerformed(evt);
+                jbSaveResultActionPerformed(evt);
             }
         });
 
@@ -171,7 +172,7 @@ public class ModelCT extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_Indifinido)
+                                .addComponent(jbSaveResult)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -189,7 +190,7 @@ public class ModelCT extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txt_Indifinido))
+                    .addComponent(jbSaveResult))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -232,7 +233,7 @@ public class ModelCT extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_IndifinidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_IndifinidoActionPerformed
+    private void jbSaveResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSaveResultActionPerformed
         // TODO add your handling code here:
         if (!txtIndifinido.getText().equalsIgnoreCase("Indifinido")) {
             try {
@@ -245,14 +246,14 @@ public class ModelCT extends javax.swing.JFrame {
                 String filhos = jtxtFilho.getText();
                 String estado = txtIndifinido.getText();
 
-                DBController.insert(yes, no, sexo, idade, filhos, estado);
-                txt_Indifinido.setEnabled(false);
+                DBController.insertResults(yes, no, sexo, idade, filhos, estado);
+                jbSaveResult.setEnabled(false);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ModelCT.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
-    }//GEN-LAST:event_txt_IndifinidoActionPerformed
+    }//GEN-LAST:event_jbSaveResultActionPerformed
 
     private void jbClearActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbClearActionPerformed
         jtxtSexo.setText("");
@@ -262,7 +263,7 @@ public class ModelCT extends javax.swing.JFrame {
         jtxtFilho.setEnabled(true);
         jtxtIdade.setEnabled(true);
         jbCheck.setEnabled(true);
-        txt_Indifinido.setEnabled(true);
+        jbSaveResult.setEnabled(false);
 
         txtIndifinido.setText("Indifinido");
         txtResultYes.setText("");
@@ -270,8 +271,9 @@ public class ModelCT extends javax.swing.JFrame {
     }// GEN-LAST:event_jbClearActionPerformed
 
     private void jbCheckActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbCheckActionPerformed
-        if(!txtIndifinido.getText().equalsIgnoreCase("Indifinido")){
+        if (txtIndifinido.getText().equalsIgnoreCase("Indifinido") && (!jtxtSexo.getText().isEmpty() && !jtxtFilho.getText().isEmpty() && !jtxtIdade.getText().isEmpty())) {
             try {
+                DBController DBController = new DBController();
                 InstanceQuery query = new InstanceQuery();
                 String filho = jtxtFilho.getText();
                 String sexo = jtxtSexo.getText();
@@ -293,6 +295,8 @@ public class ModelCT extends javax.swing.JFrame {
                 jtxtFilho.setEnabled(false);
                 jtxtIdade.setEnabled(false);
                 jbCheck.setEnabled(false);
+                jbSaveResult.setEnabled(true);
+                DBController.insertNewElement(sexo, idade, filho, (probabilidade[1] < probabilidade[0] ? "Sim" : "Nao"));
 
                 // INSERT USER
             } catch (Exception ex) {
@@ -352,12 +356,12 @@ public class ModelCT extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jbCheck;
     private javax.swing.JButton jbClear;
+    private javax.swing.JButton jbSaveResult;
     private javax.swing.JTextField jtxtFilho;
     private javax.swing.JTextField jtxtIdade;
     private javax.swing.JTextField jtxtSexo;
     private javax.swing.JLabel txtIndifinido;
     private javax.swing.JLabel txtResultNo;
     private javax.swing.JLabel txtResultYes;
-    private javax.swing.JButton txt_Indifinido;
     // End of variables declaration//GEN-END:variables
 }
