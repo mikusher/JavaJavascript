@@ -15,7 +15,8 @@
 package cv.mikusher.wekaControler.latavares;
 
 public enum QueryConstants {
-  USER_DB("postgres"), PASS_DB("mikusher"), QUERY_DB("SELECT sexo,idade,filhos,gasta_muito FROM vendas");
+  USER_DB("postgres"), PASS_DB("mikusher"), QUERY_DB_SELECT("SELECT sexo,idade,filhos,gasta_muito FROM vendas"), QUERY_DB_INSERT(
+      "INSERT INTO sales_results(\"yes\", \"no\", sexo, idade, filhos, estado) VALUES(?, ?, ?, ?, ?, ?)");
 
   private String text;
 

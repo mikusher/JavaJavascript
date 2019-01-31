@@ -31,7 +31,7 @@ class ModelController {
 
     query.setUsername(QueryConstants.USER_DB.getText());
     query.setPassword(QueryConstants.PASS_DB.getText());
-    query.setQuery(QueryConstants.QUERY_DB.getText());
+    query.setQuery(QueryConstants.QUERY_DB_SELECT.getText());
   }
 
   /**

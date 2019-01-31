@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/latavares/GitKraken/JavaJavascript/src/cv/mikusher/wekaControler/latavares/Weka_PostgresBDConnection</file>
-            <file>file:/home/latavares/GitKraken/JavaJavascript/src/cv/mikusher/wekaControler/latavares/TesteDriverControler.java</file>
-            <file>file:/home/latavares/GitKraken/JavaJavascript/src/cv/mikusher/wekaControler/latavares/controleSqlite</file>
-            <file>file:/home/latavares/GitKraken/JavaJavascript/src/cv/mikusher/wekaControler/latavares/ModelController.java</file>
-            <file>file:/home/latavares/GitKraken/JavaJavascript/src/cv/mikusher/wekaControler/latavares/Driver.java</file>
-            <file>file:/home/latavares/GitKraken/JavaJavascript/src/cv/mikusher/wekaControler/latavares/ModelCT.java</file>
+            <file>file:/C:/Users/Miky%20Mikusher/git/JavaJavascript/src/cv/mikusher/wekaControler/latavares/DBController.java</file>
+            <file>file:/C:/Users/Miky%20Mikusher/git/JavaJavascript/src/cv/mikusher/wekaControler/latavares/ModelCT.java</file>
+            <file>file:/C:/Users/Miky%20Mikusher/git/JavaJavascript/src/cv/mikusher/wekaControler/latavares/QueryConstants.java</file>
+            <file>file:/C:/Users/Miky%20Mikusher/git/JavaJavascript/src/cv/mikusher/wekaControler/latavares/ModelController.java</file>
         </group>
     </open-files>
 </project-private>
