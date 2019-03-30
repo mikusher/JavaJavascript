@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vendor Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./js/lib/bootstrap.min.css">
+    <script src="./js/lib/jquery.min.js"></script>
+    <script src="./js/lib/popper.min.js"></script>
+    <script src="./js/lib/bootstrap.min.js"></script>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+            <li role="presentation"><a href="index.html">All Vendor</a></li>
+            <li role="presentation"><a href="products.html">Products</a></li>
+            <li role="presentation" class="active"><a href="vulnerabilities.html">Vulnerabilities</a></li>
+    </ul>
+    <div id="alert-target" class="alert alert-warning" style="display: none">
+        <strong>Warning!</strong> Please indicate the vendor and the desired product.
+    </div>
+    <div class="span12">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                    <h2>Vulnerabilities Container</h2>
+                <div class="container">
+                    <form>
+                        <div class="form-group">
+                            <label for="allVendorsInPageVul">Vendor</label>
+                            <select class="form-control" name="allVendorsInPageVul" id="allVendorsInPageVul">
+                                <option>Select Vendor</option>
+                            </select>
+                            <br>
+                            <label for="allProductInPageVul">Product</label>
+                            <select class="form-control" name="allProductInPageVul" id="allProductInPageVul">
+                                <option>Select Product</option>
+                            </select>
+                            <br>
+                        </div>
+                    </form>
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="float: right;">
+                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button id="btCheckProductContent" class="btn btn-secondary btn-md">Check Product Content</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-9 left">
+                        <input id="inputSearchInTable" type="text" placeholder="Search in table...">
+                        <button id="btSearchInTable" class="btn btn-secondary btn-md">Search</button>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="table-responsive">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title"></h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <table class="table table-striped table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>CVSS</th>
+                                            <th>CWE</th>
+                                            <th>Summary</th>
+                                            <th>References</th>
+                                            <th>Vulnerable</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="list-table-vulnerabilities">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/classes/Utils.js"></script>
+    <script src="js/controller/Vulnerabilities.js"></script>
+</body>
+</html>
