@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Graph Presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./js/lib/bootstrap.min.css">
+    <script src="./js/lib/jquery.min.js"></script>
+    <script src="./js/lib/popper.min.js"></script>
+    <script src="./js/lib/bootstrap.min.js"></script>
+    <script src="./js/lib/anychart-core.min.js"></script>
+    <script src="./js/lib/anychart-cartesian.min.js"></script>
+</head>
+<body>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="index.html">All Vendor</a></li>
+    <li role="presentation"><a href="products.html">Products</a></li>
+    <li role="presentation"><a href="vulnerabilities.html">Vulnerabilities</a></li>
+    <li role="presentation" class="active"><a href="graph.html">Graph</a></li>
+</ul>
+<div class="span12">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <h2>Graph Container</h2>
+            <div class="container">
+                <div id="container-graph">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/classes/Utils.js"></script>
+<script src="js/controller/Graph.js"></script>
+</body>
+</html>
