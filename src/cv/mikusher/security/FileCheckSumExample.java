@@ -23,10 +23,10 @@ public class FileCheckSumExample {
 
 		byte[] digestBytes = messageDigest.digest();
 
-		StringBuffer sb = new StringBuffer("");
+		StringBuffer sb = new StringBuffer();
 
-		for (int i = 0; i < digestBytes.length; i++) {
-			sb.append(Integer.toString((digestBytes[i] & 0xff) + 0x100, 16).substring(1));
+		for (byte digestByte : digestBytes) {
+			sb.append(Integer.toString((digestByte & 0xff) + 0x100, 16).substring(1));
 		}
 
 		System.out.println("Checksum for the File: " + sb.toString());

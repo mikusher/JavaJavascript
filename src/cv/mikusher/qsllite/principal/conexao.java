@@ -67,19 +67,19 @@ public class conexao {
 
         try {
             if (getContType().equalsIgnoreCase("mysql")) {
-                sql = this.mySql;
-                user = this.mUser;
-                password = this.mPassword;
+                sql = mySql;
+                user = mUser;
+                password = mPassword;
                 conn = DriverManager.getConnection(sql, user, password);
                 System.out.println("Connection to " + contType + " has been established.");
             } else if (getContType().equalsIgnoreCase("psql")) {
-                sql = this.postgres;
-                user = this.pUser;
-                password = this.pPassword;
+                sql = postgres;
+                user = pUser;
+                password = pPassword;
                 conn = DriverManager.getConnection(sql, user, password);
                 System.out.println("Connection to " + contType + " has been established.");
             } else if (getContType().equalsIgnoreCase("sqlite")) {
-                conn = DriverManager.getConnection(this.sqlLite);
+                conn = DriverManager.getConnection(sqlLite);
                 System.out.println("Connection to " + contType + " has been established.");
             } else {
                 System.err.println("Error to connect to " + contType);
