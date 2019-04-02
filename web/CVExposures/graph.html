@@ -12,6 +12,7 @@
     <script src="./js/lib/bootstrap.min.js"></script>
     <script src="./js/lib/anychart-core.min.js"></script>
     <script src="./js/lib/anychart-cartesian.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
 <ul class="nav nav-tabs">
@@ -24,9 +25,12 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <h2>Graph Container</h2>
-            <div class="container">
-                <div id="container-graph">
+            <div class="form-inline">
+                <label class="sr-only" for="inputDrawGraph">Input Draw Graph</label>
+                <input type="number" min="1" max="15" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inputDrawGraph">
+                <button id="drawGraph" class="btn btn-primary">Draw Graph</button>
             </div>
+            <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
         </div>
     </div>
 </div>
