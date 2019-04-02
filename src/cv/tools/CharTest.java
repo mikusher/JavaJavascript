@@ -27,7 +27,8 @@ public class CharTest {
   // remove bad character
   public static String sanitize(String input) {
     if (input != null && !input.equals("")) {
-      input = input.replaceAll("([\\ud840\\udbff\\udc00\\udfff\\ud800])", "");
+			// input = input.replaceAll("([\\ud840\\udbff\\udc00\\udfff\\ud800])", "");
+			input.matches("[\\w*\\s*]*");
     }
     return input;
   }
