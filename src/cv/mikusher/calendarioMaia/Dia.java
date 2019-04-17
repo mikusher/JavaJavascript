@@ -24,6 +24,15 @@ public class Dia {
 
 
 
+    /**
+     * 
+     */
+    public Dia() {
+        super();
+    }
+
+
+
     public String Dia(int dia) {
 
         String diaSemana = null;

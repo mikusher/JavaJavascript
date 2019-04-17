@@ -20,16 +20,15 @@ public class TesteMaia {
     public static void main(String[] args) {
 
         final int dia = 36;
-        Dia d = new Dia();
-        System.out.println("Domingo: " + Arrays.toString(d.getDomingo()));
-        System.out.println("Segunda: " + Arrays.toString(d.getSegunda()));
-        System.out.println("Ter�a: " + Arrays.toString(d.getTerca()));
-        System.out.println("Quarta: " + Arrays.toString(d.getQuarta()));
-        System.out.println("Quinta: " + Arrays.toString(d.getQuinta()));
-        System.out.println("Sexta: " + Arrays.toString(d.getSexta()));
-        System.out.println("Sabado: " + Arrays.toString(d.getSabado()));
-        System.out.println("\nMeu dia de semana escolhido foi " + dia + " em semana  " + d.Dia(dia)
-                                                                                         .toString());
+        Dia _dia = new Dia();
+        System.out.println("Domingo: " + Arrays.toString(_dia.getDomingo()));
+        System.out.println("Segunda: " + Arrays.toString(_dia.getSegunda()));
+        System.out.println("Terca: " + Arrays.toString(_dia.getTerca()));
+        System.out.println("Quarta: " + Arrays.toString(_dia.getQuarta()));
+        System.out.println("Quinta: " + Arrays.toString(_dia.getQuinta()));
+        System.out.println("Sexta: " + Arrays.toString(_dia.getSexta()));
+        System.out.println("Sabado: " + Arrays.toString(_dia.getSabado()));
+        System.out.println("\nMeu dia de semana escolhido foi " + dia + " em semana " + _dia.Dia(dia));
 
     }
 
