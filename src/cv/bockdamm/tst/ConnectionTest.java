@@ -5,9 +5,11 @@ package cv.bockdamm.tst;
 
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 
@@ -16,12 +18,12 @@ import java.util.Properties;
 
 public class ConnectionTest {
 
-    public static void main(String[] args) throws Exception {
-
+	public String makeConnection() throws IOException, ClassNotFoundException, SQLException {
         Properties props = new Properties();
-        FileInputStream fis = new FileInputStream("src/cv/bockdamm/tst/db.properties");
+		FileInputStream fis = new FileInputStream("src/com/mikusher/dwr/connection/db.properties");
         props.load(fis);
         fis.close();
+        String connectionShow;
 
         String postgresconnection = props.getProperty("postgres.url") + props.getProperty("postgres.dbName");
         String postgresusr = props.getProperty("postgres.user");
@@ -32,8 +34,11 @@ public class ConnectionTest {
 		try (Connection dbpsql = DriverManager.getConnection(postgresconnection, postgresusr, postgrespsw)) {
 			DatabaseMetaData dbpsqlmd = dbpsql.getMetaData();
 
-			System.out.println("Connection to " + dbpsqlmd.getDatabaseProductName() + " "
-					+ dbpsqlmd.getDatabaseProductVersion() + " successful.\n");
+			connectionShow = "Connection to " + dbpsqlmd.getDatabaseProductName() + " "
+					+ dbpsqlmd.getDatabaseProductVersion() + " successful.\n";
 		}
-    }
+		
+		return connectionShow;
+
+	}
 }
