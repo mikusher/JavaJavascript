@@ -12,7 +12,7 @@
 jdbcDriver=org.postgresql.Driver
 
 # database URL
-jdbcURL=jdbc:postgresql://localhost:5432/datamining
+jdbcURL=jdbc:postgresql://isilo.db.elephantsql.com:5432/xopvyzuz
 
 # specific data types
 # string, getString() = 0;    --> nominal
