@@ -1,26 +1,26 @@
 package cv.mikusher.utils;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class JSONFormat {
 
     public static Object toJSON(Object object) throws JSONException {
         if (object instanceof HashMap) {
             JSONObject json = new JSONObject();
-            HashMap map = (HashMap) object;
+			HashMap<?, ?> map = (HashMap<?, ?>) object;
             for (Object key : map.keySet()) {
                 json.put(key.toString(), toJSON(map.get(key)));
             }
             return json;
         } else if (object instanceof Iterable) {
             JSONArray json = new JSONArray();
-            for (Object value : ((Iterable)object)) {
+			for (Object value : ((Iterable<?>) object)) {
                 json.put(toJSON(value));
             }
             return json;
@@ -37,13 +37,13 @@ public class JSONFormat {
         return toMap(object.getJSONObject(key));
     }
 
-    public static ArrayList getList(JSONObject object, String key) throws JSONException {
+	public static ArrayList<Object> getList(JSONObject object, String key) throws JSONException {
         return toList(object.getJSONArray(key));
     }
 
     public static HashMap<String, Object> toMap(JSONObject object) throws JSONException {
-        HashMap<String, Object> map = new HashMap();
-        Iterator keys = object.keys();
+		HashMap<String, Object> map = new HashMap<>();
+		Iterator<?> keys = object.keys();
         while (keys.hasNext()) {
             String key = (String) keys.next();
             map.put(key, fromJson(object.get(key)));
@@ -51,8 +51,8 @@ public class JSONFormat {
         return map;
     }
 
-    public static ArrayList toList(JSONArray array) throws JSONException {
-        ArrayList list = new ArrayList();
+	public static ArrayList<Object> toList(JSONArray array) throws JSONException {
+		ArrayList<Object> list = new ArrayList<>();
         for (int i = 0; i < array.length(); i++) {
             list.add(fromJson(array.get(i)));
         }
