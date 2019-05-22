@@ -22,7 +22,7 @@ function closeModal() {
 }
 
 function clickOutside(params) {
-    if (params.target == modal) {
+    if (params.target === modal) {
         modal.style.display = 'none';
     }
 }
