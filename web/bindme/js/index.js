@@ -78,8 +78,8 @@ function openModal() {
 
 messagesContent.forEach(its => {
     its.addEventListener('click', function () {
-        var crlLogin = document.querySelectorAll('.form-signin')[0];
-        var crlRegister = document.querySelectorAll('.form-register')[0];
+        const crlLogin = document.querySelectorAll('.form-signin')[0];
+        const crlRegister = document.querySelectorAll('.form-register')[0];
 
         if(crlRegister.style.display === '' || crlRegister.style.display === 'none'){
             crlLogin.style.display = 'none';
