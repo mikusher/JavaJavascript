@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "UUID Generator",
+    "description": "UUID Generator for programming",
+    "version": "1.0.0",
+    "icons": {"128": "icon_128.png"},
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+    "js": [ "jquery-3.3.1.min.js", "popup.js"],
+    "matches": [ "http://*/*", "https://*/*"]
+    }],
+    "permissions": ["activeTab", "notifications"]
+}

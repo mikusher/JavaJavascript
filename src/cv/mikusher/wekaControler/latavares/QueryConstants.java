@@ -15,27 +15,26 @@
 package cv.mikusher.wekaControler.latavares;
 
 public enum QueryConstants {
-  USER_DB("postgres"), PASS_DB("mikusher"), QUERY_DB_SELECT(
-      "SELECT sexo,idade,filhos,gasta_muito FROM vendas"), QUERY_DB_INSERT_NEW_ELEMENT(
-          "INSERT INTO vendas (sexo, idade, filhos, gasta_muito) VALUES(?, ?, ?, ?)"), QUERY_DB_INSERT(
-              "INSERT INTO sales_results(\"yes\", \"no\", sexo, idade, filhos, estado) VALUES(?, ?, ?, ?, ?, ?)");
+	USER_DB("postgres"), PASS_DB("mikusher"), QUERY_DB_SELECT("SELECT sexo,idade,filhos,gasta_muito FROM vendas"),
+	QUERY_DB_INSERT_NEW_ELEMENT("INSERT INTO vendas (sexo, idade, filhos, gasta_muito) VALUES(?, ?, ?, ?)"),
+	QUERY_DB_INSERT("INSERT INTO sales_results(\"yes\", \"no\", sexo, idade, filhos, estado) VALUES(?, ?, ?, ?, ?, ?)");
 
-  private final String text;
+	private final String text;
 
-  QueryConstants(String text) {
-    this.text = text;
-  }
+	QueryConstants(String text) {
+		this.text = text;
+	}
 
-  public String getText() {
-    return this.text;
-  }
+	public String getText() {
+		return this.text;
+	}
 
-  public static QueryConstants fromString(String text) {
-    for (QueryConstants b : QueryConstants.values()) {
-      if (b.text.equalsIgnoreCase(text)) {
-        return b;
-      }
-    }
-    return null;
-  }
+	public static QueryConstants fromString(String text) {
+		for (QueryConstants b : QueryConstants.values()) {
+			if (b.text.equalsIgnoreCase(text)) {
+				return b;
+			}
+		}
+		return null;
+	}
 }
