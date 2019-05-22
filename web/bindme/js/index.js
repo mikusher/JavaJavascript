@@ -1,4 +1,5 @@
 const tabItems = document.querySelectorAll('.tab-item');
+const messagesContent = document.querySelectorAll('.message a');
 const tabContentItems = document.querySelectorAll('.tab-content-item');
 
 //
@@ -73,4 +74,19 @@ function openModal() {
         modal.style.display = 'flex';
         modalBtn.innerHTML = 'Hide Login';
     }
-}
+};
+
+messagesContent.forEach(its => {
+    its.addEventListener('click', function () {
+        var crlLogin = document.querySelectorAll('.form-signin')[0];
+        var crlRegister = document.querySelectorAll('.form-register')[0];
+
+        if(crlRegister.style.display === '' || crlRegister.style.display === 'none'){
+            crlLogin.style.display = 'none';
+            crlRegister.style.display = 'grid';
+        }else {
+            crlRegister.style.display = 'none';
+            crlLogin.style.display = 'grid';
+        }
+    })
+});

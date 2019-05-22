@@ -70,11 +70,11 @@ img {
 }
 
 .showcase-top img {
-    width: 170px;
+    width: 135px;
     position: absolute;
-    top: 70%;
+    top: 50%;
     left: 50%;
-    transform: translate(-70%, -50%);
+    transform: translate(-50%, -50%);
     margin-left: 0;
 }
 
@@ -234,6 +234,7 @@ img {
     max-width: 70%;
     margin: 1rem auto;
     overflow: auto;
+    display: none;
 }
 
 .footer,
@@ -528,4 +529,8 @@ img {
 
 *:focus {
     outline: none;
+}
+
+.form-register{
+    display: none;
 }
