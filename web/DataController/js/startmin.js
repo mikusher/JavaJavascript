@@ -34,3 +34,9 @@ $(function() {
         element.addClass('active');
     }
 });
+
+const signOutDashboard = document.getElementById('signOutDashboard');
+signOutDashboard.addEventListener('click', function () {
+    let user = Utils.checkCookie();
+    Utils.deleteCookie(user);
+});

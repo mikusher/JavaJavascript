@@ -13,6 +13,9 @@ $(document).ready(function () {
         } else {
             if (inputEmail.value === 'luis@amilcar.cv' && inputPassword.value === 'tavares') {
                 document.getElementById('error').innerHTML = "";
+                if(Utils.getCookie(inputEmail.value) !== inputEmail.value){
+                    Utils.setCookie(inputEmail.value, inputEmail.value, {secure: true, 'max-age': 3600});
+                }
                 inputEmail.value = "";
                 inputPassword.value = "";
                 window.location = "../pages/dashboard.html";
